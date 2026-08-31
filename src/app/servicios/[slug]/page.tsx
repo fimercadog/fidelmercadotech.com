@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { Icon } from "@/components/icon";
+import { Illustration } from "@/components/marketing/illustration";
 import { ContactForm } from "@/components/marketing/contact-form";
 import { whatsappUrl } from "@/content/site";
 import { SERVICES, getService } from "@/content/services";
@@ -31,6 +32,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();
+
+  const ILLUS: Record<string, "collaboration" | "productivity" | "automation" | "about"> = {
+    automatizacion: "automation",
+    integraciones: "collaboration",
+    ia: "automation",
+    agentes: "collaboration",
+    software: "productivity",
+    web: "productivity",
+  };
+  const illustration = ILLUS[service.id];
 
   const related = (service.related ?? [])
     .map((s) => SOLUTIONS.find((sol) => sol.slug === s))
@@ -78,14 +89,27 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       {/* Problema / cómo lo abordamos */}
       <section className="py-16 sm:py-20">
-        <Container className="grid gap-10 lg:grid-cols-2">
-          <Reveal className="flex flex-col gap-3 rounded-3xl border border-border bg-muted/40 p-7">
-            <h2 className="text-lg font-bold">El problema</h2>
-            <p className="text-sm leading-7 text-muted-foreground">{service.problem}</p>
+        <Container className="grid items-center gap-12 lg:grid-cols-2">
+          <Reveal className="flex flex-col gap-6">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-lg font-bold">El problema</h2>
+              <p className="text-sm leading-7 text-muted-foreground">{service.problem}</p>
+            </div>
+            <div className="flex flex-col gap-3 rounded-3xl border border-primary/25 bg-primary/5 p-6">
+              <h2 className="text-lg font-bold">Cómo lo abordamos</h2>
+              <p className="text-sm leading-7 text-foreground/80">{service.summary}</p>
+            </div>
           </Reveal>
-          <Reveal delay={0.08} className="flex flex-col gap-3 rounded-3xl border border-primary/25 bg-primary/5 p-7">
-            <h2 className="text-lg font-bold">Cómo lo abordamos</h2>
-            <p className="text-sm leading-7 text-foreground/80">{service.summary}</p>
+          <Reveal delay={0.1}>
+            {illustration ? (
+              <Illustration name={illustration} alt="" className="max-w-md" />
+            ) : (
+              <div className="rounded-3xl border border-primary/15 bg-linear-to-br from-primary/10 to-brand-pink/10 p-10 text-center">
+                <span className="mx-auto flex size-14 items-center justify-center rounded-2xl fmt-gradient text-white">
+                  <Icon name={service.icon} className="size-6" />
+                </span>
+              </div>
+            )}
           </Reveal>
         </Container>
       </section>

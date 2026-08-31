@@ -11,6 +11,7 @@ import { SocialProof } from "@/components/marketing/social-proof";
 import { Icon } from "@/components/icon";
 import { Hero } from "@/components/sections/hero";
 import { FeatureRow } from "@/components/sections/feature-row";
+import { IllustratedRow } from "@/components/sections/illustrated-row";
 import { FeaturesGrid } from "@/components/sections/features-grid";
 import { ProcessFunnel } from "@/components/sections/process-funnel";
 import { SOLUTIONS } from "@/content/solutions";
@@ -26,6 +27,29 @@ export default function HomePage() {
     <>
       <Hero />
       <CapabilityStrip />
+
+      <IllustratedRow
+        illustration="collaboration"
+        eyebrow="Todo conectado"
+        title="Tu web y tus sistemas hablan el mismo idioma"
+        description="No entregamos piezas sueltas. La página capta el contacto, el CRM lo recibe con su ficha y el equipo le da seguimiento — sin copiar datos de un lado a otro."
+        bullets={["Web + CRM sobre la misma base de datos", "Integración con WhatsApp y tus herramientas", "Un solo lugar con la información correcta"]}
+        href="/servicios/integraciones"
+        linkLabel="Ver integraciones"
+      />
+
+      <section className="border-y border-border bg-secondary/60">
+        <IllustratedRow
+          illustration="productivity"
+          eyebrow="Menos trabajo manual"
+          title="Los procesos repetitivos dejan de ocupar a tu equipo"
+          description="Automatizamos lo que se hace igual siempre: sincronización entre sistemas, notificaciones, reportes programados y flujos que se disparan solos ante un evento."
+          bullets={["Diagnóstico de qué conviene automatizar", "Flujos visuales y mantenibles con n8n", "Alertas si algo falla, para actuar a tiempo"]}
+          href="/servicios/automatizacion"
+          linkLabel="Ver automatización"
+          reverse
+        />
+      </section>
 
       {/* Soluciones */}
       <section id="soluciones" className="py-20">
