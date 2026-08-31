@@ -18,6 +18,11 @@ import {
   Mic,
   Camera,
   Sparkles,
+  Target,
+  Layers,
+  Gauge,
+  Rocket,
+  LineChart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -41,6 +46,11 @@ const ICONS: Record<string, LucideIcon> = {
   Mic,
   Camera,
   Sparkles,
+  Target,
+  Layers,
+  Gauge,
+  Rocket,
+  LineChart,
 };
 
 export function Icon({ name, className }: { name: string; className?: string }) {

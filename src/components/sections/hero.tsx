@@ -8,26 +8,34 @@ import type { ImageSlot } from "@/components/marketing/image-placeholder";
 
 const HERO_IMAGE: ImageSlot = {
   id: "home-hero-product",
-  alt: "Panel de una de las soluciones de Fidel Mercado Tech con métricas y pipeline",
+  alt: "Sitio web y sistema de una de las soluciones de Fidel Mercado Tech",
   ratio: "16/10",
   kind: "A",
+  src: "/brand/crm-inmobiliario.png",
   description:
     "Captura real del panel de una solución (preferiblemente CRM + Inventario o RRHH): dashboard con métricas, tablas y navegación lateral, con datos de demostración. Fondo claro.",
 };
 
 export function Hero() {
   return (
-    <section className="fmt-dark relative overflow-hidden bg-background text-foreground">
+    <section className="fmt-dark fmt-gradient-band relative overflow-hidden text-foreground">
       <div className="fmt-aurora" aria-hidden="true" />
-      <div className="fmt-grid-bg absolute inset-0 opacity-40" aria-hidden="true" />
-      <Container className="relative flex flex-col items-center gap-14 py-20 text-center sm:py-28">
+      <div className="fmt-grid-bg absolute inset-0 opacity-20" aria-hidden="true" />
+      <div className="fmt-shapes" aria-hidden="true">
+        <span className="s-ring" style={{ top: "14%", left: "6%" }} />
+        <span className="s-tri" style={{ top: "22%", right: "9%" }} />
+        <span className="s-dot" style={{ bottom: "30%", left: "12%" }} />
+        <span className="s-plus" style={{ top: "60%", right: "6%" }} />
+      </div>
+      <Container className="relative flex flex-col items-center gap-14 py-24 text-center sm:py-32">
         <HeroIntro>
-          <span className="fmt-eyebrow">Empresa de tecnología · Software · IA · Automatización</span>
-          <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem]">
-            Software, automatización e IA para <span className="fmt-gradient-text">hacer crecer tu empresa</span>.
+          <span className="fmt-eyebrow-pill">Software · IA · Automatización</span>
+          <h1 className="text-4xl leading-[1.05] font-bold sm:text-5xl lg:text-[4rem]">
+            Software, automatización e IA para{" "}
+            <span className="fmt-gradient-text">hacer crecer tu empresa</span>.
           </h1>
           <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            Creamos sistemas empresariales, CRM, inventarios, soluciones especializadas y agentes inteligentes que
+            Creamos páginas web, sistemas empresariales, CRM, inventarios y agentes inteligentes que
             convierten procesos manuales en operaciones digitales.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -51,7 +59,11 @@ export function Hero() {
           </p>
         </HeroIntro>
 
-        <div className="w-full max-w-4xl">
+        <div className="relative w-full max-w-4xl">
+          <div
+            className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-linear-to-tr from-brand-pink/40 to-brand-cyan/40 blur-2xl"
+            aria-hidden="true"
+          />
           <BrowserFrame slot={HERO_IMAGE} priority />
         </div>
       </Container>

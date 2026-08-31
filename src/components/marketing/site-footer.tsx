@@ -1,11 +1,44 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/marketing/logo";
+import { Container } from "@/components/marketing/container";
 import { FOOTER_NAV, SITE, whatsappUrl } from "@/content/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="fmt-dark bg-background text-foreground">
+    <>
+      <section className="fmt-dark relative overflow-hidden bg-[#0c0a16] text-foreground">
+        <div className="fmt-shapes" aria-hidden="true">
+          <span className="s-dot" style={{ top: "28%", left: "14%" }} />
+          <span className="s-plus" style={{ bottom: "24%", right: "12%" }} />
+        </div>
+        <Container className="relative flex flex-col items-center gap-6 py-20 text-center">
+          <span className="fmt-eyebrow-pill">Empecemos</span>
+          <h2 className="max-w-2xl text-3xl font-bold sm:text-4xl">
+            ¿Listo para digitalizar tu <span className="fmt-gradient-text">operación</span>?
+          </h2>
+          <p className="max-w-xl text-sm leading-7 text-muted-foreground">
+            Cuéntanos qué proceso quieres mejorar. Te respondemos rápido con una propuesta de alcance y precio.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button asChild size="lg">
+              <Link href="/contacto?motivo=demo">Solicitar demostración</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link
+                href={whatsappUrl("Hola, quiero información sobre sus soluciones.")}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hablar por WhatsApp
+              </Link>
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <footer className="fmt-dark bg-[#0c0a16] text-foreground">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="flex flex-col gap-4">
@@ -57,6 +90,7 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 }

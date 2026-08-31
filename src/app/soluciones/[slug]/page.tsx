@@ -66,7 +66,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   return (
     <>
       {/* Hero */}
-      <section className="fmt-dark relative overflow-hidden bg-background text-foreground">
+      <section className="fmt-dark fmt-gradient-band relative overflow-hidden text-foreground">
         <div className="fmt-aurora" aria-hidden="true" />
         <Container className="relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-20">
           <div className="flex flex-col gap-5">
@@ -186,8 +186,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       <section id="contacto" className="py-16">
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal className="flex flex-col gap-4">
-            <span className="fmt-eyebrow">Siguiente paso</span>
-            <h2 className="text-2xl sm:text-3xl">Pide la demostración de {solution.name}</h2>
+            <span className="fmt-eyebrow-pill w-fit">Siguiente paso</span>
+            <h2 className="text-2xl font-bold sm:text-3xl">Pide la demostración de {solution.name}</h2>
             <p className="text-sm leading-7 text-muted-foreground">
               Déjanos tus datos y coordinamos una sesión corta para mostrarte la solución funcionando y resolver tus
               dudas.

@@ -16,13 +16,13 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "linear-gradient(135deg, #071526 0%, #0b1f3a 100%)",
+          background: "linear-gradient(135deg, #3b0764 0%, #5b21b6 45%, #7c3aed 100%)",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ width: 64, height: 64, borderRadius: 16, background: "linear-gradient(135deg,#0066FF,#00D9FF)" }} />
+          <div style={{ width: 64, height: 64, borderRadius: 16, background: "linear-gradient(135deg,#7C3AED,#EC4899)" }} />
           <div style={{ fontSize: 30, fontWeight: 700 }}>Fidel Mercado Tech</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>

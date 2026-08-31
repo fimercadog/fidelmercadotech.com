@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
 export default function ServiciosPage() {
   return (
     <>
-      <section className="fmt-dark relative overflow-hidden bg-background py-20 text-foreground">
+      <section className="fmt-dark fmt-gradient-band relative overflow-hidden py-24 text-foreground">
         <div className="fmt-aurora" aria-hidden="true" />
         <Container className="relative">
           <SectionHeading
@@ -28,18 +30,26 @@ export default function ServiciosPage() {
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 sm:py-20">
         <Container>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service, i) => (
-              <Reveal as="section" key={service.id} delay={i * 0.04}>
-                <div id={service.id} className="flex h-full scroll-mt-24 flex-col gap-3 rounded-xl border border-border bg-card p-6">
-                  <span className="flex size-11 items-center justify-center rounded-xl fmt-gradient text-white">
+              <Reveal key={service.id} delay={i * 0.04}>
+                <Link
+                  href={`/servicios/${service.id}`}
+                  id={service.id}
+                  className="group flex h-full scroll-mt-24 flex-col gap-3 rounded-3xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
+                >
+                  <span className="flex size-12 items-center justify-center rounded-2xl fmt-gradient text-white shadow-lg shadow-primary/25">
                     <Icon name={service.icon} className="size-5" />
                   </span>
-                  <h2 className="text-lg">{service.title}</h2>
+                  <h2 className="mt-1 text-lg font-bold">{service.title}</h2>
                   <p className="text-sm leading-6 text-muted-foreground">{service.description}</p>
-                </div>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-primary">
+                    Ver servicio
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
               </Reveal>
             ))}
           </div>

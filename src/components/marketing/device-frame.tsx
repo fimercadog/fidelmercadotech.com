@@ -4,11 +4,11 @@ import { ImagePlaceholder, type ImageSlot } from "@/components/marketing/image-p
 /** Browser-chrome frame around a product screenshot (reference layout style). */
 export function BrowserFrame({ slot, className, priority }: { slot: ImageSlot; className?: string; priority?: boolean }) {
   return (
-    <div className={cn("overflow-hidden rounded-2xl border border-border bg-card fmt-card-shadow", className)}>
+    <div className={cn("overflow-hidden rounded-3xl border border-border bg-card fmt-card-shadow", className)}>
       <div className="flex items-center gap-1.5 border-b border-border bg-muted/60 px-4 py-3">
-        <span className="size-2.5 rounded-full bg-border" />
-        <span className="size-2.5 rounded-full bg-border" />
-        <span className="size-2.5 rounded-full bg-border" />
+        <span className="size-2.5 rounded-full bg-brand-pink/60" />
+        <span className="size-2.5 rounded-full bg-amber-400/70" />
+        <span className="size-2.5 rounded-full bg-emerald-400/70" />
         <span className="ml-3 hidden rounded-md bg-background px-3 py-1 text-[0.7rem] text-muted-foreground sm:block">
           app.fidelmercadotech.com
         </span>

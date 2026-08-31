@@ -23,7 +23,9 @@ export function whatsappUrl(message: string): string {
 export const NAV_LINKS = [
   { title: "Soluciones", href: "/soluciones" },
   { title: "Servicios", href: "/servicios" },
+  { title: "Casos", href: "/casos" },
   { title: "Precios", href: "/precios" },
+  { title: "Nosotros", href: "/nosotros" },
   { title: "Contacto", href: "/contacto" },
 ] as const;
 
@@ -42,18 +44,20 @@ export const FOOTER_NAV = [
   {
     heading: "Servicios",
     links: [
-      { title: "Desarrollo de software", href: "/servicios#software" },
-      { title: "Automatización", href: "/servicios#automatizacion" },
-      { title: "Inteligencia Artificial", href: "/servicios#ia" },
-      { title: "Integraciones", href: "/servicios#integraciones" },
-      { title: "Desarrollo web", href: "/servicios#web" },
+      { title: "Desarrollo de software", href: "/servicios/software" },
+      { title: "Automatización", href: "/servicios/automatizacion" },
+      { title: "Inteligencia Artificial", href: "/servicios/ia" },
+      { title: "Integraciones", href: "/servicios/integraciones" },
+      { title: "Desarrollo web", href: "/servicios/web" },
       { title: "Planes y precios", href: "/precios" },
     ],
   },
   {
     heading: "Empresa",
     links: [
-      { title: "Soluciones", href: "/soluciones" },
+      { title: "Nosotros", href: "/nosotros" },
+      { title: "Casos de éxito", href: "/casos" },
+      { title: "Blog", href: "/blog" },
       { title: "Contacto", href: "/contacto" },
       { title: "Solicitar demostración", href: "/contacto?motivo=demo" },
     ],

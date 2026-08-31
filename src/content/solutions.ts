@@ -36,6 +36,7 @@ export interface Solution {
     ratio: string;
     kind: "A" | "B" | "C" | "D";
     description: string;
+    src?: string;
   };
 }
 
@@ -76,9 +77,10 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "crm-inmobiliario-hero",
-      alt: "Panel del CRM Inmobiliario mostrando el pipeline de oportunidades",
+      alt: "Web de Inmobiliaria Prime, portal de propiedades del CRM Inmobiliario",
       ratio: "16/10",
       kind: "A",
+      src: "/brand/crm-inmobiliario.png",
       description: "Captura real del CRM Inmobiliario: vista de pipeline / oportunidades con la barra lateral de navegación y datos de demo.",
     },
   },
@@ -119,9 +121,10 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "rrhh-hero",
-      alt: "Dashboard del sistema de Recursos Humanos con métricas de personal",
+      alt: "Web de FidelOS HRMS, software de Recursos Humanos para empresas",
       ratio: "16/10",
       kind: "A",
+      src: "/brand/rrhh.png",
       description: "Captura real del panel de RRHH: dashboard con métricas de empleados / asistencia y menú lateral de módulos.",
     },
   },

@@ -14,7 +14,7 @@ software empresarial, automatización y soluciones con inteligencia artificial.
 - **Playwright** (E2E)
 
 Design System: `../fidelmercadotech/fidel-mercado-tech-brand-guide.md`
-(azul `#0066FF`, cian `#00D9FF`, navy `#071526`, Montserrat + Inter).
+(violeta `#7C3AED`, fucsia `#C026D3`, rosa `#EC4899`, violeta noche `#2E1065`, Poppins + Inter).
 
 ## Desarrollo
 

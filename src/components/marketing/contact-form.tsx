@@ -69,7 +69,7 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
 
   if (done) {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-8 text-center fmt-card-shadow">
+      <div className="flex flex-col items-center gap-3 rounded-3xl border border-border bg-card p-8 text-center fmt-card-shadow">
         <CheckCircle2 className="size-10 text-primary" aria-hidden="true" />
         <h2 className="text-xl">Mensaje enviado</h2>
         <p className="max-w-sm text-sm text-muted-foreground">
@@ -86,7 +86,7 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
   return (
     <>
       {SITE_KEY ? <Script src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`} strategy="lazyOnload" /> : null}
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5 rounded-xl border border-border bg-card p-6 sm:p-8 fmt-card-shadow">
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5 rounded-3xl border border-border bg-card p-6 sm:p-8 fmt-card-shadow">
         <div className="grid gap-5 sm:grid-cols-2">
           <Field data-invalid={!!errors.nombre}>
             <FieldLabel htmlFor="nombre">Nombre *</FieldLabel>
@@ -143,7 +143,7 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
             {...register("consentimiento")}
           />
           <div className="flex flex-col gap-1">
-            <FieldLabel htmlFor="consentimiento" className="text-sm font-normal text-muted-foreground">
+            <FieldLabel htmlFor="consentimiento" className="block! text-sm leading-6 font-normal text-muted-foreground">
               Autorizo a Fidel Mercado Tech a contactarme y tratar mis datos para responder a esta solicitud, conforme a
               la{" "}
               <Link href="/privacidad" className="font-medium text-primary underline">

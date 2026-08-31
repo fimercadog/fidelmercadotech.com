@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function SolucionesPage() {
   return (
     <>
-      <section className="fmt-dark relative overflow-hidden bg-background py-20 text-foreground">
+      <section className="fmt-dark fmt-gradient-band relative overflow-hidden py-24 text-foreground">
         <div className="fmt-aurora" aria-hidden="true" />
         <Container className="relative">
           <SectionHeading

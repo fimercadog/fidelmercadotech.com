@@ -16,12 +16,14 @@ const ITEMS = [
 
 export function CapabilityStrip() {
   return (
-    <div className="border-y border-border bg-muted/40">
-      <Container className="grid grid-cols-2 gap-x-6 gap-y-6 py-8 sm:grid-cols-3 lg:grid-cols-6">
+    <div className="border-b border-border bg-background">
+      <Container className="grid grid-cols-2 gap-x-6 gap-y-8 py-12 sm:grid-cols-3 lg:grid-cols-6">
         {ITEMS.map((item) => (
-          <div key={item.label} className="flex flex-col items-center gap-2 text-center">
-            <Icon name={item.icon} className="size-5 text-primary" />
-            <span className="text-xs font-semibold text-muted-foreground">{item.label}</span>
+          <div key={item.label} className="flex flex-col items-center gap-3 text-center">
+            <span className="flex size-12 items-center justify-center rounded-2xl fmt-gradient text-white shadow-lg shadow-primary/25">
+              <Icon name={item.icon} className="size-5" />
+            </span>
+            <span className="text-xs font-semibold text-foreground">{item.label}</span>
           </div>
         ))}
       </Container>

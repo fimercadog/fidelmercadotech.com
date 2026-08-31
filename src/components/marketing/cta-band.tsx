@@ -16,11 +16,16 @@ export function CtaBand({
   primaryLabel?: string;
 }) {
   return (
-    <section className="fmt-dark relative overflow-hidden bg-background text-foreground">
+    <section className="fmt-dark fmt-gradient-band relative overflow-hidden text-foreground">
       <div className="fmt-aurora" aria-hidden="true" />
-      <Container className="relative py-20 text-center">
+      <div className="fmt-shapes" aria-hidden="true">
+        <span className="s-ring" style={{ top: "18%", left: "8%" }} />
+        <span className="s-dot" style={{ bottom: "24%", right: "12%" }} />
+        <span className="s-plus" style={{ top: "30%", right: "8%" }} />
+      </div>
+      <Container className="relative py-24 text-center">
         <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-6">
-          <h2 className="text-3xl sm:text-4xl">{title}</h2>
+          <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">{title}</h2>
           <p className="text-base leading-7 text-muted-foreground">{description}</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg">

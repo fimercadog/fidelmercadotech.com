@@ -16,8 +16,8 @@ export function LogoMark({ className, inverted = false }: Pick<LogoProps, "class
     <svg viewBox="0 0 96 96" role="img" aria-label="Fidel Mercado Tech" className={cn("size-10 shrink-0", className)}>
       <defs>
         <linearGradient id="fmt-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#0066FF" />
-          <stop offset="1" stopColor="#00D9FF" />
+          <stop offset="0" stopColor="#7C3AED" />
+          <stop offset="1" stopColor="#EC4899" />
         </linearGradient>
       </defs>
       <rect width="96" height="96" rx="24" fill={inverted ? "#ffffff" : "url(#fmt-mark)"} />

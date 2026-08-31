@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/marketing/container";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { Pricing } from "@/components/sections/pricing";
 import { FaqSection } from "@/components/sections/faq";
 import { PRICING_FAQ } from "@/content/faq";
@@ -29,7 +28,7 @@ export default function PreciosPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <section className="fmt-dark relative overflow-hidden bg-background py-20 text-foreground">
+      <section className="fmt-dark fmt-gradient-band relative overflow-hidden py-24 text-foreground">
         <div className="fmt-aurora" aria-hidden="true" />
         <Container className="relative">
           <SectionHeading
@@ -43,12 +42,6 @@ export default function PreciosPage() {
 
       <Pricing />
       <FaqSection items={PRICING_FAQ} />
-      <CtaBand
-        title="¿No sabes cuál plan te conviene?"
-        description="Cuéntanos qué necesitas y te recomendamos el plan (o el alcance) que mejor encaja."
-        primaryLabel="Solicitar recomendación"
-        primaryHref="/contacto?motivo=proyecto"
-      />
     </>
   );
 }

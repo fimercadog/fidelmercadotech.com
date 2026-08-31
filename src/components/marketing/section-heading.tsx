@@ -20,11 +20,11 @@ export function SectionHeading({
   const Heading = level === 1 ? "h1" : "h2";
   return (
     <div className={cn("flex flex-col gap-4", align === "center" && "items-center text-center", className)}>
-      {eyebrow ? <span className="fmt-eyebrow">{eyebrow}</span> : null}
+      {eyebrow ? <span className="fmt-eyebrow-pill">{eyebrow}</span> : null}
       <Heading
         className={cn(
-          level === 1 ? "text-4xl sm:text-5xl lg:text-6xl" : "text-3xl sm:text-4xl",
-          "leading-[1.1]",
+          level === 1 ? "text-4xl sm:text-5xl lg:text-6xl" : "text-3xl sm:text-4xl lg:text-[2.75rem]",
+          "leading-[1.1] font-bold",
         )}
       >
         {title}

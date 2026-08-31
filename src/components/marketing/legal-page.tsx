@@ -21,8 +21,8 @@ export function LegalPage({
     <section className="py-16 sm:py-20">
       <Container className="max-w-3xl">
         <header className="flex flex-col gap-2 border-b border-border pb-8">
-          <span className="fmt-eyebrow">Legal</span>
-          <h1 className="text-3xl sm:text-4xl">{title}</h1>
+          <span className="fmt-eyebrow-pill w-fit">Legal</span>
+          <h1 className="text-3xl font-bold sm:text-4xl">{title}</h1>
           <p className="text-sm text-muted-foreground">Última actualización: {updatedAt}</p>
         </header>
 

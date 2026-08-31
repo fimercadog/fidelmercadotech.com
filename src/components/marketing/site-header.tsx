@@ -21,10 +21,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -39,7 +39,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 md:flex">
+        <div className="hidden shrink-0 items-center gap-2 lg:flex">
           <Button asChild variant="ghost" size="sm">
             <Link href={whatsappUrl("Hola, quiero información sobre sus soluciones.")} target="_blank" rel="noopener noreferrer">
               WhatsApp
@@ -52,7 +52,7 @@ export function SiteHeader() {
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Abrir menú">
+            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Abrir menú">
               <Menu className="size-5" />
             </Button>
           </SheetTrigger>

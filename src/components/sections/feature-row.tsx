@@ -37,11 +37,11 @@ export function FeatureRow({
     <Container className="py-16 sm:py-20">
       <div className={cn("grid items-center gap-10 lg:grid-cols-2 lg:gap-16", reverse && "lg:[&>*:first-child]:order-2")}>
         <Reveal className="flex flex-col gap-5">
-          <span className="fmt-eyebrow flex items-center gap-2">
+          <span className="fmt-eyebrow-pill w-fit">
             <Icon name={icon} className="size-4" />
             {eyebrow}
           </span>
-          <h3 className="text-2xl sm:text-3xl">{title}</h3>
+          <h3 className="text-2xl font-bold sm:text-3xl lg:text-4xl">{title}</h3>
           <p className="text-base leading-7 text-muted-foreground">{description}</p>
           <ul className="flex flex-col gap-2.5">
             {bullets.map((b) => (
@@ -58,7 +58,11 @@ export function FeatureRow({
           </Button>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="relative">
+          <div
+            className="absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-primary/15 via-brand-cyan/10 to-brand-pink/15 blur-2xl"
+            aria-hidden="true"
+          />
           {device === "phone" ? <PhoneFrame slot={image} /> : <BrowserFrame slot={image} />}
         </Reveal>
       </div>

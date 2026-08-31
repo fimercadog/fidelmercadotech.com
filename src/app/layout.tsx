@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { SiteFooter } from "@/components/marketing/site-footer";
 import { FloatingWhatsApp } from "@/components/marketing/floating-whatsapp";
@@ -7,7 +7,7 @@ import { SITE } from "@/content/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["600", "700"], display: "swap" });
+const poppins = Poppins({ subsets: ["latin"], variable: "--font-poppins", weight: ["500", "600", "700"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
       <body className="flex min-h-svh flex-col antialiased">
         <SiteHeader />
         <main className="flex-1">{children}</main>
