@@ -48,8 +48,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="flex min-h-svh flex-col antialiased">
+    <html lang="es" className={`${inter.variable} ${poppins.variable} overflow-x-hidden`}>
+      <body className="flex min-h-svh flex-col overflow-x-hidden antialiased">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

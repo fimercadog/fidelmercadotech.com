@@ -24,7 +24,6 @@ export const NAV_LINKS = [
   { title: "Soluciones", href: "/soluciones" },
   { title: "Servicios", href: "/servicios" },
   { title: "Casos", href: "/casos" },
-  { title: "Precios", href: "/precios" },
   { title: "Nosotros", href: "/nosotros" },
   { title: "Contacto", href: "/contacto" },
 ] as const;
@@ -49,7 +48,6 @@ export const FOOTER_NAV = [
       { title: "Inteligencia Artificial", href: "/servicios/ia" },
       { title: "Integraciones", href: "/servicios/integraciones" },
       { title: "Desarrollo web", href: "/servicios/web" },
-      { title: "Planes y precios", href: "/precios" },
     ],
   },
   {

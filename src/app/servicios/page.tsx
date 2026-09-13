@@ -33,7 +33,6 @@ export default function ServiciosPage() {
       <PillBar
         links={[
           { label: "Solicitar cotización", href: "/contacto?motivo=cotizacion", variant: "default" },
-          { label: "Ver precios", href: "/precios" },
           { label: "WhatsApp", href: whatsappUrl("Hola, quiero información sobre sus servicios."), external: true },
         ]}
       />
@@ -61,10 +60,10 @@ export default function ServiciosPage() {
       />
 
       <CtaBand
-        title="¿Buscas precios de referencia?"
-        description="Tenemos planes de sitio web desde $590.000 COP y un plan Web + Sistema para proyectos con CRM, inventario o automatización."
-        primaryLabel="Ver planes y precios"
-        primaryHref="/precios"
+        title="¿Buscas un precio de referencia?"
+        description="Cuéntanos qué necesitas y te enviamos una cotización según el alcance de tu proyecto."
+        primaryLabel="Solicitar cotización"
+        primaryHref="/contacto?motivo=cotizacion"
       />
     </>
   );
