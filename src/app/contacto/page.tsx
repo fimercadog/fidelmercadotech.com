@@ -16,15 +16,14 @@ export const metadata: Metadata = {
 };
 
 const CHANNELS = [
-  { icon: MessageCircle, label: "WhatsApp", value: SITE.phone, href: whatsappUrl("Hola, quiero información sobre sus soluciones."), variant: "brand" },
-  { icon: Phone, label: "Teléfono", value: SITE.phone, href: `tel:${SITE.phone.replace(/\s+/g, "")}`, variant: "muted" },
-  { icon: Mail, label: "Correo", value: SITE.email, href: `mailto:${SITE.email}`, variant: "dark" },
+  { icon: MessageCircle, label: "WhatsApp", value: SITE.phone, href: whatsappUrl("Hola, quiero información sobre sus soluciones."), variant: "outline" },
+  { icon: Phone, label: "Teléfono", value: SITE.phone, href: `tel:${SITE.phone.replace(/\s+/g, "")}`, variant: "dark" },
+  { icon: Mail, label: "Correo", value: SITE.email, href: `mailto:${SITE.email}`, variant: "outline" },
 ] as const;
 
 const CHANNEL_CLASSES = {
-  brand: "fmt-gradient text-white [&_.ch-icon]:bg-white/20",
-  muted: "bg-secondary text-secondary-foreground [&_.ch-icon]:bg-white [&_.ch-icon]:text-background",
-  dark: "bg-navy-deep text-white [&_.ch-icon]:bg-white/10",
+  outline: "border border-border bg-card [&_.ch-icon]:bg-primary [&_.ch-icon]:text-white",
+  dark: "bg-navy-deep border border-border/60 [&_.ch-icon]:bg-primary [&_.ch-icon]:text-white",
 };
 
 export default async function ContactoPage({

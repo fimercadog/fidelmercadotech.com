@@ -13,17 +13,17 @@ export interface ServiceGridItem {
 }
 
 /**
- * Grid of cards cycling through 4 background variants (Divi "IT Services"
- * alternating-color card rhythm), recolored to the site's violet system.
+ * Grid of cards cycling through 2 dark tones (Divi "IT Services" alternating
+ * rhythm), all with the same restrained treatment: dark surface, green icon
+ * badge and link. A full solid-green card ("brand" variant) was tried and
+ * rejected — too loud at this scale — so green stays confined to accents.
  */
-const VARIANT_CYCLE = ["brand", "muted", "outline", "outline", "dark", "brand"] as const;
+const VARIANT_CYCLE = ["outline", "dark"] as const;
 type Variant = (typeof VARIANT_CYCLE)[number];
 
 const VARIANT_CLASSES: Record<Variant, string> = {
-  brand: "fmt-gradient text-white [&_.sg-icon]:bg-white/20 [&_.sg-link]:text-white",
-  dark: "bg-navy-deep text-white [&_.sg-icon]:bg-white/10 [&_.sg-link]:text-white",
-  muted: "bg-secondary text-secondary-foreground [&_.sg-icon]:bg-white [&_.sg-icon]:text-background [&_.sg-link]:text-primary",
-  outline: "border border-border bg-card [&_.sg-icon]:fmt-gradient [&_.sg-icon]:text-white [&_.sg-link]:text-primary",
+  outline: "border border-border bg-card [&_.sg-icon]:bg-primary [&_.sg-icon]:text-white [&_.sg-link]:text-primary",
+  dark: "bg-navy-deep border border-border/60 [&_.sg-icon]:bg-primary [&_.sg-icon]:text-white [&_.sg-link]:text-primary",
 };
 
 export function ServiceGrid({ items, className }: { items: ServiceGridItem[]; className?: string }) {
