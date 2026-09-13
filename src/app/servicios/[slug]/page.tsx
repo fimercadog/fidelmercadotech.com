@@ -8,6 +8,7 @@ import { Reveal } from "@/components/marketing/reveal";
 import { Icon } from "@/components/icon";
 import { Illustration } from "@/components/marketing/illustration";
 import { ContactForm } from "@/components/marketing/contact-form";
+import { PillBar } from "@/components/marketing/pill-bar";
 import { whatsappUrl } from "@/content/site";
 import { SERVICES, getService } from "@/content/services";
 import { SOLUTIONS } from "@/content/solutions";
@@ -86,6 +87,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </Container>
       </section>
+
+      <PillBar
+        links={[
+          { label: "Solicitar cotización", href: `/contacto?motivo=proyecto&interes=${encodeURIComponent(service.title)}`, variant: "default" },
+          { label: "Ver todos los servicios", href: "/servicios" },
+          { label: "WhatsApp", href: whatsappUrl(`Hola, me interesa el servicio de ${service.title}.`), external: true },
+        ]}
+      />
 
       {/* Problema / cómo lo abordamos */}
       <section className="py-16 sm:py-20">

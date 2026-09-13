@@ -5,7 +5,9 @@ import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { PillBar } from "@/components/marketing/pill-bar";
 import { POSTS, formatDate } from "@/content/blog";
+import { whatsappUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -33,6 +35,14 @@ export default function BlogPage() {
           />
         </Container>
       </section>
+
+      <PillBar
+        links={[
+          { label: "Ver soluciones", href: "/soluciones", variant: "default" },
+          { label: "Escríbenos", href: "/contacto?motivo=proyecto" },
+          { label: "WhatsApp", href: whatsappUrl("Hola, tengo una pregunta."), external: true },
+        ]}
+      />
 
       <section className="py-20">
         <Container className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

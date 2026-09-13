@@ -30,11 +30,11 @@ vacía en vez de fabricar datos.
 |---|---|---|
 | **Home** | `/` (`src/app/page.tsx`) | ✅ Hecho — PillBar bajo hero, ServiceGrid alternado, EllipseBanner |
 | **Services** | `/servicios` | ✅ Hecho — PillBar, ServiceGrid, EllipseBanner ("Nuestro enfoque") |
-| **Contact** | `/contacto` | ⏳ Pendiente |
-| **About** | `/nosotros` | ⏳ Pendiente |
-| **IT Services Service Page** | `/servicios/[slug]` | ⏳ Pendiente |
-| **IT Services Resources Page** | `/blog` | ⏳ Pendiente |
-| **Landing** | Nueva página de conversión (a definir ruta) | ⏳ Pendiente |
+| **Contact** | `/contacto` | ✅ Hecho — hero oscuro nuevo, PillBar, 3 tarjetas de canal alternadas (sin mapa: no hay oficina física) |
+| **About** | `/nosotros` | ✅ Hecho — PillBar bajo el hero. El resto (misión, principios, casos) ya cubría la composición del layout; **no** se copió el banner de cifras falsas ("28 años / 2000 clientes") del pack |
+| **IT Services Service Page** | `/servicios/[slug]` | ✅ Hecho — PillBar bajo el hero; el resto de la página ya seguía la misma composición (hero, problema/enfoque, incluye, beneficios, CTA) |
+| **IT Services Resources Page** | `/blog` | ✅ Hecho — PillBar bajo el hero. **No** se agregó grid de videos (no hay videos reales) ni FAQ (el único FAQ real del sitio es de precios, fuera de contexto aquí) |
+| **Landing** | — | No se creó una página nueva: es una combinación de Home + Services + About, ya absorbida en esas tres páginas. Se crea bajo demanda si surge una campaña que la necesite como página dedicada |
 
 Capturas del live demo original (referencia, no se commitean): generadas en
 sesión vía agente de navegador contra las 7 URLs `.../live-demo` del pack.

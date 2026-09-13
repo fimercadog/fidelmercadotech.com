@@ -8,8 +8,9 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { Illustration } from "@/components/marketing/illustration";
 import { Icon } from "@/components/icon";
 import { CtaBand } from "@/components/marketing/cta-band";
+import { PillBar } from "@/components/marketing/pill-bar";
 import { CASES } from "@/content/cases";
-import { SITE } from "@/content/site";
+import { SITE, whatsappUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Nosotros",
@@ -64,6 +65,14 @@ export default function NosotrosPage() {
           </Reveal>
         </Container>
       </section>
+
+      <PillBar
+        links={[
+          { label: "Solicitar demostración", href: "/contacto?motivo=demo", variant: "default" },
+          { label: "Ver soluciones", href: "/soluciones" },
+          { label: "WhatsApp", href: whatsappUrl("Hola, quiero conocer más sobre Fidel Mercado Tech."), external: true },
+        ]}
+      />
 
       {/* Misión */}
       <section className="py-20">

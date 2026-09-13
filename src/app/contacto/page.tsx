@@ -4,6 +4,8 @@ import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { ContactForm } from "@/components/marketing/contact-form";
+import { PillBar } from "@/components/marketing/pill-bar";
+import { cn } from "@/lib/utils";
 import { SITE, whatsappUrl } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -14,10 +16,16 @@ export const metadata: Metadata = {
 };
 
 const CHANNELS = [
-  { icon: MessageCircle, label: "WhatsApp", value: SITE.phone, href: whatsappUrl("Hola, quiero información sobre sus soluciones.") },
-  { icon: Phone, label: "Teléfono", value: SITE.phone, href: `tel:${SITE.phone.replace(/\s+/g, "")}` },
-  { icon: Mail, label: "Correo", value: SITE.email, href: `mailto:${SITE.email}` },
-];
+  { icon: MessageCircle, label: "WhatsApp", value: SITE.phone, href: whatsappUrl("Hola, quiero información sobre sus soluciones."), variant: "brand" },
+  { icon: Phone, label: "Teléfono", value: SITE.phone, href: `tel:${SITE.phone.replace(/\s+/g, "")}`, variant: "muted" },
+  { icon: Mail, label: "Correo", value: SITE.email, href: `mailto:${SITE.email}`, variant: "dark" },
+] as const;
+
+const CHANNEL_CLASSES = {
+  brand: "fmt-gradient text-white [&_.ch-icon]:bg-white/20",
+  muted: "bg-secondary text-secondary-foreground [&_.ch-icon]:bg-white",
+  dark: "bg-navy-deep text-white [&_.ch-icon]:bg-white/10",
+};
 
 export default async function ContactoPage({
   searchParams,
@@ -27,43 +35,55 @@ export default async function ContactoPage({
   const { motivo, interes } = await searchParams;
 
   return (
-    <section className="py-16 sm:py-20">
-      <Container className="flex flex-col gap-12">
-        <Reveal>
+    <>
+      <section className="fmt-dark fmt-gradient-band relative overflow-hidden text-foreground">
+        <div className="fmt-aurora" aria-hidden="true" />
+        <Container className="relative py-20 sm:py-24">
           <SectionHeading
             level={1}
             eyebrow="Contacto"
             title="Hablemos de tu operación"
             description="Solicita una demostración o cuéntanos qué quieres construir o automatizar. Te respondemos pronto."
           />
-        </Reveal>
+        </Container>
+      </section>
 
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <Reveal className="flex flex-col gap-4">
+      <PillBar
+        links={[
+          { label: "Solicitar demo", href: "#formulario", variant: "default" },
+          { label: "WhatsApp", href: whatsappUrl("Hola, quiero información sobre sus soluciones."), external: true },
+        ]}
+      />
+
+      <section className="py-16 sm:py-20">
+        <Container className="flex flex-col gap-12">
+          <Reveal className="grid gap-5 sm:grid-cols-3">
             {CHANNELS.map((c) => (
               <a
                 key={c.label}
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
                 rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40"
+                className={cn("flex flex-col gap-4 rounded-3xl p-6 transition-transform hover:-translate-y-1", CHANNEL_CLASSES[c.variant])}
               >
-                <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span className="ch-icon flex size-11 items-center justify-center rounded-2xl">
                   <c.icon className="size-5" aria-hidden="true" />
                 </span>
-                <span className="flex flex-col">
-                  <span className="text-xs font-semibold text-muted-foreground uppercase">{c.label}</span>
+                <span className="flex flex-col gap-1">
+                  <span className="text-xs font-semibold uppercase opacity-80">{c.label}</span>
                   <span className="text-sm font-medium">{c.value}</span>
                 </span>
               </a>
             ))}
           </Reveal>
 
-          <Reveal delay={0.08}>
-            <ContactForm defaultMotivo={motivo} defaultInteres={interes} />
-          </Reveal>
-        </div>
-      </Container>
-    </section>
+          <div id="formulario" className="scroll-mt-24">
+            <Reveal delay={0.08}>
+              <ContactForm defaultMotivo={motivo} defaultInteres={interes} />
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }
