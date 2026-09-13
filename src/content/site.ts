@@ -45,7 +45,7 @@ export const FOOTER_NAV = [
     heading: "Servicios",
     links: [
       { title: "Desarrollo de software", href: "/servicios/software" },
-      { title: "Automatización", href: "/servicios/automatizacion" },
+      { title: "FidelOS", href: "/servicios/automatizacion" },
       { title: "Inteligencia Artificial", href: "/servicios/ia" },
       { title: "Integraciones", href: "/servicios/integraciones" },
       { title: "Desarrollo web", href: "/servicios/web" },

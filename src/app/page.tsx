@@ -51,12 +51,12 @@ export default function HomePage() {
       <section className="border-y border-border bg-secondary/60">
         <IllustratedRow
           illustration="productivity"
-          eyebrow="Menos trabajo manual"
-          title="Los procesos repetitivos dejan de ocupar a tu equipo"
-          description="Automatizamos lo que se hace igual siempre: sincronización entre sistemas, notificaciones, reportes programados y flujos que se disparan solos ante un evento."
-          bullets={["Diagnóstico de qué conviene automatizar", "Flujos visuales y mantenibles con n8n", "Alertas si algo falla, para actuar a tiempo"]}
+          eyebrow="Inventario con IA"
+          title="Levanta tu inventario hablándole o tomándole una foto"
+          description="FidelOS captura productos y movimientos por fotografía, por voz o por foto + voz. Una capa de IA revisa e interpreta la captura antes de registrarla en tu inventario."
+          bullets={["Captura por fotografía", "Captura por voz", "Captura por foto + voz"]}
           href="/servicios/automatizacion"
-          linkLabel="Ver automatización"
+          linkLabel="Ver FidelOS"
           reverse
         />
       </section>

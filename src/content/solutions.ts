@@ -240,7 +240,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     benefits: [
       "Levantar inventario deja de ser una tarea de horas",
-      "Menos errores de digitación: la IO revisa antes de registrar",
+      "Menos errores de digitación: la IA revisa antes de registrar",
       "Cada dato tiene origen y responsable",
       "Pensado para operar desde el celular en bodega",
     ],
