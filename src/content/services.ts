@@ -66,56 +66,6 @@ export const SERVICES: Service[] = [
     related: ["crm-inventario", "rrhh"],
   },
   {
-    id: "crm",
-    icon: "Users",
-    title: "CRM",
-    description: "Gestión de clientes, contactos, oportunidades y pipeline adaptada a tu proceso comercial.",
-    tagline: "Ningún lead se pierde entre WhatsApp, correos y hojas de cálculo.",
-    problem:
-      "El equipo comercial pierde negocios porque los contactos están repartidos, no hay seguimiento y nadie sabe en qué etapa va cada oportunidad.",
-    summary:
-      "Implementamos un CRM adaptado a tu proceso comercial: clientes y contactos con ficha unificada, oportunidades en un pipeline visual, actividades con recordatorios y reportes de gestión.",
-    includes: [
-      { title: "Clientes y contactos", detail: "Ficha unificada con historial, notas y datos de contacto de cada parte." },
-      { title: "Pipeline visual", detail: "Etapas configurables con arrastrar y soltar; ves el estado de todo el negocio de un vistazo." },
-      { title: "Actividades y seguimientos", detail: "Tareas y recordatorios para que ningún contacto se quede sin respuesta." },
-      { title: "Reportes comerciales", detail: "Oportunidades por etapa, conversión y actividad del equipo." },
-      { title: "Integración con WhatsApp", detail: "Los contactos que llegan por WhatsApp o por la web entran directo al CRM." },
-    ],
-    benefits: [
-      "Ningún lead sin seguimiento",
-      "Sabes en qué etapa va cada oportunidad",
-      "Historial completo de cada cliente",
-      "Reportes reales, no estimaciones",
-    ],
-    related: ["crm-inmobiliario", "crm-inventario"],
-  },
-  {
-    id: "inventario",
-    icon: "Boxes",
-    title: "Sistemas de inventario",
-    description: "Productos, stock, proveedores y movimientos auditados, con reportes y alertas de stock.",
-    tagline: "El inventario deja de descuadrarse: un solo camino para cada movimiento.",
-    problem:
-      "Las entradas y salidas se anotan en cuadernos distintos, nadie sabe si hay stock para vender y el conteo físico nunca coincide con el sistema.",
-    summary:
-      "Construimos control de inventario con catálogo de productos, stock por ubicación, proveedores y movimientos (entradas, salidas y ajustes) que pasan por un único servicio que bloquea stock negativo y conserva el histórico.",
-    includes: [
-      { title: "Catálogo de productos", detail: "SKU único, categorías, marcas, unidades y proveedores como catálogos reutilizables." },
-      { title: "Stock calculado", detail: "Estado normal / bajo / crítico / agotado calculado automáticamente." },
-      { title: "Movimientos auditados", detail: "Cada entrada, salida y ajuste conserva stock anterior y nuevo, con usuario y fecha." },
-      { title: "Alertas de stock", detail: "Avisos cuando un producto baja del mínimo definido." },
-      { title: "Reportes", detail: "Valorización de inventario y resumen de movimientos, exportables." },
-    ],
-    benefits: [
-      "Cotizas sabiendo el stock real",
-      "El inventario no se descuadra",
-      "Cada movimiento tiene origen y responsable",
-      "Alertas antes de quedarte sin producto",
-    ],
-    related: ["crm-inventario", "fidelos"],
-  },
-  {
     id: "automatizacion",
     icon: "ScanLine",
     title: "FidelOS · Inventario con IA",
