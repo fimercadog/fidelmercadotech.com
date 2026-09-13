@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { SiteFooter } from "@/components/marketing/site-footer";
 import { FloatingWhatsApp } from "@/components/marketing/floating-whatsapp";
+import { PageTransition } from "@/components/marketing/page-transition";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -51,7 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es" className={`${inter.variable} ${poppins.variable} overflow-x-hidden`}>
       <body className="flex min-h-svh flex-col overflow-x-hidden antialiased">
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <SiteFooter />
         <FloatingWhatsApp />
       </body>
