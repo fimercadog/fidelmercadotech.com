@@ -215,7 +215,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "fidelos",
     name: "FidelOS · Inventario con IA",
     category: "Producto propio",
-    status: "roadmap",
+    status: "demo",
     icon: "ScanLine",
     tagline: "Levanta y controla tu inventario hablándole o tomándole una foto. La IA hace el resto.",
     problem:
