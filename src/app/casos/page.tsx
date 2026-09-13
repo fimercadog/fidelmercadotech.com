@@ -40,9 +40,9 @@ export default function CasosPage() {
             <Reveal key={c.slug} delay={i * 0.06}>
               <Link
                 href={`/casos/${c.slug}`}
-                className="group grid gap-8 overflow-hidden rounded-3xl border border-border bg-card p-6 transition-transform hover:-translate-y-1 md:grid-cols-2 md:items-center md:p-8"
+                className="fmt-elevate group grid gap-8 overflow-hidden rounded-3xl border border-border bg-card p-6 md:grid-cols-2 md:items-center md:p-8"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-muted">
+                <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-muted">
                   <Image
                     src={c.image}
                     alt={`${c.client} — ${c.title}`}

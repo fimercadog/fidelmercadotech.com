@@ -64,7 +64,7 @@ export default async function ContactoPage({
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
                 rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={cn("flex flex-col gap-4 rounded-3xl p-6 transition-transform hover:-translate-y-1", CHANNEL_CLASSES[c.variant])}
+                className={cn("fmt-elevate flex flex-col gap-4 rounded-3xl p-6", CHANNEL_CLASSES[c.variant])}
               >
                 <span className="ch-icon flex size-11 items-center justify-center rounded-2xl">
                   <c.icon className="size-5" aria-hidden="true" />

@@ -50,7 +50,7 @@ export default function BlogPage() {
             <Reveal key={post.slug} delay={i * 0.05}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="group flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-7 transition-transform hover:-translate-y-1"
+                className="fmt-elevate group flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-7"
               >
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase text-muted-foreground">
                   <span className="text-primary">{post.category}</span>

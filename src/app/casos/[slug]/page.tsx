@@ -72,7 +72,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                 <span className="size-2.5 rounded-full bg-amber-400/70" />
                 <span className="size-2.5 rounded-full bg-emerald-400/70" />
               </div>
-              <div className="relative aspect-[16/10] bg-muted">
+              <div className="relative aspect-16/10 bg-muted">
                 <Image src={study.image} alt={study.title} fill priority className="object-cover object-top" sizes="(min-width: 1024px) 1000px, 100vw" />
               </div>
             </div>
@@ -132,7 +132,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             <Reveal>
               <Link
                 href={`/soluciones/${solution.slug}`}
-                className="group flex flex-col gap-3 rounded-3xl border border-border bg-card p-7 transition-transform hover:-translate-y-1 sm:flex-row sm:items-center sm:justify-between"
+                className="fmt-elevate group flex flex-col gap-3 rounded-3xl border border-border bg-card p-7 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex flex-col gap-1">
                   <span className="text-xs font-semibold uppercase text-muted-foreground">Solución relacionada</span>

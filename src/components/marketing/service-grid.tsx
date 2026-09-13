@@ -36,7 +36,7 @@ export function ServiceGrid({ items, className }: { items: ServiceGridItem[]; cl
             <Link
               href={item.href}
               className={cn(
-                "group flex h-full flex-col gap-3 rounded-3xl p-6 transition-transform hover:-translate-y-1",
+                "fmt-elevate group flex h-full flex-col gap-3 rounded-3xl p-6",
                 VARIANT_CLASSES[variant],
               )}
             >

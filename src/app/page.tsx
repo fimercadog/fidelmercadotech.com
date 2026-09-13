@@ -152,7 +152,7 @@ export default function HomePage() {
               <Reveal key={c.slug} delay={i * 0.06}>
                 <Link
                   href={`/casos/${c.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-transform hover:-translate-y-1"
+                  className="fmt-elevate group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card"
                 >
                   <div className="relative aspect-video bg-muted">
                     <Image src={c.image} alt={c.title} fill className="object-cover object-top" sizes="(min-width: 768px) 45vw, 100vw" />

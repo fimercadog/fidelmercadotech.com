@@ -176,7 +176,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <Reveal key={sol.slug} delay={i * 0.05}>
                   <Link
                     href={`/soluciones/${sol.slug}`}
-                    className="group flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
+                    className="fmt-elevate group flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-6"
                   >
                     <span className="flex size-11 items-center justify-center rounded-xl fmt-gradient text-white">
                       <Icon name={sol.icon} className="size-5" />

@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="grid gap-6 sm:grid-cols-2">
             {more.map((p) => (
               <Reveal key={p.slug}>
-                <Link href={`/blog/${p.slug}`} className="group flex h-full flex-col gap-2 rounded-3xl border border-border bg-card p-6 transition-transform hover:-translate-y-1">
+                <Link href={`/blog/${p.slug}`} className="fmt-elevate group flex h-full flex-col gap-2 rounded-3xl border border-border bg-card p-6">
                   <span className="text-xs font-semibold uppercase text-primary">{p.category}</span>
                   <h3 className="text-base font-bold leading-snug">{p.title}</h3>
                   <p className="text-sm leading-6 text-muted-foreground">{p.excerpt}</p>

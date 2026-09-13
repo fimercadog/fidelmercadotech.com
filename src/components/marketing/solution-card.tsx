@@ -7,7 +7,7 @@ import { STATUS_LABEL, type Solution } from "@/content/solutions";
 
 export function SolutionCard({ solution }: { solution: Solution }) {
   return (
-    <Card className="group flex h-full flex-col gap-4 p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_40px_-24px_rgba(7,21,38,0.35)]">
+    <Card className="fmt-elevate group flex h-full flex-col gap-4 p-6">
       <div className="flex items-start justify-between gap-3">
         <span className="flex size-11 items-center justify-center rounded-xl fmt-gradient text-white">
           <Icon name={solution.icon} className="size-5" />
