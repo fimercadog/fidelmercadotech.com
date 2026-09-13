@@ -25,7 +25,7 @@ vacía en vez de fabricar datos.
 ## Componentes nuevos construidos a partir del pack
 
 | Componente | Origen visual en el pack | Uso |
-|---|---|---|
+| --- | --- | --- |
 | `marketing/pill-bar.tsx` | Barra degradada edge-to-edge con botones píldora bajo cada hero | Home, Servicios |
 | `marketing/service-grid.tsx` | Grid de servicios con tarjetas de color alternado (naranja/gris/blanco/blanco/navy/naranja → violeta/muted/outline/outline/navy-deep/violeta) | Home, Servicios |
 | `marketing/ellipse-banner.tsx` | Banner-blob con degradado y anillo de iconos orbitando ("We Create Fully Connected Systems") | Home, Servicios |
@@ -33,7 +33,7 @@ vacía en vez de fabricar datos.
 ## Mapeo página por página
 
 | Layout del pack | Página del sitio | Estado |
-|---|---|---|
+| --- | --- | --- |
 | **Home** | `/` (`src/app/page.tsx`) | ✅ Hecho — PillBar bajo hero, ServiceGrid alternado, EllipseBanner |
 | **Services** | `/servicios` | ✅ Hecho — PillBar, ServiceGrid, EllipseBanner ("Nuestro enfoque") |
 | **Contact** | `/contacto` | ✅ Hecho — hero oscuro nuevo, PillBar, 3 tarjetas de canal alternadas (sin mapa: no hay oficina física) |
