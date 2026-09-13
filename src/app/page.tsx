@@ -154,7 +154,7 @@ export default function HomePage() {
                   href={`/casos/${c.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-transform hover:-translate-y-1"
                 >
-                  <div className="relative aspect-[16/9] bg-muted">
+                  <div className="relative aspect-video bg-muted">
                     <Image src={c.image} alt={c.title} fill className="object-cover object-top" sizes="(min-width: 768px) 45vw, 100vw" />
                   </div>
                   <div className="flex flex-col gap-2 p-6">
