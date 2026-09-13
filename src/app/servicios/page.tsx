@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
-import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CtaBand } from "@/components/marketing/cta-band";
-import { Icon } from "@/components/icon";
+import { PillBar } from "@/components/marketing/pill-bar";
+import { ServiceGrid } from "@/components/marketing/service-grid";
+import { EllipseBanner } from "@/components/marketing/ellipse-banner";
 import { SERVICES } from "@/content/services";
+import { whatsappUrl } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Servicios",
@@ -30,31 +30,35 @@ export default function ServiciosPage() {
         </Container>
       </section>
 
+      <PillBar
+        links={[
+          { label: "Solicitar cotización", href: "/contacto?motivo=cotizacion", variant: "default" },
+          { label: "Ver precios", href: "/precios" },
+          { label: "WhatsApp", href: whatsappUrl("Hola, quiero información sobre sus servicios."), external: true },
+        ]}
+      />
+
       <section className="py-16 sm:py-20">
         <Container>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service, i) => (
-              <Reveal key={service.id} delay={i * 0.04}>
-                <Link
-                  href={`/servicios/${service.id}`}
-                  id={service.id}
-                  className="group flex h-full scroll-mt-24 flex-col gap-3 rounded-3xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
-                >
-                  <span className="flex size-12 items-center justify-center rounded-2xl fmt-gradient text-white shadow-lg shadow-primary/25">
-                    <Icon name={service.icon} className="size-5" />
-                  </span>
-                  <h2 className="mt-1 text-lg font-bold">{service.title}</h2>
-                  <p className="text-sm leading-6 text-muted-foreground">{service.description}</p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-primary">
-                    Ver servicio
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <ServiceGrid
+            items={SERVICES.map((service) => ({
+              id: service.id,
+              icon: service.icon,
+              title: service.title,
+              description: service.description,
+              href: `/servicios/${service.id}`,
+            }))}
+          />
         </Container>
       </section>
+
+      <EllipseBanner
+        eyebrow="Nuestro enfoque"
+        title="No automatizamos por automatizar: primero entendemos tu negocio"
+        description="Analizamos tus procesos, detectamos qué vale la pena automatizar y diseñamos la solución antes de escribir una línea de código."
+        ctaLabel="Hablar de tu proyecto"
+        ctaHref="/contacto"
+      />
 
       <CtaBand
         title="¿Buscas precios de referencia?"

@@ -8,7 +8,9 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { SolutionCard } from "@/components/marketing/solution-card";
 import { CapabilityStrip } from "@/components/marketing/capability-strip";
 import { SocialProof } from "@/components/marketing/social-proof";
-import { Icon } from "@/components/icon";
+import { PillBar } from "@/components/marketing/pill-bar";
+import { ServiceGrid } from "@/components/marketing/service-grid";
+import { EllipseBanner } from "@/components/marketing/ellipse-banner";
 import { Hero } from "@/components/sections/hero";
 import { FeatureRow } from "@/components/sections/feature-row";
 import { IllustratedRow } from "@/components/sections/illustrated-row";
@@ -17,6 +19,7 @@ import { ProcessFunnel } from "@/components/sections/process-funnel";
 import { SOLUTIONS } from "@/content/solutions";
 import { SERVICES } from "@/content/services";
 import { CASES } from "@/content/cases";
+import { whatsappUrl } from "@/content/site";
 
 const FLAGSHIP = ["crm-inmobiliario", "rrhh", "crm-inventario"];
 
@@ -26,6 +29,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <PillBar
+        links={[
+          { label: "Ver soluciones", href: "/soluciones", variant: "default" },
+          { label: "Solicitar demo", href: "/contacto?motivo=demo" },
+          { label: "WhatsApp", href: whatsappUrl("Hola, quiero información sobre sus soluciones."), external: true },
+        ]}
+      />
       <CapabilityStrip />
 
       <IllustratedRow
@@ -107,28 +117,25 @@ export default function HomePage() {
               description="Cuando ninguna solución encaja del todo, la construimos contigo desde cero. Cada servicio tiene su propia página con el detalle."
             />
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service, i) => (
-              <Reveal key={service.id} delay={i * 0.04}>
-                <Link
-                  href={`/servicios/${service.id}`}
-                  className="group flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-6 transition-transform hover:-translate-y-1"
-                >
-                  <span className="flex size-11 items-center justify-center rounded-2xl fmt-gradient text-white shadow-lg shadow-primary/25">
-                    <Icon name={service.icon} className="size-5" />
-                  </span>
-                  <h3 className="mt-1 text-base font-bold">{service.title}</h3>
-                  <p className="text-sm leading-6 text-muted-foreground">{service.description}</p>
-                  <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-primary">
-                    Ver servicio
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+          <ServiceGrid
+            items={SERVICES.map((service) => ({
+              id: service.id,
+              icon: service.icon,
+              title: service.title,
+              description: service.description,
+              href: `/servicios/${service.id}`,
+            }))}
+          />
         </Container>
       </section>
+
+      <EllipseBanner
+        eyebrow="Sistemas conectados"
+        title="Creamos sistemas conectados para que tu equipo se enfoque en el negocio"
+        description="Web, CRM, inventario, automatización e IA sobre la misma base de datos: un dato capturado una vez, disponible donde tiene que estar."
+        ctaLabel="Ver soluciones"
+        ctaHref="/soluciones"
+      />
 
       {/* Casos */}
       <section className="border-t border-border py-24">
