@@ -10,12 +10,13 @@ export interface PillBarLink {
 }
 
 /**
- * Full-bleed gradient strip with pill buttons — the Divi "IT Services"
- * button bar that runs edge-to-edge under every hero / above every footer.
+ * Full-bleed button bar under every hero — the Divi "IT Services" pattern,
+ * but on a dark strip (not a solid-green fill: tried that, looked bad at
+ * this scale). Green stays confined to the primary button.
  */
 export function PillBar({ links }: { links: PillBarLink[] }) {
   return (
-    <div className="fmt-dark fmt-gradient py-5">
+    <div className="border-y border-border/60 bg-card py-5">
       <Container className="flex flex-wrap items-center justify-center gap-3">
         {links.map((link) => (
           <Button key={link.label} asChild size="lg" variant={link.variant ?? "outline"}>
