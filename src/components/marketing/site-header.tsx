@@ -25,18 +25,28 @@ export function SiteHeader() {
         <Logo />
 
         <nav className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-semibold transition-colors hover:text-foreground",
-                isActive(pathname, link.href) ? "text-foreground" : "text-muted-foreground",
-              )}
-            >
-              {link.title}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const active = isActive(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "group relative py-1 text-sm font-semibold transition-colors hover:text-foreground",
+                  active ? "text-foreground" : "text-muted-foreground",
+                )}
+              >
+                {link.title}
+                <span
+                  className={cn(
+                    "absolute -bottom-1 left-0 h-0.5 rounded-full bg-primary transition-all duration-300 ease-in-out",
+                    active ? "w-full" : "w-0 group-hover:w-full",
+                  )}
+                  aria-hidden="true"
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden shrink-0 items-center gap-2 lg:flex">

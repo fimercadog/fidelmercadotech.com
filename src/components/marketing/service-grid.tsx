@@ -40,7 +40,7 @@ export function ServiceGrid({ items, className }: { items: ServiceGridItem[]; cl
                 VARIANT_CLASSES[variant],
               )}
             >
-              <span className="sg-icon flex size-11 items-center justify-center rounded-2xl">
+              <span className="sg-icon flex size-11 items-center justify-center rounded-2xl transition-transform duration-300 ease-in-out group-hover:scale-110">
                 <Icon name={item.icon} className="size-5" />
               </span>
               <h3 className="mt-1 text-base font-bold">{item.title}</h3>

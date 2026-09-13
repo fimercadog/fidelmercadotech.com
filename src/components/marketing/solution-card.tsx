@@ -9,7 +9,7 @@ export function SolutionCard({ solution }: { solution: Solution }) {
   return (
     <Card className="fmt-elevate group flex h-full flex-col gap-4 p-6">
       <div className="flex items-start justify-between gap-3">
-        <span className="flex size-11 items-center justify-center rounded-xl fmt-gradient text-white">
+        <span className="flex size-11 items-center justify-center rounded-xl fmt-gradient text-white transition-transform duration-300 ease-in-out group-hover:scale-110">
           <Icon name={solution.icon} className="size-5" />
         </span>
         <Badge variant="secondary" className="shrink-0">
