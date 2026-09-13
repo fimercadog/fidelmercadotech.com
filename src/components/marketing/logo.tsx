@@ -16,12 +16,12 @@ export function LogoMark({ className, inverted = false }: Pick<LogoProps, "class
     <svg viewBox="0 0 96 96" role="img" aria-label="Fidel Mercado Tech" className={cn("size-10 shrink-0", className)}>
       <defs>
         <linearGradient id="fmt-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#7C3AED" />
-          <stop offset="1" stopColor="#EC4899" />
+          <stop offset="0" stopColor="#24C40C" />
+          <stop offset="1" stopColor="#39FF14" />
         </linearGradient>
       </defs>
-      <rect width="96" height="96" rx="24" fill={inverted ? "#ffffff" : "url(#fmt-mark)"} />
-      <g fill={inverted ? "url(#fmt-mark)" : "#ffffff"}>
+      <rect width="96" height="96" rx="24" fill={inverted ? "#ffffff" : "#080A09"} />
+      <g fill={inverted ? "#080A09" : "url(#fmt-mark)"}>
         {/* F */}
         <rect x="24" y="26" width="10" height="44" rx="2" />
         <rect x="24" y="26" width="26" height="10" rx="2" />

@@ -23,7 +23,7 @@ const CHANNELS = [
 
 const CHANNEL_CLASSES = {
   brand: "fmt-gradient text-white [&_.ch-icon]:bg-white/20",
-  muted: "bg-secondary text-secondary-foreground [&_.ch-icon]:bg-white",
+  muted: "bg-secondary text-secondary-foreground [&_.ch-icon]:bg-white [&_.ch-icon]:text-background",
   dark: "bg-navy-deep text-white [&_.ch-icon]:bg-white/10",
 };
 

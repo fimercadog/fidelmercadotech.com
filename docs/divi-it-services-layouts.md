@@ -4,10 +4,16 @@ Pack de Elegant Themes (Divi "Themes & Plugins" Lifetime — licencia activa) co
 7 plantillas. Referencia: <https://www.elegantthemes.com/layouts/services/it-services-home-page>
 
 Decisión de estilo (confirmada con Fidel): se reutiliza la **estructura y
-composición** de cada plantilla, recoloreada por completo a la paleta violeta
-"Software Marketing" ya en producción (`#7C3AED` / `#C026D3` / `#EC4899`,
-Poppins + Inter — ver `src/app/globals.css`). No se adopta la paleta azul
-nativa del pack ni la guía `fidel-mercado-tech-brand-guide.md` (sin usar).
+composición** de cada plantilla, recoloreada por completo a la paleta de marca
+vigente (ver `src/app/globals.css`). No se adopta la paleta azul/cian de
+`fidel-mercado-tech-brand-guide.md` (documento sin usar).
+
+> **Actualización:** la paleta violeta "Software Marketing" (`#7C3AED` /
+> `#C026D3` / `#EC4899`) que se usó al construir estas plantillas fue
+> reemplazada por un tema oscuro único (negro `#080A09`, tarjetas `#252827`,
+> acento verde fosforescente `#39FF14`, texto blanco/gris `#BFC5C2`) — ver el
+> commit que repinta `globals.css`. La estructura de las 7 plantillas no
+> cambió, solo la paleta.
 
 Tampoco se copian los datos de ejemplo del pack que son inventados
 (testimonios con nombres falsos, cifras como "28 años / 2000 clientes"): el

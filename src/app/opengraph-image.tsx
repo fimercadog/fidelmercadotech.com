@@ -16,20 +16,20 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "linear-gradient(135deg, #3b0764 0%, #5b21b6 45%, #7c3aed 100%)",
+          background: "#080A09",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ width: 64, height: 64, borderRadius: 16, background: "linear-gradient(135deg,#7C3AED,#EC4899)" }} />
+          <div style={{ width: 64, height: 64, borderRadius: 16, background: "#39FF14" }} />
           <div style={{ fontSize: 30, fontWeight: 700 }}>Fidel Mercado Tech</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000 }}>
+          <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000, color: "#39FF14" }}>
             Software, automatización e IA para hacer crecer tu empresa
           </div>
-          <div style={{ fontSize: 28, color: "#aab7c8", maxWidth: 900 }}>
+          <div style={{ fontSize: 28, color: "#BFC5C2", maxWidth: 900 }}>
             CRM · Inventario · RRHH · FidelOS · Agentes de WhatsApp · Desarrollo a medida
           </div>
         </div>

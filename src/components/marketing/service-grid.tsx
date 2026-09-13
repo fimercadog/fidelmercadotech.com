@@ -22,7 +22,7 @@ type Variant = (typeof VARIANT_CYCLE)[number];
 const VARIANT_CLASSES: Record<Variant, string> = {
   brand: "fmt-gradient text-white [&_.sg-icon]:bg-white/20 [&_.sg-link]:text-white",
   dark: "bg-navy-deep text-white [&_.sg-icon]:bg-white/10 [&_.sg-link]:text-white",
-  muted: "bg-secondary text-secondary-foreground [&_.sg-icon]:bg-white [&_.sg-link]:text-primary",
+  muted: "bg-secondary text-secondary-foreground [&_.sg-icon]:bg-white [&_.sg-icon]:text-background [&_.sg-link]:text-primary",
   outline: "border border-border bg-card [&_.sg-icon]:fmt-gradient [&_.sg-icon]:text-white [&_.sg-link]:text-primary",
 };
 

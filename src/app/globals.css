@@ -4,15 +4,12 @@
 @custom-variant dark (&:is(.dark *, .fmt-dark, .fmt-dark *));
 
 /*
- * Fidel Mercado Tech — Design System (Divi "software marketing" direction)
- *   Violeta     #7C3AED   primary / CTA / links
- *   Fucsia      #C026D3   accent / gradients
- *   Rosa        #EC4899   gradient tail / highlights
- *   Violeta Noche #2E1065  dark backgrounds (hero, footer, CTA band)
- *   Violeta Prof. #3B0A6B  dark cards / sidebars
- *   Gris UI     #6B6785   secondary text
- *   Gris Claro  #ECE9F8   light borders / separators
- *   Lavanda     #F6F4FE   tinted light sections
+ * Fidel Mercado Tech — Design System (tema oscuro "neón" único, sin modo claro)
+ *   Verde fosforescente #39FF14   acentos, botones, líneas, cifras, palabras clave
+ *   Negro profundo      #080A09   fondo principal (única superficie de fondo)
+ *   Gris oscuro         #252827   tarjetas, bloques, fondos secundarios
+ *   Gris claro          #BFC5C2   texto secundario
+ *   Blanco              #FFFFFF   títulos y texto principal
  *   Fonts: Poppins (headings) + Inter (body)
  */
 
@@ -66,59 +63,42 @@
 }
 
 :root {
-  --brand: #7b4deb;
-  --brand-hover: #6b3ce0;
-  --brand-cyan: #a94fe0;
-  --brand-pink: #d24fd6;
-  --navy: #2e1065;
-  --navy-deep: #3b0a6b;
+  --brand: #39ff14;
+  --brand-hover: #2fe20f;
+  --brand-cyan: #39ff14;
+  --brand-pink: #39ff14;
+  --navy: #1c1f1e;
+  --navy-deep: #000000;
 
-  --background: #ffffff;
-  --foreground: #1e1b33;
-  --card: #ffffff;
-  --card-foreground: #1e1b33;
-  --popover: #ffffff;
-  --popover-foreground: #1e1b33;
-  --primary: #7c3aed;
-  --primary-foreground: #ffffff;
-  --secondary: #f6f4fe;
-  --secondary-foreground: #2e1065;
-  --muted: #f6f4fe;
-  --muted-foreground: #6b6785;
-  --accent: #f0e9ff;
-  --accent-foreground: #6d28d9;
-  --destructive: oklch(0.58 0.24 27);
+  --background: #080a09;
+  --foreground: #ffffff;
+  --card: #252827;
+  --card-foreground: #ffffff;
+  --popover: #252827;
+  --popover-foreground: #ffffff;
+  --primary: #39ff14;
+  --primary-foreground: #080a09;
+  --secondary: #252827;
+  --secondary-foreground: #ffffff;
+  --muted: #1c1f1e;
+  --muted-foreground: #bfc5c2;
+  --accent: color-mix(in oklch, #39ff14 16%, #252827);
+  --accent-foreground: #39ff14;
+  --destructive: oklch(0.7 0.19 22);
   --destructive-foreground: #ffffff;
-  --border: #ece9f8;
-  --input: #ece9f8;
-  --ring: #7c3aed;
+  --border: color-mix(in oklch, #ffffff 12%, transparent);
+  --input: color-mix(in oklch, #ffffff 14%, transparent);
+  --ring: #39ff14;
 
   --radius: 16px;
 }
 
-/* Site-wide dark mode + reusable dark contrast bands inside a light page. */
-.dark,
-.fmt-dark {
-  --background: #2e1065;
-  --foreground: #ffffff;
-  --card: #3b0a6b;
-  --card-foreground: #ffffff;
-  --popover: #3b0a6b;
-  --popover-foreground: #ffffff;
-  --primary: #ffffff;
-  --primary-foreground: #4c1d95;
-  --secondary: #3b0a6b;
-  --secondary-foreground: #ffffff;
-  --muted: #3b0a6b;
-  --muted-foreground: #cbbdf0;
-  --accent: #4c1d95;
-  --accent-foreground: #f0abfc;
-  --destructive: oklch(0.7 0.19 22);
-  --destructive-foreground: #ffffff;
-  --border: color-mix(in oklch, #ffffff 14%, transparent);
-  --input: color-mix(in oklch, #ffffff 16%, transparent);
-  --ring: #f0abfc;
-}
+/*
+ * Un solo tema oscuro en todo el sitio: no hay modo claro que alternar.
+ * .fmt-dark se conserva como marcador estructural (histórico) en el JSX de
+ * varias secciones, pero ya no redefine tokens — toda la página comparte
+ * la misma paleta, así que esas bandas se ven idénticas al resto.
+ */
 
 @layer base {
   * {
@@ -148,25 +128,19 @@
 /* --- Brand utilities ---------------------------------------------------- */
 
 .fmt-gradient {
-  background-image: linear-gradient(120deg, #7b4deb 0%, #a94fe0 55%, #d24fd6 100%);
+  background-image: linear-gradient(120deg, #24c40c 0%, #39ff14 100%);
 }
 
-/* Full-bleed gradient for hero / CTA bands — bright purple → magenta (Divi). */
+/* Full-bleed background for hero / CTA bands — solid near-black with a faint green glow. */
 .fmt-gradient-band {
   background-image:
-    radial-gradient(ellipse 70% 60% at 100% 100%, rgba(214, 79, 214, 0.55), transparent 55%),
-    linear-gradient(115deg, #6d3bf0 0%, #8b41e6 45%, #c451d6 100%);
+    radial-gradient(ellipse 70% 60% at 100% 0%, rgba(57, 255, 20, 0.1), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(57, 255, 20, 0.06), transparent 60%);
+  background-color: var(--background);
 }
 
 .fmt-gradient-text {
-  background-image: linear-gradient(120deg, #7b4deb 0%, #a94fe0 55%, #d24fd6 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.fmt-dark .fmt-gradient-text {
-  background-image: linear-gradient(120deg, #f0abfc 0%, #fbcfe8 100%);
+  color: var(--primary);
 }
 
 .fmt-eyebrow {
@@ -177,30 +151,22 @@
   color: var(--brand);
 }
 
-.fmt-dark .fmt-eyebrow {
-  color: #f0abfc;
-}
-
-/* Eyebrow as a rounded pill (Divi software-landing style). */
+/* Eyebrow as a rounded pill. */
 .fmt-eyebrow-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 0.9rem;
   border-radius: 9999px;
-  background: color-mix(in oklch, var(--brand) 10%, transparent);
+  background: color-mix(in oklch, var(--brand) 14%, transparent);
   color: var(--brand);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.fmt-dark .fmt-eyebrow-pill {
-  background: color-mix(in oklch, #ffffff 14%, transparent);
-  color: #ffffff;
-}
 
-/* Soft violet/fuchsia "aurora" blobs behind hero / CTA sections. */
+/* Soft neon-green glow blobs behind hero / CTA sections. */
 .fmt-aurora {
   position: absolute;
   inset: 0;
@@ -214,21 +180,21 @@
   width: 42rem;
   height: 42rem;
   border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.55;
+  filter: blur(100px);
+  opacity: 0.16;
+  background: radial-gradient(circle, rgba(57, 255, 20, 0.9), transparent 70%);
 }
 .fmt-aurora::before {
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.55), transparent 70%);
   top: -16rem;
   right: -10rem;
 }
 .fmt-aurora::after {
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.5), transparent 70%);
   bottom: -18rem;
   left: -12rem;
+  opacity: 0.1;
 }
 
-/* Floating decorative shapes (Divi "colorful shapes" motif). */
+/* Floating decorative shapes — monochrome (white / green) on the dark theme. */
 .fmt-shapes {
   position: absolute;
   inset: 0;
@@ -244,27 +210,27 @@
   width: 7rem;
   height: 7rem;
   border-radius: 9999px;
-  border: 10px solid color-mix(in oklch, #f0abfc 70%, transparent);
+  border: 10px solid color-mix(in oklch, #ffffff 25%, transparent);
 }
 .fmt-shapes .s-dot {
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 9999px;
-  background: #fbcfe8;
+  background: var(--brand);
 }
 .fmt-shapes .s-plus {
   width: 2rem;
   height: 2rem;
   background:
-    linear-gradient(#fde68a, #fde68a) center/100% 30% no-repeat,
-    linear-gradient(#fde68a, #fde68a) center/30% 100% no-repeat;
+    linear-gradient(var(--brand), var(--brand)) center/100% 30% no-repeat,
+    linear-gradient(var(--brand), var(--brand)) center/30% 100% no-repeat;
 }
 .fmt-shapes .s-tri {
   width: 0;
   height: 0;
   border-left: 1.4rem solid transparent;
   border-right: 1.4rem solid transparent;
-  border-bottom: 2.4rem solid color-mix(in oklch, #22d3ee 75%, transparent);
+  border-bottom: 2.4rem solid color-mix(in oklch, #ffffff 40%, transparent);
 }
 @media (prefers-reduced-motion: no-preference) {
   .fmt-shapes > span {
@@ -288,7 +254,7 @@
 }
 
 .fmt-card-shadow {
-  box-shadow: 0 24px 60px -20px rgba(124, 58, 237, 0.35), 0 8px 24px -12px rgba(30, 27, 51, 0.12);
+  box-shadow: 0 0 40px -8px rgba(57, 255, 20, 0.22), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
 }
 
 @media (prefers-reduced-motion: reduce) {
