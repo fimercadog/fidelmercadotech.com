@@ -47,15 +47,19 @@ export function EllipseBanner({
           <Reveal delay={0.1} className="relative mx-auto hidden aspect-square w-full max-w-xs sm:block">
             <div className="absolute inset-[12%] rounded-full border border-white/20" aria-hidden="true" />
             <div className="absolute inset-[28%] rounded-full border border-white/15" aria-hidden="true" />
-            {RING_ICONS.map((name, i) => (
-              <span
-                key={name}
-                className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm"
-                style={RING_POSITIONS[i]}
-              >
-                <Icon name={name} className="size-4.5 text-white" />
-              </span>
-            ))}
+            <div className="fmt-orbit absolute inset-0">
+              {RING_ICONS.map((name, i) => (
+                <span
+                  key={name}
+                  className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm"
+                  style={RING_POSITIONS[i]}
+                >
+                  <span className="fmt-orbit-counter flex">
+                    <Icon name={name} className="size-4.5 text-white" />
+                  </span>
+                </span>
+              ))}
+            </div>
           </Reveal>
         </div>
       </div>

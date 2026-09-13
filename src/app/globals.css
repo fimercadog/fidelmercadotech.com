@@ -245,6 +245,19 @@
   50% { transform: translateY(-14px) rotate(6deg); }
 }
 
+/* Slow orbit for the EllipseBanner icon ring: the ring rotates, each icon
+   counter-rotates the same amount so it stays upright while it orbits. */
+@keyframes fmt-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.fmt-orbit {
+  animation: fmt-orbit 32s linear infinite;
+}
+.fmt-orbit-counter {
+  animation: fmt-orbit 32s linear infinite reverse;
+}
+
 /* Faint tech grid, used sparingly behind dark bands. */
 .fmt-grid-bg {
   background-image:
