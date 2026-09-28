@@ -69,10 +69,10 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
 
   if (done) {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-3xl border border-border bg-card p-8 text-center fmt-card-shadow">
-        <CheckCircle2 className="size-10 text-primary" aria-hidden="true" />
-        <h2 className="text-xl">Mensaje enviado</h2>
-        <p className="max-w-sm text-sm text-muted-foreground">
+      <div className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-10 text-center fmt-elevate shadow-xl">
+        <CheckCircle2 className="size-12 text-primary" aria-hidden="true" />
+        <h2 className="text-2xl font-bold">Mensaje enviado</h2>
+        <p className="max-w-md text-sm text-muted-foreground">
           Gracias por escribirnos. Te contactaremos muy pronto. Si es urgente, escríbenos por{" "}
           <a href={whatsappUrl("Hola, acabo de enviar el formulario de contacto.")} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline">
             WhatsApp
@@ -86,37 +86,37 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
   return (
     <>
       {SITE_KEY ? <Script src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`} strategy="lazyOnload" /> : null}
-      <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5 rounded-3xl border border-border bg-card p-6 sm:p-8 fmt-card-shadow">
-        <div className="grid gap-5 sm:grid-cols-2">
+      <form onSubmit={handleSubmit(onSubmit)} noValidate className="fmt-elevate flex flex-col gap-6 rounded-3xl border border-border bg-card p-8 sm:p-10 shadow-xl">
+        <div className="grid gap-6 sm:grid-cols-2">
           <Field data-invalid={!!errors.nombre}>
-            <FieldLabel htmlFor="nombre">Nombre *</FieldLabel>
-            <Input id="nombre" autoComplete="name" aria-invalid={!!errors.nombre} {...register("nombre")} />
+            <FieldLabel htmlFor="nombre" className="font-semibold">Nombre *</FieldLabel>
+            <Input id="nombre" autoComplete="name" className="rounded-xl" aria-invalid={!!errors.nombre} {...register("nombre")} />
             <FieldError errors={[errors.nombre]} />
           </Field>
           <Field data-invalid={!!errors.empresa}>
-            <FieldLabel htmlFor="empresa">Empresa</FieldLabel>
-            <Input id="empresa" autoComplete="organization" {...register("empresa")} />
+            <FieldLabel htmlFor="empresa" className="font-semibold">Empresa</FieldLabel>
+            <Input id="empresa" autoComplete="organization" className="rounded-xl" {...register("empresa")} />
           </Field>
           <Field data-invalid={!!errors.email}>
-            <FieldLabel htmlFor="email">Correo *</FieldLabel>
-            <Input id="email" type="email" autoComplete="email" aria-invalid={!!errors.email} {...register("email")} />
+            <FieldLabel htmlFor="email" className="font-semibold">Correo *</FieldLabel>
+            <Input id="email" type="email" autoComplete="email" className="rounded-xl" aria-invalid={!!errors.email} {...register("email")} />
             <FieldError errors={[errors.email]} />
           </Field>
           <Field data-invalid={!!errors.telefono}>
-            <FieldLabel htmlFor="telefono">Teléfono / WhatsApp</FieldLabel>
-            <Input id="telefono" type="tel" autoComplete="tel" {...register("telefono")} />
+            <FieldLabel htmlFor="telefono" className="font-semibold">Teléfono / WhatsApp</FieldLabel>
+            <Input id="telefono" type="tel" autoComplete="tel" className="rounded-xl" {...register("telefono")} />
           </Field>
         </div>
 
         <Field data-invalid={!!errors.motivo}>
-          <FieldLabel htmlFor="motivo">¿En qué te ayudamos? *</FieldLabel>
+          <FieldLabel htmlFor="motivo" className="font-semibold">¿En qué te ayudamos? *</FieldLabel>
           <select
             id="motivo"
-            className="h-9 rounded-md border border-input bg-transparent px-3 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            className="h-10 rounded-xl border border-input bg-card px-3 text-sm shadow-xs outline-none focus-visible:border-primary focus-visible:ring-[3px] focus-visible:ring-primary/20"
             {...register("motivo")}
           >
             {MOTIVOS.map((m) => (
-              <option key={m} value={m}>
+              <option key={m} value={m} className="bg-card text-foreground">
                 {MOTIVO_LABEL[m]}
               </option>
             ))}
@@ -125,8 +125,8 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
         </Field>
 
         <Field data-invalid={!!errors.mensaje}>
-          <FieldLabel htmlFor="mensaje">Mensaje *</FieldLabel>
-          <Textarea id="mensaje" rows={5} aria-invalid={!!errors.mensaje} placeholder="Cuéntanos qué proceso quieres mejorar o qué solución te interesa." {...register("mensaje")} />
+          <FieldLabel htmlFor="mensaje" className="font-semibold">Mensaje *</FieldLabel>
+          <Textarea id="mensaje" rows={5} className="rounded-xl" aria-invalid={!!errors.mensaje} placeholder="Cuéntanos qué proceso quieres mejorar o qué solución te interesa." {...register("mensaje")} />
           <FieldError errors={[errors.mensaje]} />
         </Field>
 
@@ -161,11 +161,11 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
 
         {serverError ? <p role="alert" className="text-sm text-destructive">{serverError}</p> : null}
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button type="submit" size="lg" disabled={isSubmitting}>
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+          <Button type="submit" size="lg" disabled={isSubmitting} className="rounded-full px-8 font-bold shadow-md shadow-primary/20">
             {isSubmitting ? "Enviando…" : "Enviar mensaje"}
           </Button>
-          <Button asChild type="button" size="lg" variant="outline">
+          <Button asChild type="button" size="lg" variant="outline" className="rounded-full border-border bg-card px-7 font-semibold hover:border-primary">
             <Link href={whatsappUrl("Hola, quiero información sobre sus soluciones.")} target="_blank" rel="noopener noreferrer">
               Prefiero WhatsApp
             </Link>

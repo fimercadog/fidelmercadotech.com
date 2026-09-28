@@ -1,36 +1,62 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Children, type ReactNode } from "react";
+import { useEffect, useState, Children, type ReactNode } from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 /**
- * On-load staggered entrance for the hero — plays once, above the fold, so
- * there's no visibility-gating concern. Framer Motion drives the cascade.
- *
- * `useReducedMotion()` resolves after mount and can differ from its SSR
- * default, so the DOM shape must stay identical between server and client —
- * reduced motion is applied by zeroing the animation values inside the
- * variants, never by branching to a different element tree (that was
- * causing a hydration mismatch on the hero).
+ * On-load staggered entrance for the hero — plays once, above the fold.
+ * Mount check prevents SSR hydration mismatch between server-rendered HTML
+ * and client Framer Motion animated state.
  */
-export function HeroIntro({ children }: { children: ReactNode }) {
-  const reduce = useReducedMotion();
+export function HeroIntro({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const [mounted, setMounted] = useState(false);
   const items = Children.toArray(children);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className={cn("flex max-w-3xl flex-col items-center gap-6", className)}>
+        {items.map((child, i) => (
+          <div key={i} className="w-full flex flex-col gap-6">
+            {child}
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <motion.div
-      className="flex max-w-3xl flex-col items-center gap-6"
+      className={cn("flex max-w-3xl flex-col items-center gap-6", className)}
       initial="hidden"
       animate="show"
-      variants={{ show: { transition: { staggerChildren: reduce ? 0 : 0.09, delayChildren: reduce ? 0 : 0.05 } } }}
+      variants={{
+        show: {
+          transition: { staggerChildren: 0.09, delayChildren: 0.05 },
+        },
+      }}
     >
       {items.map((child, i) => (
         <motion.div
           key={i}
-          className="flex flex-col items-center gap-6"
+          className="w-full flex flex-col gap-6"
           variants={{
-            hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : 16 },
-            show: { opacity: 1, y: 0, transition: { duration: reduce ? 0 : 0.5, ease: [0.16, 1, 0.3, 1] } },
+            hidden: { opacity: 0, y: 16 },
+            show: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+            },
           }}
         >
           {child}

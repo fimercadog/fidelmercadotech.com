@@ -21,11 +21,14 @@ export function whatsappUrl(message: string): string {
 }
 
 export const NAV_LINKS = [
-  { title: "Soluciones", href: "/soluciones" },
-  { title: "Servicios", href: "/servicios" },
-  { title: "Casos", href: "/casos" },
-  { title: "Nosotros", href: "/nosotros" },
-  { title: "Contacto", href: "/contacto" },
+  { title: "Landing", href: "/" },
+  { title: "Home", href: "/" },
+  { title: "About", href: "/nosotros" },
+  { title: "Features", href: "/soluciones" },
+  { title: "Pricing", href: "/precios" },
+  { title: "Documentation", href: "/servicios" },
+  { title: "Blog", href: "/blog" },
+  { title: "Contact", href: "/contacto" },
 ] as const;
 
 export const FOOTER_NAV = [
@@ -58,6 +61,15 @@ export const FOOTER_NAV = [
       { title: "Blog", href: "/blog" },
       { title: "Contacto", href: "/contacto" },
       { title: "Solicitar demostración", href: "/contacto?motivo=demo" },
+    ],
+  },
+  {
+    heading: "Por qué FidelOS",
+    links: [
+      { title: "Captura con IA", href: "/servicios/ia" },
+      { title: "Omnicanalidad", href: "/servicios/integraciones" },
+      { title: "Escalabilidad", href: "/soluciones" },
+      { title: "Ver Demostración", href: "/contacto?motivo=demo" },
     ],
   },
 ] as const;

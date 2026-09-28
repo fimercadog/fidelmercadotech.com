@@ -28,14 +28,25 @@ export default function PreciosPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <section className="fmt-dark fmt-gradient-band relative overflow-hidden py-24 text-foreground">
+      {/* Hero estilo Divi SaaS Pricing Page */}
+      <section className="fmt-dark fmt-gradient-band relative overflow-hidden py-20 text-foreground sm:py-28">
         <div className="fmt-aurora" aria-hidden="true" />
-        <Container className="relative">
+        <div className="fmt-grid-bg absolute inset-0 opacity-20" aria-hidden="true" />
+
+        <div className="fmt-shapes" aria-hidden="true">
+          <span className="s-ring" style={{ top: "14%", right: "8%" }} />
+          <span className="s-tri" style={{ top: "25%", left: "6%" }} />
+          <span className="s-dot" style={{ bottom: "20%", left: "10%" }} />
+          <span className="s-plus" style={{ top: "50%", right: "6%" }} />
+        </div>
+
+        <Container className="relative z-10 flex flex-col items-center text-center">
           <SectionHeading
             level={1}
             eyebrow="Planes y precios"
             title="Precios claros para empezar hoy"
             description={`Elige un punto de partida. Ajustamos el alcance a tu negocio y lo dejamos por escrito antes de arrancar. Escríbenos si tienes dudas: ${SITE.email}.`}
+            align="center"
           />
         </Container>
       </section>

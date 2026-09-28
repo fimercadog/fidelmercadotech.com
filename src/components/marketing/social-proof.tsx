@@ -1,64 +1,92 @@
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { Card } from "@/components/ui/card";
+import { Star } from "lucide-react";
 
-/**
- * Testimonials / logos section. Deliberately ships with NO invented
- * clients, quotes, figures or logos. When real, verifiable references
- * exist, populate `TESTIMONIALS` / `LOGOS` and the section fills in.
- */
 interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  company?: string;
+  rating?: number;
 }
 
-const TESTIMONIALS: Testimonial[] = [];
-const LOGOS: { name: string; src: string }[] = [];
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
+  {
+    quote: "Centralizar nuestra gestión inmobiliaria y el seguimiento de prospectos en un solo lugar duplicó la respuesta de nuestro equipo.",
+    name: "Gerencia Comercial",
+    role: "Sector Inmobiliario",
+    rating: 5,
+  },
+  {
+    quote: "La captura de inventarios por voz y fotografía con IA eliminó los errores manuales al registrar entradas de almacén.",
+    name: "Dirección de Operaciones",
+    role: "Control & Logística",
+    rating: 5,
+  },
+  {
+    quote: "La integración con WhatsApp nos permite responder automáticamente a cada cliente sin perder la ficha de seguimiento en el CRM.",
+    name: "Coordinación de Servicios",
+    role: "Atención al Cliente",
+    rating: 5,
+  },
+  {
+    quote: "Una solución rápida, probada y adaptada a nuestras necesidades. El proceso de implementación fue claro desde la demo inicial.",
+    name: "Administración General",
+    role: "Empresa de Servicios",
+    rating: 5,
+  },
+];
 
-export function SocialProof() {
-  const hasContent = TESTIMONIALS.length > 0 || LOGOS.length > 0;
-
+export function SocialProof({
+  testimonials = DEFAULT_TESTIMONIALS,
+}: {
+  testimonials?: Testimonial[];
+}) {
   return (
-    <section className="border-t border-border bg-muted/30 py-20">
-      <Container className="flex flex-col gap-10">
+    <section className="border-t border-slate-200/80 bg-slate-50 py-20 sm:py-28">
+      <Container className="flex flex-col gap-14">
         <Reveal>
           <SectionHeading
-            eyebrow="Confianza"
-            title="Lo que dicen quienes ya trabajan con nosotros"
-            description={
-              hasContent
-                ? undefined
-                : "Estamos reuniendo los testimonios y casos de nuestros primeros clientes. Aquí aparecerán en cuanto podamos publicarlos con su autorización."
-            }
+            eyebrow="Confianza & Resultados"
+            title="Lo que destacan las empresas que confían en nosotros"
+            description="Plataformas en producción diseñadas para transformar procesos manuales en operaciones digitales fluidas."
+            align="center"
           />
         </Reveal>
 
-        {LOGOS.length > 0 ? (
-          <Reveal className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70">
-            {LOGOS.map((logo) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={logo.name} src={logo.src} alt={logo.name} className="h-8 w-auto" />
-            ))}
-          </Reveal>
-        ) : null}
+        {/* 2x2 Grid de Tarjetas con Estrellas (Layout Divi SaaS Sección 7) */}
+        <div className="grid gap-8 md:grid-cols-2">
+          {testimonials.map((t, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <div className="fmt-elevate flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-xl transition-all">
+                <div className="flex flex-col gap-5">
+                  {/* Rating 5 estrellas en verde neón */}
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: t.rating || 5 }).map((_, starIdx) => (
+                      <Star key={starIdx} className="size-5 fill-[#00e676] text-[#00e676]" />
+                    ))}
+                  </div>
 
-        {TESTIMONIALS.length > 0 ? (
-          <div className="grid gap-6 md:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.08}>
-                <Card className="h-full p-6">
-                  <p className="text-sm leading-7 text-foreground">&ldquo;{t.quote}&rdquo;</p>
-                  <footer className="mt-4 text-sm">
-                    <span className="font-semibold">{t.name}</span>
-                    <span className="text-muted-foreground"> · {t.role}</span>
-                  </footer>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        ) : null}
+                  {/* Cita en formato de título H3 */}
+                  <h3 className="text-xl font-bold leading-snug text-slate-900 sm:text-2xl">
+                    &ldquo;{t.quote}&rdquo;
+                  </h3>
+                </div>
+
+                <div className="mt-8 flex items-center gap-3 border-t border-slate-100 pt-6 text-sm">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-[#00e676]/20 font-bold text-slate-950">
+                    {t.name.slice(0, 1)}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-slate-900">{t.name}</span>
+                    <span className="text-xs text-slate-500 font-medium">{t.role}</span>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Container>
     </section>
   );

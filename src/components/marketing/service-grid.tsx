@@ -12,43 +12,34 @@ export interface ServiceGridItem {
   href: string;
 }
 
-/**
- * Grid of cards cycling through 2 dark tones (Divi "IT Services" alternating
- * rhythm), all with the same restrained treatment: dark surface, green icon
- * badge and link. A full solid-green card ("brand" variant) was tried and
- * rejected — too loud at this scale — so green stays confined to accents.
- */
-const VARIANT_CYCLE = ["outline", "dark"] as const;
-type Variant = (typeof VARIANT_CYCLE)[number];
-
-const VARIANT_CLASSES: Record<Variant, string> = {
-  outline: "border border-border bg-card [&_.sg-icon]:bg-primary [&_.sg-icon]:text-white [&_.sg-link]:text-primary",
-  dark: "bg-navy-deep border border-border/60 [&_.sg-icon]:bg-primary [&_.sg-icon]:text-white [&_.sg-link]:text-primary",
-};
-
 export function ServiceGrid({ items, className }: { items: ServiceGridItem[]; className?: string }) {
   return (
-    <div className={cn("grid gap-5 sm:grid-cols-2 lg:grid-cols-3", className)}>
+    <div className={cn("grid gap-8 sm:grid-cols-2 lg:grid-cols-3", className)}>
       {items.map((item, i) => {
-        const variant = VARIANT_CYCLE[i % VARIANT_CYCLE.length];
         return (
-          <Reveal key={item.id} delay={i * 0.04}>
+          <Reveal key={item.id} delay={i * 0.05}>
             <Link
               href={item.href}
-              className={cn(
-                "fmt-elevate group flex h-full flex-col gap-3 rounded-3xl p-6",
-                VARIANT_CLASSES[variant],
-              )}
+              className="fmt-elevate group flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:border-primary/50"
             >
-              <span className="sg-icon flex size-11 items-center justify-center rounded-2xl transition-transform duration-300 ease-in-out group-hover:scale-110">
-                <Icon name={item.icon} className="size-5" />
-              </span>
-              <h3 className="mt-1 text-base font-bold">{item.title}</h3>
-              <p className="text-sm leading-6 opacity-80">{item.description}</p>
-              <span className="sg-link mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold">
-                Ver más
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                  <Icon name={item.icon} className="size-6" />
+                </span>
+                <span className="text-[0.7rem] font-bold uppercase tracking-wider text-muted-foreground">
+                  Servicio
+                </span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                <p className="text-sm leading-6 text-muted-foreground">{item.description}</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/60">
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:underline">
+                  Ver detalle de servicio
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
             </Link>
           </Reveal>
         );

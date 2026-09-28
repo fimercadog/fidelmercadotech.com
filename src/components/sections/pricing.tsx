@@ -9,71 +9,73 @@ import { PLANS } from "@/content/pricing";
 
 export function Pricing() {
   return (
-    <section id="precios" className="scroll-mt-24 bg-secondary/60 py-24">
-      <Container className="flex flex-col gap-14">
+    <section id="precios" className="scroll-mt-24 bg-background py-20 sm:py-28">
+      <Container className="flex flex-col gap-16">
         <Reveal>
           <SectionHeading
             eyebrow="Planes"
             title="Precios de referencia"
             description="Puntos de partida claros. El alcance final se acuerda por escrito según tu negocio."
+            align="center"
           />
         </Reveal>
-        <div className="grid items-center gap-6 lg:grid-cols-4">
+        <div className="grid items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {PLANS.map((plan, i) => {
             const featured = !!plan.featured;
             return (
-              <Reveal key={plan.name} delay={i * 0.05} className={cn("h-full", featured && "lg:-my-4")}>
+              <Reveal key={plan.name} delay={i * 0.05} className="h-full">
                 <div
                   className={cn(
-                    "relative flex h-full flex-col gap-5 rounded-3xl p-7",
+                    "fmt-elevate relative flex h-full flex-col justify-between rounded-3xl p-8 transition-all",
                     featured
-                      ? "fmt-dark fmt-gradient-band text-foreground shadow-2xl shadow-primary/40 lg:p-8"
-                      : "border border-border bg-card text-card-foreground shadow-[0_16px_48px_-24px_rgba(124,58,237,0.28)]",
+                      ? "border-2 border-primary bg-card shadow-xl shadow-primary/20"
+                      : "border border-border bg-card shadow-sm hover:border-primary/50",
                   )}
                 >
                   {featured ? (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-white px-4 py-1 text-[0.7rem] font-bold tracking-wide text-primary-foreground uppercase shadow-lg">
+                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-[0.7rem] font-bold tracking-wider text-primary-foreground uppercase shadow-md">
                       Más elegido
                     </span>
                   ) : null}
 
-                  <h3 className="font-heading text-lg font-bold">{plan.name}</h3>
+                  <div className="flex flex-col gap-5">
+                    <h3 className="font-heading text-xl font-bold text-foreground">{plan.name}</h3>
 
-                  <div className="flex flex-col gap-1">
-                    <span
-                      className={cn(
-                        "font-heading text-3xl font-bold leading-none",
-                        !featured && "fmt-gradient-text",
-                      )}
-                    >
-                      {plan.price}
-                    </span>
-                    <span className={cn("text-xs", featured ? "text-muted-foreground" : "text-muted-foreground")}>
-                      {plan.priceNote}
-                    </span>
+                    <div className="flex flex-col gap-1">
+                      <span className="font-heading text-3xl font-extrabold text-primary">
+                        {plan.price}
+                      </span>
+                      <span className="text-xs text-muted-foreground font-medium">
+                        {plan.priceNote}
+                      </span>
+                    </div>
+
+                    <div className="rounded-full bg-secondary/80 px-3 py-1.5 text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Entrega: {plan.delivery}
+                    </div>
+
+                    <ul className="flex flex-col gap-3 pt-2 text-sm">
+                      {plan.includes.map((item) => (
+                        <li key={item} className="flex items-start gap-2.5 text-foreground/90">
+                          <Check className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                          <span className="text-xs leading-5 font-medium">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <p className="text-xs font-semibold uppercase text-muted-foreground">
-                    Entrega: {plan.delivery}
-                  </p>
-
-                  <ul className="flex flex-1 flex-col gap-2.5 text-sm">
-                    {plan.includes.map((item) => (
-                      <li key={item} className="flex gap-2.5">
-                        <Check
-                          className={cn("mt-0.5 size-4 shrink-0", featured ? "text-white" : "text-primary")}
-                          aria-hidden="true"
-                        />
-                        <span className={featured ? "text-foreground/90" : "text-muted-foreground"}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button asChild variant={featured ? "default" : "outline"} size="lg" className="w-full">
-                    <Link href={`/contacto?motivo=${plan.cta.motivo}&interes=${encodeURIComponent(plan.name)}`}>
-                      {plan.cta.label}
-                    </Link>
-                  </Button>
+                  <div className="mt-8 pt-6 border-t border-border/60">
+                    <Button
+                      asChild
+                      variant={featured ? "default" : "outline"}
+                      size="lg"
+                      className="w-full rounded-full font-bold shadow-md"
+                    >
+                      <Link href={`/contacto?motivo=${plan.cta.motivo}&interes=${encodeURIComponent(plan.name)}`}>
+                        {plan.cta.label}
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </Reveal>
             );

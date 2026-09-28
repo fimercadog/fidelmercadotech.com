@@ -63,34 +63,34 @@
 }
 
 :root {
-  --brand: #39ff14;
-  --brand-hover: #2fe20f;
-  --brand-cyan: #39ff14;
-  --brand-pink: #39ff14;
-  --navy: #1c1f1e;
-  --navy-deep: #000000;
+  --brand: #00e676;
+  --brand-hover: #00c853;
+  --brand-cyan: #00e676;
+  --brand-pink: #d2f800;
+  --navy: #0f172a;
+  --navy-deep: #020617;
 
-  --background: #080a09;
-  --foreground: #ffffff;
-  --card: #252827;
-  --card-foreground: #ffffff;
-  --popover: #252827;
-  --popover-foreground: #ffffff;
-  --primary: #39ff14;
-  --primary-foreground: #080a09;
-  --secondary: #252827;
-  --secondary-foreground: #ffffff;
-  --muted: #1c1f1e;
-  --muted-foreground: #bfc5c2;
-  --accent: color-mix(in oklch, #39ff14 16%, #252827);
-  --accent-foreground: #39ff14;
-  --destructive: oklch(0.7 0.19 22);
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #00e676;
+  --primary-foreground: #0f172a;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #d2f800;
+  --accent-foreground: #0f172a;
+  --destructive: oklch(0.6 0.22 22);
   --destructive-foreground: #ffffff;
-  --border: color-mix(in oklch, #ffffff 12%, transparent);
-  --input: color-mix(in oklch, #ffffff 14%, transparent);
-  --ring: #39ff14;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #00e676;
 
-  --radius: 16px;
+  --radius: 20px;
 }
 
 /*
@@ -128,27 +128,27 @@
 /* --- Brand utilities ---------------------------------------------------- */
 
 .fmt-gradient {
-  background-image: linear-gradient(120deg, #24c40c 0%, #39ff14 100%);
+  background-image: linear-gradient(120deg, #00e676 0%, #d2f800 100%);
 }
 
-/* Full-bleed background for hero / CTA bands — solid near-black with a faint green glow. */
+/* Full-bleed background for hero / CTA bands — clean white with faint radial aura. */
 .fmt-gradient-band {
   background-image:
-    radial-gradient(ellipse 70% 60% at 100% 0%, rgba(57, 255, 20, 0.1), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(57, 255, 20, 0.06), transparent 60%);
-  background-color: var(--background);
+    radial-gradient(ellipse 70% 60% at 100% 0%, rgba(210, 248, 0, 0.25), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(0, 230, 118, 0.12), transparent 65%);
+  background-color: #ffffff;
 }
 
 .fmt-gradient-text {
-  color: var(--primary);
+  color: #0f172a;
 }
 
 .fmt-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--brand);
+  color: #64748b;
 }
 
 /* Eyebrow as a rounded pill. */
@@ -156,17 +156,18 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: 9999px;
-  background: color-mix(in oklch, var(--brand) 14%, transparent);
-  color: var(--brand);
+  background: #f1f5f9;
+  color: #0f172a;
   font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  border: 1px solid #e2e8f0;
 }
 
-/* Soft neon-green glow blobs behind hero / CTA sections. */
+/* Soft lime-green glow blobs behind hero / CTA sections. */
 .fmt-aurora {
   position: absolute;
   inset: 0;
@@ -177,24 +178,24 @@
 .fmt-aurora::after {
   content: "";
   position: absolute;
-  width: 42rem;
-  height: 42rem;
+  width: 48rem;
+  height: 48rem;
   border-radius: 9999px;
-  filter: blur(100px);
-  opacity: 0.16;
-  background: radial-gradient(circle, rgba(57, 255, 20, 0.9), transparent 70%);
+  filter: blur(120px);
+  opacity: 0.35;
+  background: radial-gradient(circle, rgba(210, 248, 0, 0.8), transparent 70%);
 }
 .fmt-aurora::before {
-  top: -16rem;
-  right: -10rem;
+  top: -12rem;
+  right: -8rem;
 }
 .fmt-aurora::after {
-  bottom: -18rem;
-  left: -12rem;
-  opacity: 0.1;
+  bottom: -16rem;
+  left: -10rem;
+  opacity: 0.2;
 }
 
-/* Floating decorative shapes — monochrome (white / green) on the dark theme. */
+/* Floating decorative shapes — official SaaS layout shapes. */
 .fmt-shapes {
   position: absolute;
   inset: 0;
@@ -204,33 +205,33 @@
 .fmt-shapes > span {
   position: absolute;
   display: block;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 .fmt-shapes .s-ring {
   width: 7rem;
   height: 7rem;
   border-radius: 9999px;
-  border: 10px solid color-mix(in oklch, #ffffff 25%, transparent);
+  border: 10px solid rgba(210, 248, 0, 0.4);
 }
 .fmt-shapes .s-dot {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 9999px;
-  background: var(--brand);
+  background: #00e676;
 }
 .fmt-shapes .s-plus {
   width: 2rem;
   height: 2rem;
   background:
-    linear-gradient(var(--brand), var(--brand)) center/100% 30% no-repeat,
-    linear-gradient(var(--brand), var(--brand)) center/30% 100% no-repeat;
+    linear-gradient(#00e676, #00e676) center/100% 30% no-repeat,
+    linear-gradient(#00e676, #00e676) center/30% 100% no-repeat;
 }
 .fmt-shapes .s-tri {
   width: 0;
   height: 0;
   border-left: 1.4rem solid transparent;
   border-right: 1.4rem solid transparent;
-  border-bottom: 2.4rem solid color-mix(in oklch, #ffffff 40%, transparent);
+  border-bottom: 2.4rem solid rgba(15, 23, 42, 0.15);
 }
 @media (prefers-reduced-motion: no-preference) {
   .fmt-shapes > span {
@@ -245,8 +246,7 @@
   50% { transform: translateY(-14px) rotate(6deg); }
 }
 
-/* Slow orbit for the EllipseBanner icon ring: the ring rotates, each icon
-   counter-rotates the same amount so it stays upright while it orbits. */
+/* Slow orbit for icon rings */
 @keyframes fmt-orbit {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -258,33 +258,30 @@
   animation: fmt-orbit 32s linear infinite reverse;
 }
 
-/* Faint tech grid, used sparingly behind dark bands. */
+/* Light tech grid */
 .fmt-grid-bg {
   background-image:
-    linear-gradient(color-mix(in oklch, #ffffff 6%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklch, #ffffff 6%, transparent) 1px, transparent 1px);
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 .fmt-card-shadow {
-  box-shadow: 0 0 40px -8px rgba(57, 255, 20, 0.22), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
 }
 
-/*
- * Material-style elevation for card surfaces: a resting shadow (dp1) that
- * grows and lifts on hover/focus (dp4-ish), on the standard Material easing
- * curve. Replaces plain `hover:-translate-y-1` on every card so the whole
- * site shares one consistent, "premium" motion language.
- */
+/* Premium Card Elevation */
 .fmt-elevate {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 1px 4px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+  border-color: #e2e8f0;
 }
 .fmt-elevate:hover,
 .fmt-elevate:focus-visible {
   transform: translateY(-5px);
-  box-shadow: 0 16px 32px -12px rgba(57, 255, 20, 0.22), 0 8px 20px -6px rgba(0, 0, 0, 0.65);
-  border-color: color-mix(in oklch, var(--primary) 35%, var(--border));
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 0 20px -5px rgba(0, 230, 118, 0.3);
+  border-color: #00e676;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -296,4 +293,103 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==========================================================================
+ * Divi "SaaS Product" layout pack — recreación (medidas tomadas del demo a
+ * 1440px: fila 80% / máx 1080px, sección 54px, fila 27px, Poppins).
+ * ========================================================================== */
+
+.saas {
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+.saas h1, .saas h2, .saas h3, .saas h4, .saas h5, .saas h6 {
+  color: #333;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+.saas-section { padding-block: 54px; position: relative; }
+.saas-row { width: 80%; max-width: 1080px; margin-inline: auto; padding-block: 27px; position: relative; }
+
+.saas-h1 { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.2; }
+.saas-h1-xl { font-size: clamp(3.5rem, 8.3vw, 7.5rem); line-height: 1.1; }
+.saas-h2 { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.2; }
+.saas-h2-lg { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.2; }
+.saas-h2-xxl { font-size: clamp(5.5rem, 10vw, 9rem); line-height: 1.2; }
+.saas-h3 { font-size: clamp(1.625rem, 2.5vw, 2.25rem); line-height: 1.4; font-weight: 700 !important; }
+.saas-h4 { font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.4; font-weight: 500 !important; }
+.saas-h5 { font-size: clamp(1.125rem, 1.6vw, 1.375rem); line-height: 1.4; font-weight: 500 !important; }
+.saas-eyebrow { font-size: 14px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #787f84; line-height: 1.5; }
+.saas-small { font-size: 14px; line-height: 1.6; }
+
+/* Pill buttons (16px 24px, radio 100px, 14px/600) */
+.saas-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em;
+  border-radius: 100px; padding: 16px 24px; font-size: 14px; font-weight: 600;
+  line-height: 1.7; letter-spacing: -0.01em; white-space: nowrap;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.saas-btn:hover { transform: translateY(-2px); }
+.saas-btn-green { color: #000; background-image: linear-gradient(140deg, #4de961 20%, #02e173 80%); }
+.saas-btn-green:hover { box-shadow: 0 12px 30px -10px rgba(2, 225, 115, .7); }
+.saas-btn-black { color: #fff; background: #000; }
+.saas-btn-white { color: #000; background: #fff; }
+.saas-btn-soft { color: #000; background: #f5f6f7; }
+.saas-btn-outline { color: #000; background: transparent; border: 2px solid #000; padding: 14px 22px; }
+.saas-btn-outline:hover { background: #000; color: #fff; }
+
+/* Gradients del pack */
+.saas-grad-green { background-image: linear-gradient(140deg, #9df14b 20%, #02e173 100%); }
+.saas-grad-green-soft { background-image: linear-gradient(140deg, rgba(157, 241, 75, .7) 20%, #02e173 100%); }
+.saas-grad-orange { background-image: linear-gradient(225deg, #f8c701 0%, #fe7e8e 100%); }
+.saas-grad-orange-soft { background-image: linear-gradient(225deg, #f8c701 0%, rgba(254, 126, 142, .7) 100%); }
+.saas-grad-lilac { background-image: linear-gradient(130deg, #c7abff 1%, rgba(40, 139, 255, .7) 100%); }
+.saas-grad-peach { background-image: linear-gradient(240deg, #f8cbad 20%, #bdb7ea 75%); }
+.saas-shadow-green { box-shadow: 0 60px 80px 0 rgba(0, 135, 28, .2); }
+.saas-shadow-orange { box-shadow: 0 60px 80px 0 rgba(254, 139, 119, .3); }
+.saas-shadow-soft { box-shadow: 0 100px 100px 0 rgba(194, 194, 200, .4); }
+.saas-shadow-toggle { box-shadow: 0 20px 100px 0 rgba(194, 194, 200, .4); }
+
+/* Texturas con grano */
+.saas-tex-green-yellow {
+  background-color: #4de961;
+  background-image: linear-gradient(190deg, #e9e34d 20%, #4de961 71%, rgba(77, 233, 97, .3) 100%), url("/assets/saas-product/saas-16.png");
+  background-size: cover;
+}
+.saas-tex-green-band {
+  background-color: #4de961;
+  background-image: linear-gradient(375deg, #e9e34d 5%, rgba(77, 233, 97, .9) 29%, rgba(77, 233, 97, 0) 75%), url("/assets/saas-product/saas-18t.png");
+  background-size: cover;
+}
+.saas-tex-sun {
+  background-color: #4de961;
+  background-image: linear-gradient(#eac54b 10%, rgba(186, 253, 153, .4) 60%, rgba(186, 253, 153, 0) 100%), url("/assets/saas-product/saas-17t.png");
+  background-size: cover;
+  background-position: center;
+}
+.saas-dots { background-image: url("/assets/saas-product/saas-19.png"); background-size: 400px; }
+
+/* Widgets oscuros */
+.saas-widget {
+  background: linear-gradient(160deg, #3a3a3a 0%, #111 55%, #000 100%);
+  color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 40px 60px -20px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+/* Acordeón (details/summary) */
+.saas-toggle summary { list-style: none; cursor: pointer; }
+.saas-toggle summary::-webkit-details-marker { display: none; }
+.saas-toggle[open] .saas-toggle-icon { transform: rotate(45deg); opacity: 0; }
+
+/* Dispositivos */
+.saas-screen {
+  background: #050505;
+  background-image: radial-gradient(120% 80% at 80% 0%, rgba(255, 255, 255, .08), transparent 60%);
 }

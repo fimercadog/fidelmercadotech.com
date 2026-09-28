@@ -24,13 +24,13 @@ export function SectionHeading({
       <Heading
         className={cn(
           level === 1 ? "text-4xl sm:text-5xl lg:text-6xl" : "text-3xl sm:text-4xl lg:text-[2.75rem]",
-          "leading-[1.1] font-bold",
+          "leading-[1.1] font-bold text-slate-900 tracking-tight",
         )}
       >
         {title}
       </Heading>
       {description ? (
-        <p className={cn("max-w-2xl text-base leading-7 text-muted-foreground", align === "center" && "mx-auto")}>
+        <p className={cn("max-w-2xl text-base leading-relaxed text-slate-600 font-medium", align === "center" && "mx-auto")}>
           {description}
         </p>
       ) : null}

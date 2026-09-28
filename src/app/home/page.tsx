@@ -16,22 +16,27 @@ import { GetOnTrackCta } from "@/components/sections/get-on-track-cta";
 import { ProcessFunnel } from "@/components/sections/process-funnel";
 import { CASES } from "@/content/cases";
 
-export default function HomePage() {
+export const metadata = {
+  title: "Home",
+  description: "Página principal de Fidel Mercado Tech — Software, IA y automatización para empresas.",
+};
+
+export default function HomeLayoutPage() {
   return (
     <>
-      {/* Sección 0: Hero Split (Headline + CTAs a la izquierda, Mockup en perspectiva a la derecha) */}
+      {/* Hero Split con Arch y Mockup */}
       <Hero />
 
-      {/* Sección 1: Tarjetas de Capacidad (3 columnas con bordes e íconos) */}
+      {/* Capabilidades en 3 Columnas */}
       <CapabilityStrip />
 
-      {/* Sección 2: Marco de Demostración Interactivas / Video Box Centrado */}
+      {/* Demo Showcase Video / Canvas */}
       <DemoShowcase />
 
-      {/* Sección 3: Recorrido Rápido (Encabezado + Disposición asimétrica 2/3 y 1/3 con cifra 10x) */}
+      {/* Quick Tour con Métrica 10x */}
       <QuickTour />
 
-      {/* Sección 4: Fila Destacada en Banda con Fondo ("Todo Conectado") */}
+      {/* Fila Ilustrada 1 */}
       <IllustratedRow
         illustration="collaboration"
         eyebrow="Todo conectado"
@@ -43,10 +48,10 @@ export default function HomePage() {
         tinted
       />
 
-      {/* Sección 5: Soluciones & Características de Producto (2 columnas detalladas + 3 blurbs de íconos) */}
+      {/* Product Features Grid */}
       <ProductFeatures />
 
-      {/* Sección 6: Demostración de Datos e Inventario con IA */}
+      {/* Fila Ilustrada 2 */}
       <IllustratedRow
         illustration="productivity"
         eyebrow="Inventario con IA"
@@ -58,14 +63,14 @@ export default function HomePage() {
         reverse
       />
 
-      {/* Sección 7: Cuadrícula 2x2 de Testimonios y Confianza con Calificación de 5 Estrellas */}
+      {/* Testimonios & Prueba Social */}
       <SocialProof />
 
-      {/* Sección 8: Banda de Llamado a la Acción "Da el Siguiente Paso" (Pre-Footer Split Showcase) */}
+      {/* Banner Pre-Footer Get On Track */}
       <GetOnTrackCta />
 
-      {/* Casos Reales y Proyectos */}
-      <section className="border-t border-border py-24">
+      {/* Casos Reales */}
+      <section className="border-t border-border py-24 bg-background">
         <Container className="flex flex-col gap-12">
           <Reveal>
             <SectionHeading
@@ -105,7 +110,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Proceso y Metodología de Trabajo */}
+      {/* Proceso y Metodología */}
       <ProcessFunnel />
     </>
   );

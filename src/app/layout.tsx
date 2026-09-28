@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${inter.variable} ${poppins.variable} overflow-x-hidden`}>
-      <body className="flex min-h-svh flex-col overflow-x-hidden antialiased">
+      <body className="flex min-h-svh flex-col overflow-x-hidden antialiased" suppressHydrationWarning>
         <SiteHeader />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>

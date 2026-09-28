@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
+import { Menu, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "@/components/marketing/logo";
-import { NAV_LINKS, whatsappUrl } from "@/content/site";
+import { NAV_LINKS } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 function isActive(pathname: string, href: string) {
@@ -20,66 +20,62 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-sm shadow-xs">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Izquierda: Logo estilo SaaS Product Home / Fidel Mercado Tech */}
         <Logo />
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map((link) => {
-            const active = isActive(pathname, link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "group relative py-1 text-sm font-semibold transition-colors hover:text-foreground",
-                  active ? "text-foreground" : "text-muted-foreground",
-                )}
-              >
-                {link.title}
-                <span
+        {/* Derecha: Menú exacto de las 8 páginas del pack + Ícono de Carrito final estilo Elegant Themes */}
+        <div className="hidden items-center gap-7 lg:flex">
+          <nav className="flex items-center gap-6 xl:gap-7">
+            {NAV_LINKS.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.title + link.href}
+                  href={link.href}
                   className={cn(
-                    "absolute -bottom-1 left-0 h-0.5 rounded-full bg-primary transition-all duration-300 ease-in-out",
-                    active ? "w-full" : "w-0 group-hover:w-full",
+                    "text-[14px] font-semibold transition-colors hover:text-slate-950 tracking-tight",
+                    active ? "text-slate-950 font-bold" : "text-slate-600",
                   )}
-                  aria-hidden="true"
-                />
-              </Link>
-            );
-          })}
-        </nav>
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
+          </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex">
-          <Button asChild variant="ghost" size="sm">
-            <Link href={whatsappUrl("Hola, quiero información sobre sus soluciones.")} target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </Link>
-          </Button>
-          <Button asChild size="sm">
-            <Link href="/contacto?motivo=demo">Solicitar demostración</Link>
-          </Button>
+          {/* Ícono de carrito idéntico al layout de referencia */}
+          <Link
+            href="/contacto?motivo=demo"
+            className="flex items-center justify-center text-slate-800 transition-colors hover:text-[#00c853] p-1.5 rounded-full hover:bg-slate-50"
+            aria-label="Carrito / Ver demostración"
+          >
+            <ShoppingCart className="size-5 text-slate-800 hover:text-[#00c853]" />
+          </Link>
         </div>
 
+        {/* Menú Mobile para pantallas pequeñas */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Abrir menú">
-              <Menu className="size-5" />
+              <Menu className="size-6 text-slate-900" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="flex w-full flex-col gap-0 sm:max-w-xs">
-            <SheetHeader>
+          <SheetContent side="right" className="flex w-full flex-col gap-0 sm:max-w-xs bg-white text-slate-900">
+            <SheetHeader className="p-4 border-b border-slate-100">
               <SheetTitle asChild>
                 <Logo />
               </SheetTitle>
             </SheetHeader>
-            <nav className="flex flex-col gap-1 px-4">
+            <nav className="flex flex-col gap-1 p-4">
               {NAV_LINKS.map((link) => (
-                <SheetClose asChild key={link.href}>
+                <SheetClose asChild key={link.title + link.href}>
                   <Link
                     href={link.href}
                     className={cn(
-                      "rounded-md px-3 py-2.5 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground",
-                      isActive(pathname, link.href) ? "bg-accent text-accent-foreground" : "text-foreground",
+                      "rounded-lg px-3 py-2.5 text-base font-semibold transition-colors hover:bg-slate-100 hover:text-slate-900",
+                      isActive(pathname, link.href) ? "bg-slate-100 text-slate-900 font-bold" : "text-slate-600",
                     )}
                   >
                     {link.title}
@@ -87,17 +83,10 @@ export function SiteHeader() {
                 </SheetClose>
               ))}
             </nav>
-            <div className="mt-auto flex flex-col gap-2 border-t border-border p-4">
+            <div className="mt-auto border-t border-slate-100 p-4">
               <SheetClose asChild>
-                <Button asChild>
+                <Button asChild className="w-full rounded-full bg-[#00e676] font-bold text-slate-950 hover:bg-[#00c853]">
                   <Link href="/contacto?motivo=demo">Solicitar demostración</Link>
-                </Button>
-              </SheetClose>
-              <SheetClose asChild>
-                <Button asChild variant="outline">
-                  <Link href={whatsappUrl("Hola, quiero información sobre sus soluciones.")} target="_blank" rel="noopener noreferrer">
-                    Hablar por WhatsApp
-                  </Link>
                 </Button>
               </SheetClose>
             </div>
