@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/marketing/container";
 
 export interface PillBarLink {
@@ -9,21 +8,24 @@ export interface PillBarLink {
   external?: boolean;
 }
 
-/**
- * Full-bleed button bar under every hero — the Divi "IT Services" pattern,
- * but on a dark strip (not a solid-green fill: tried that, looked bad at
- * this scale). Green stays confined to the primary button.
- */
 export function PillBar({ links }: { links: PillBarLink[] }) {
   return (
-    <div className="border-y border-border/60 bg-card py-5">
+    <div className="border-y border-[rgba(0,0,0,0.07)] bg-white py-4">
       <Container className="flex flex-wrap items-center justify-center gap-3">
         {links.map((link) => (
-          <Button key={link.label} asChild size="lg" variant={link.variant ?? "outline"}>
-            <Link href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined}>
-              {link.label}
-            </Link>
-          </Button>
+          <Link
+            key={link.label}
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noopener noreferrer" : undefined}
+            className={
+              link.variant === "default"
+                ? "saas-btn saas-btn-green text-[13px] px-5 py-2.5"
+                : "saas-btn saas-btn-outline text-[13px] px-5 py-2.5"
+            }
+          >
+            {link.label}
+          </Link>
         ))}
       </Container>
     </div>

@@ -7,7 +7,7 @@ const FEATURES = [
   { icon: "Gauge", title: "Rápido", detail: "Tecnología moderna (Next.js, Laravel) y entregas por fases: ves avances funcionando pronto." },
   { icon: "ShieldCheck", title: "Con control", detail: "Roles, permisos y auditoría campo a campo desde el primer día." },
   { icon: "Layers", title: "Base probada", detail: "Partimos de módulos ya en producción, no de una hoja en blanco." },
-  { icon: "Plug", title: "Conectado", detail: "Se integra con tu CRM, WhatsApp, pasarelas y hojas de cálculo." },
+  { icon: "Plug", title: "Conectado", detail: "Se integra con tu ERP, WhatsApp, pasarelas y hojas de cálculo." },
   { icon: "BrainCircuit", title: "Con IA donde ayuda", detail: "Asistentes y captura por voz/imagen, siempre con revisión humana." },
   { icon: "LineChart", title: "Medible", detail: "Reportes y métricas para saber si de verdad está funcionando." },
 ];

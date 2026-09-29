@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ShoppingCart } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "@/components/marketing/logo";
@@ -25,9 +25,9 @@ export function SiteHeader() {
         {/* Izquierda: Logo estilo SaaS Product Home / Fidel Mercado Tech */}
         <Logo />
 
-        {/* Derecha: Menú exacto de las 8 páginas del pack + Ícono de Carrito final estilo Elegant Themes */}
-        <div className="hidden items-center gap-7 lg:flex">
-          <nav className="flex items-center gap-6 xl:gap-7">
+        {/* Derecha: nav + CTA pill + carrito — estructura exacta del SaaS Product Pack */}
+        <div className="hidden items-center gap-6 lg:flex">
+          <nav className="flex items-center gap-5 xl:gap-6">
             {NAV_LINKS.map((link) => {
               const active = isActive(pathname, link.href);
               return (
@@ -35,8 +35,8 @@ export function SiteHeader() {
                   key={link.title + link.href}
                   href={link.href}
                   className={cn(
-                    "text-[14px] font-semibold transition-colors hover:text-slate-950 tracking-tight",
-                    active ? "text-slate-950 font-bold" : "text-slate-600",
+                    "text-[14px] font-medium transition-colors",
+                    active ? "text-[#333] font-semibold" : "text-[#787f84] hover:text-[#333]",
                   )}
                 >
                   {link.title}
@@ -45,14 +45,17 @@ export function SiteHeader() {
             })}
           </nav>
 
-          {/* Ícono de carrito idéntico al layout de referencia */}
+          {/* Separador visual */}
+          <span className="h-5 w-px bg-slate-200" aria-hidden="true" />
+
+          {/* Botón CTA pill verde */}
           <Link
-            href="/contacto?motivo=demo"
-            className="flex items-center justify-center text-slate-800 transition-colors hover:text-[#00c853] p-1.5 rounded-full hover:bg-slate-50"
-            aria-label="Carrito / Ver demostración"
+            href="/contacto"
+            className="saas-btn saas-btn-green text-[13px] px-5 py-2.5"
           >
-            <ShoppingCart className="size-5 text-slate-800 hover:text-[#00c853]" />
+            Solicitar demo
           </Link>
+
         </div>
 
         {/* Menú Mobile para pantallas pequeñas */}

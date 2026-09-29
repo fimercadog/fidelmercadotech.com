@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
-import { Button } from "@/components/ui/button";
 import { SOLUTIONS } from "@/content/solutions";
 import { SolutionCard } from "@/components/marketing/solution-card";
 
@@ -30,7 +29,7 @@ export function ProductFeatures() {
   const topSolutions = SOLUTIONS.slice(0, 6);
 
   return (
-    <section id="soluciones" className="border-t border-slate-200/80 py-20 sm:py-28 bg-white">
+    <section id="soluciones" className="saas saas-section bg-white">
       <Container className="flex flex-col gap-16">
         {/* Section Header */}
         <Reveal>
@@ -48,7 +47,7 @@ export function ProductFeatures() {
             const assetImg = i === 0 ? "/assets/saas-product/saas-13.png" : "/assets/saas-product/saas-14.png";
             return (
               <Reveal key={sol.slug} delay={i * 0.1}>
-                <div className="fmt-elevate group flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-xl hover:border-[#00e676]">
+                <div className="saas-shadow-soft group flex h-full flex-col justify-between rounded-[24px] bg-white p-8 transition-transform duration-300 hover:-translate-y-1">
                   <div className="flex flex-col gap-5">
                     <div className="relative aspect-video w-full max-w-sm mx-auto overflow-hidden">
                       <Image
@@ -60,36 +59,34 @@ export function ProductFeatures() {
                     </div>
 
                     <div className="flex items-center justify-between gap-4">
-                      <span className="rounded-full bg-slate-100 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-slate-700">
+                      <span className="rounded-full bg-[#4de961]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#333]">
                         {sol.category}
                       </span>
                       <Link
                         href={`/soluciones/${sol.slug}`}
-                        className="inline-flex size-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition-colors group-hover:bg-[#00e676] group-hover:text-slate-950"
+                        className="inline-flex size-9 items-center justify-center rounded-full bg-[#f5f5f5] text-[#555] transition-colors group-hover:bg-[#4de961] group-hover:text-black"
                       >
                         <ArrowUpRight className="size-4" />
                       </Link>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-slate-900">{sol.name}</h3>
-                    <p className="text-sm leading-relaxed text-slate-600">{sol.summary}</p>
+                    <h3 className="saas-h4 text-[#333]">{sol.name}</h3>
+                    <p className="text-[14px] leading-6 text-[#666]">{sol.summary}</p>
 
                     <ul className="flex flex-col gap-2.5 pt-2">
                       {sol.highlights.map((h) => (
-                        <li key={h} className="flex items-center gap-2.5 text-xs font-semibold text-slate-800">
-                          <span className="size-2 rounded-full bg-[#00e676]" />
+                        <li key={h} className="flex items-center gap-2.5 text-[13px] font-semibold text-[#333]">
+                          <span className="size-2 rounded-full bg-[#4de961]" />
                           <span>{h}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="mt-8 border-t border-slate-100 pt-6">
-                    <Button asChild variant="outline" className="w-full rounded-full border-slate-300 font-bold text-slate-900 hover:border-slate-400 hover:bg-slate-50">
-                      <Link href={`/soluciones/${sol.slug}`}>
-                        Ver detalle de {sol.name} <ArrowRight className="ml-1 size-4" />
-                      </Link>
-                    </Button>
+                  <div className="mt-8 border-t border-[rgba(0,0,0,0.07)] pt-6">
+                    <Link href={`/soluciones/${sol.slug}`} className="saas-btn saas-btn-outline w-full justify-center">
+                      Ver detalle de {sol.name} <ArrowRight className="ml-1 size-4" />
+                    </Link>
                   </div>
                 </div>
               </Reveal>
@@ -107,16 +104,16 @@ export function ProductFeatures() {
         </div>
 
         <Reveal className="flex justify-center">
-          <Button asChild size="lg" variant="outline" className="rounded-full border-slate-300 px-8 font-bold text-slate-900 hover:bg-slate-50">
-            <Link href="/soluciones">Ver todas las soluciones</Link>
-          </Button>
+          <Link href="/soluciones" className="saas-btn saas-btn-black px-8">
+            Ver todas las soluciones
+          </Link>
         </Reveal>
 
-        {/* 3-Column Icon Blurbs (Social, Secure, Connected con assets de íconos oficiales) */}
-        <div className="mt-8 grid gap-8 border-t border-slate-200 pt-16 sm:grid-cols-3">
+        {/* 3-Column Icon Blurbs */}
+        <div className="mt-8 grid gap-8 border-t border-[rgba(0,0,0,0.07)] pt-16 sm:grid-cols-3">
           {ICON_BLURBS.map((blurb, i) => (
             <Reveal key={blurb.title} delay={i * 0.08} className="flex flex-col gap-4 text-center sm:text-left">
-              <span className="flex size-14 items-center justify-center rounded-2xl bg-slate-100 p-3 sm:mx-0 mx-auto">
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-[#4de961]/10 p-3 sm:mx-0 mx-auto">
                 <Image
                   src={blurb.icon}
                   alt={blurb.title}
@@ -126,8 +123,8 @@ export function ProductFeatures() {
                 />
               </span>
               <div className="flex flex-col gap-2">
-                <h4 className="text-lg font-bold text-slate-900">{blurb.title}</h4>
-                <p className="text-sm leading-relaxed text-slate-600">{blurb.description}</p>
+                <h4 className="saas-h5 text-[#333]">{blurb.title}</h4>
+                <p className="saas-small">{blurb.description}</p>
               </div>
             </Reveal>
           ))}

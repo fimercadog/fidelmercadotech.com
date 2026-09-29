@@ -1,22 +1,8 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Icon } from "@/components/icon";
+import Image from "next/image";
+import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 
-const RING_ICONS = ["Workflow", "ShieldCheck", "Database", "Bot", "BarChart3", "Plug"];
-const RING_POSITIONS = [
-  { top: "8%", left: "82%" },
-  { top: "50%", left: "94%" },
-  { top: "88%", left: "76%" },
-  { top: "88%", left: "24%" },
-  { top: "50%", left: "6%" },
-  { top: "8%", left: "18%" },
-];
-
-/**
- * Big blob-shaped gradient banner with a decorative icon ring — the Divi
- * "IT Services" half-ellipse CTA section, recolored to the violet system.
- */
 export function EllipseBanner({
   eyebrow,
   title,
@@ -31,38 +17,35 @@ export function EllipseBanner({
   ctaHref: string;
 }) {
   return (
-    <section className="py-4">
-      <div className="fmt-dark fmt-gradient-band relative mx-4 overflow-hidden rounded-[2.5rem] text-foreground sm:mx-6 lg:mx-8 lg:rounded-r-[10rem]">
-        <div className="fmt-aurora" aria-hidden="true" />
-        <div className="relative grid items-center gap-12 px-8 py-16 sm:px-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+    <section className="saas saas-section">
+      <Container>
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#f9fafb]">
+        <div className="relative grid items-center gap-10 px-8 py-16 sm:px-14 sm:py-20 lg:grid-cols-2 lg:py-20">
           <Reveal className="flex flex-col gap-5">
-            {eyebrow ? <span className="fmt-eyebrow-pill w-fit">{eyebrow}</span> : null}
-            <h2 className="max-w-xl text-2xl font-bold sm:text-3xl lg:text-4xl">{title}</h2>
-            <p className="max-w-md text-sm leading-7 text-muted-foreground">{description}</p>
-            <Button asChild size="lg" className="w-fit">
-              <Link href={ctaHref}>{ctaLabel}</Link>
-            </Button>
+            {eyebrow && (
+              <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">{eyebrow}</span>
+            )}
+            <h2 className="max-w-xl text-2xl font-extrabold sm:text-3xl lg:text-4xl" style={{ color: "#1a1a1a" }}>
+              {title}
+            </h2>
+            <p className="max-w-md text-[15px] leading-7 text-[#666]">{description}</p>
+            <Link href={ctaHref} className="saas-btn saas-btn-green w-fit">
+              {ctaLabel}
+            </Link>
           </Reveal>
 
-          <Reveal delay={0.1} className="relative mx-auto hidden aspect-square w-full max-w-xs sm:block">
-            <div className="absolute inset-[12%] rounded-full border border-white/20" aria-hidden="true" />
-            <div className="absolute inset-[28%] rounded-full border border-white/15" aria-hidden="true" />
-            <div className="fmt-orbit absolute inset-0">
-              {RING_ICONS.map((name, i) => (
-                <span
-                  key={name}
-                  className="absolute flex size-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm"
-                  style={RING_POSITIONS[i]}
-                >
-                  <span className="fmt-orbit-counter flex">
-                    <Icon name={name} className="size-4.5 text-white" />
-                  </span>
-                </span>
-              ))}
-            </div>
+          <Reveal delay={0.1} className="hidden lg:flex items-center justify-center">
+            <Image
+              src="/assets/saas-product/saas-24.png"
+              alt="Dashboard FidelOS"
+              width={760}
+              height={700}
+              className="w-full max-w-md drop-shadow-xl"
+            />
           </Reveal>
         </div>
       </div>
+      </Container>
     </section>
   );
 }

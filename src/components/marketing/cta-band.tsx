@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { whatsappUrl } from "@/content/site";
@@ -16,26 +15,23 @@ export function CtaBand({
   primaryLabel?: string;
 }) {
   return (
-    <section className="fmt-dark fmt-gradient-band relative overflow-hidden text-foreground">
-      <div className="fmt-aurora" aria-hidden="true" />
-      <div className="fmt-shapes" aria-hidden="true">
-        <span className="s-ring" style={{ top: "18%", left: "8%" }} />
-        <span className="s-dot" style={{ bottom: "24%", right: "12%" }} />
-        <span className="s-plus" style={{ top: "30%", right: "8%" }} />
-      </div>
-      <Container className="relative py-24 text-center">
+    <section className="saas saas-section bg-[#f9fafb]">
+      <Container className="text-center">
         <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-6">
-          <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">{title}</h2>
-          <p className="text-base leading-7 text-muted-foreground">{description}</p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg">
-              <Link href={primaryHref}>{primaryLabel}</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href={whatsappUrl("Hola, quiero solicitar una demostración.")} target="_blank" rel="noopener noreferrer">
-                Hablar por WhatsApp
-              </Link>
-            </Button>
+          <h2 className="saas-h2 leading-tight" style={{ color: "#1a1a1a" }}>{title}</h2>
+          <p className="text-[15px] leading-7 text-[#666]">{description}</p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <Link href={primaryHref} className="saas-btn saas-btn-green px-8">
+              {primaryLabel}
+            </Link>
+            <Link
+              href={whatsappUrl("Hola, quiero solicitar una demostración.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="saas-btn saas-btn-outline px-8"
+            >
+              Hablar por WhatsApp
+            </Link>
           </div>
         </Reveal>
       </Container>

@@ -25,11 +25,11 @@ function Spark({ className, color = "orange" }: { className?: string; color?: "o
 }
 
 /** Semicírculo verde/naranja con porcentaje. */
-export function Gauge({ value, className, track = false }: { value: number; className?: string; track?: boolean }) {
+export function Gauge({ value, className }: { value: number; className?: string }) {
   return (
     <svg viewBox="0 0 120 66" className={className} aria-hidden="true">
-      <path d="M12 60a48 48 0 0 1 96 0" pathLength={100} fill="none" stroke={track ? "#fff" : "#f0b323"} strokeWidth="18" />
-      <path d="M12 60a48 48 0 0 1 96 0" pathLength={100} fill="none" stroke={track ? "#4de961" : "#6fbf3f"} strokeWidth="18" strokeDasharray={`${value} 100`} style={track ? { strokeDashoffset: -(100 - value) * 0, transform: "scaleX(-1)", transformOrigin: "60px 33px" } : undefined} />
+      <path d="M12 60a48 48 0 0 1 96 0" pathLength={100} fill="none" stroke="#f0b323" strokeWidth="18" />
+      <path d="M12 60a48 48 0 0 1 96 0" pathLength={100} fill="none" stroke="#6fbf3f" strokeWidth="18" strokeDasharray={`${value} 100`} />
     </svg>
   );
 }
@@ -179,7 +179,7 @@ export function BigGaugeCard({ value, variant = "duo", className, style }: Box &
         {variant === "mono" ? (
           <svg viewBox="0 0 120 66" className="w-full" aria-hidden="true">
             <path d="M12 60a48 48 0 0 1 96 0" pathLength={100} fill="none" stroke="#fff" strokeWidth="18" />
-            <path d="M108 60a48 48 0 0 0-96 0" pathLength={100} fill="none" stroke="#4de961" strokeWidth="18" strokeDasharray={`${100 - value + 20} 100`} />
+            <path d="M108 60a48 48 0 0 0-96 0" pathLength={100} fill="none" stroke="#4de961" strokeWidth="18" strokeDasharray={`${100 - value + 10} 100`} />
           </svg>
         ) : (
           <Gauge value={value} className="w-full" />
@@ -241,7 +241,7 @@ export function MiniDashboard({ layout = "wide" }: { layout?: "wide" | "phone" }
   return (
     <div className="grid h-full grid-cols-[1fr_2.1fr] grid-rows-[auto_1fr] gap-[3%] p-[4%] text-[clamp(4px,.55vw,8px)]">
       <div className="col-span-2 grid grid-cols-3 gap-[4%]">
-        <SparkCard title="CRM" className="rounded-[10px] px-3 py-2" />
+        <SparkCard title="ERP" className="rounded-[10px] px-3 py-2" />
         <SparkCard title="Inventario" className="rounded-[10px] px-3 py-2" />
         <SparkCard title="RRHH" className="rounded-[10px] px-3 py-2" />
       </div>

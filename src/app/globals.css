@@ -181,18 +181,18 @@
   width: 48rem;
   height: 48rem;
   border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.35;
-  background: radial-gradient(circle, rgba(210, 248, 0, 0.8), transparent 70%);
+  filter: blur(140px);
+  opacity: 0.18;
+  background: radial-gradient(circle, rgba(77, 233, 97, 0.9), transparent 70%);
 }
 .fmt-aurora::before {
-  top: -12rem;
-  right: -8rem;
+  top: -18rem;
+  right: -12rem;
 }
 .fmt-aurora::after {
-  bottom: -16rem;
-  left: -10rem;
-  opacity: 0.2;
+  bottom: -20rem;
+  left: -14rem;
+  opacity: 0.10;
 }
 
 /* Floating decorative shapes — official SaaS layout shapes. */
@@ -308,7 +308,7 @@
   line-height: 1.8;
   letter-spacing: -0.01em;
 }
-.saas h1, .saas h2, .saas h3, .saas h4, .saas h5, .saas h6 {
+:where(.saas) h1, :where(.saas) h2, :where(.saas) h3, :where(.saas) h4, :where(.saas) h5, :where(.saas) h6 {
   color: #333;
   font-weight: 600;
   letter-spacing: -0.02em;

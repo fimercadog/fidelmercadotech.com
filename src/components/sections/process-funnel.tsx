@@ -13,7 +13,7 @@ const STEPS = [
 
 export function ProcessFunnel() {
   return (
-    <section className="border-t border-border bg-card/30 py-20 sm:py-28">
+    <section className="saas saas-section border-t border-[rgba(0,0,0,0.07)] bg-[#f9fafb]">
       <Container className="flex flex-col gap-14">
         <Reveal>
           <SectionHeading
@@ -26,10 +26,10 @@ export function ProcessFunnel() {
         <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {STEPS.map((step, i) => (
             <Reveal as="li" key={step.n} delay={i * 0.05}>
-              <div className="fmt-elevate flex h-full flex-col gap-3 rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:border-primary/50">
-                <span className="font-heading text-3xl font-extrabold text-primary">{step.n}</span>
-                <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
-                <p className="text-sm leading-6 text-muted-foreground">{step.text}</p>
+              <div className="saas-shadow-toggle flex h-full flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8 transition-colors hover:border-[#4de961]/40">
+                <span className="text-3xl font-extrabold text-[#4de961]">{step.n}</span>
+                <h3 className="saas-h5 text-[#333]">{step.title}</h3>
+                <p className="text-[14px] leading-6 text-[#666]">{step.text}</p>
               </div>
             </Reveal>
           ))}
