@@ -12,9 +12,9 @@ export interface BlogPost {
 export const POSTS: BlogPost[] = [
   {
     slug: "crm-vs-hoja-de-calculo",
-    title: "CRM vs. hoja de cálculo: cuándo dejar el Excel",
+    title: "ERP vs. hoja de cálculo: cuándo dejar el Excel",
     excerpt:
-      "La hoja de cálculo funciona hasta que deja de funcionar. Estas son las señales de que tu equipo comercial ya necesita un CRM.",
+      "La hoja de cálculo funciona hasta que deja de funcionar. Estas son las señales de que tu equipo comercial ya necesita un ERP.",
     category: "Comercial",
     date: "2026-06-10",
     readMinutes: 4,
@@ -27,8 +27,8 @@ export const POSTS: BlogPost[] = [
         "Los seguimientos se olvidan porque no hay recordatorios.",
         "No puedes ver el historial de un cliente sin abrir tres archivos.",
       ] },
-      { type: "h2", text: "Qué te da un CRM que la hoja no" },
-      { type: "p", text: "Un CRM centraliza clientes, contactos y oportunidades en una sola base de datos, con un pipeline visual, actividades con recordatorios y reportes que se actualizan solos. Cada lead que llega por WhatsApp o por la web entra directo, con su ficha." },
+      { type: "h2", text: "Qué te da un ERP que la hoja no" },
+      { type: "p", text: "Un ERP centraliza clientes, contactos, inventario y oportunidades en una sola base de datos, con un pipeline visual, actividades con recordatorios y reportes que se actualizan solos. Cada lead que llega por WhatsApp o por la web entra directo, con su ficha." },
       { type: "p", text: "No se trata de tener más funciones, sino de que ningún negocio se pierda entre pestañas." },
     ],
   },

@@ -22,7 +22,7 @@ export const PRICING_FAQ: Faq[] = [
   },
   {
     q: "¿Qué diferencia al plan Web + Sistema?",
-    a: "Además del sitio, incluye una de nuestras soluciones (CRM, inventario, RRHH, agentes de WhatsApp) o desarrollo a la medida, con su backend, base de datos y panel de administración.",
+    a: "Además del sitio, incluye una de nuestras soluciones (ERP, inventario, RRHH, agentes de WhatsApp) o desarrollo a la medida, con su backend, base de datos y panel de administración.",
   },
   {
     q: "¿Puedo actualizar de plan después?",

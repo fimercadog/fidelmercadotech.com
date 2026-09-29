@@ -19,9 +19,9 @@ export const CASES: CaseStudy[] = [
     slug: "inmobiliaria-prime",
     client: "Inmobiliaria Prime",
     sector: "Sector inmobiliario",
-    title: "Portal de propiedades + CRM inmobiliario conectado",
+    title: "Portal de propiedades + ERP inmobiliario conectado",
     summary:
-      "Una web pública de propiedades con búsqueda y captación de leads, conectada a un CRM privado donde el equipo comercial gestiona clientes, propietarios y oportunidades.",
+      "Una web pública de propiedades con búsqueda y captación de leads, conectada a un ERP donde el equipo comercial gestiona clientes, propietarios y oportunidades.",
     image: "/brand/crm-inmobiliario.png",
     liveUrl: "https://crminmobiliaria.fidelmercadotech.com",
     solution: "crm-inmobiliario",
@@ -29,8 +29,8 @@ export const CASES: CaseStudy[] = [
       "El equipo perdía negocios entre WhatsApp, hojas de cálculo y correos: leads sin seguimiento, propiedades desactualizadas y ningún historial del cliente.",
     approach: [
       "Portal público con búsqueda de propiedades, fichas, blog y contacto directo por WhatsApp.",
-      "CRM privado con leads, clientes, propietarios, oportunidades y pipeline.",
-      "El portal y el CRM comparten la misma base de datos: cada lead entra con su ficha completa.",
+      "ERP con leads, clientes, propietarios, oportunidades y pipeline.",
+      "El portal y el ERP comparten la misma base de datos: cada lead entra con su ficha completa.",
       "Visitas, tareas, documentos y reportes comerciales para todo el equipo.",
     ],
     result: [
@@ -45,7 +45,7 @@ export const CASES: CaseStudy[] = [
     slug: "fidelos-hrms",
     client: "FidelOS HRMS",
     sector: "Gestión de personas",
-    title: "Sistema de Recursos Humanos para PYMES + sitio público",
+    title: "ERP Recursos Humanos para PYMES + sitio público",
     summary:
       "Un HRMS con directorio de personal, asistencia, novedades, documentos y auditoría, más un sitio público de presentación de la empresa. Con datos de demostración para evaluarlo de inmediato.",
     image: "/brand/rrhh.png",

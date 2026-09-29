@@ -9,7 +9,7 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fidelmercadotech.com",
   tagline: "Software, IA y automatización para hacer crecer tu empresa.",
   description:
-    "Creamos sistemas empresariales, CRM, inventarios, soluciones especializadas y agentes inteligentes que convierten procesos manuales en operaciones digitales.",
+    "Creamos sistemas empresariales, ERP, inventarios, soluciones especializadas y agentes inteligentes que convierten procesos manuales en operaciones digitales.",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "573027029498",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+57 302 702 9498",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contacto@fidelmercadotech.com",
@@ -21,26 +21,24 @@ export function whatsappUrl(message: string): string {
 }
 
 export const NAV_LINKS = [
-  { title: "Landing", href: "/" },
-  { title: "Home", href: "/" },
-  { title: "About", href: "/nosotros" },
-  { title: "Features", href: "/soluciones" },
-  { title: "Pricing", href: "/precios" },
-  { title: "Documentation", href: "/servicios" },
+  { title: "Inicio", href: "/" },
+  { title: "Soluciones", href: "/soluciones" },
+  { title: "Servicios", href: "/servicios" },
+  { title: "Casos", href: "/casos" },
   { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contacto" },
+  { title: "Nosotros", href: "/nosotros" },
 ] as const;
 
 export const FOOTER_NAV = [
   {
     heading: "Soluciones",
     links: [
-      { title: "CRM Inmobiliario", href: "/soluciones/crm-inmobiliario" },
-      { title: "Recursos Humanos", href: "/soluciones/rrhh" },
-      { title: "CRM + Inventario", href: "/soluciones/crm-inventario" },
-      { title: "Gestión Veterinaria", href: "/soluciones/veterinaria" },
-      { title: "FidelOS · Inventario con IA", href: "/soluciones/fidelos" },
-      { title: "Agentes de WhatsApp", href: "/soluciones/agentes-whatsapp" },
+      { title: "ERP para Inmobiliarias", href: "/soluciones/crm-inmobiliario" },
+      { title: "ERP Recursos Humanos", href: "/soluciones/rrhh" },
+      { title: "ERP para Veterinarias", href: "/soluciones/veterinaria" },
+      { title: "ERP para IPS / Salud", href: "/soluciones/ips" },
+      { title: "ERP para Clínicas Estéticas", href: "/soluciones/clinica-estetica" },
+      { title: "Ver todas las soluciones →", href: "/soluciones" },
     ],
   },
   {

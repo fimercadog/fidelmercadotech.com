@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
     problem:
       "Muchas empresas tienen una web lenta, difícil de actualizar y desconectada del resto de sus herramientas. No genera contactos ni se puede medir.",
     summary:
-      "Construimos sitios corporativos, portales y landing pages con tecnología moderna (Next.js), optimizados para velocidad y SEO, y conectados a tu CRM o a WhatsApp para que cada visita pueda convertirse en un contacto.",
+      "Construimos sitios, portales y landing pages con tecnología moderna (Next.js), optimizados para velocidad y SEO, y conectados a tu ERP o a WhatsApp para que cada visita pueda convertirse en un contacto.",
     includes: [
       { title: "Diseño a tu negocio", detail: "Identidad visual propia, no una plantilla genérica: colores, tipografía y estructura pensados para tu público." },
       { title: "Rendimiento y SEO", detail: "Carga rápida, buenas prácticas técnicas, metadatos, sitemap y datos estructurados desde el primer día." },
@@ -35,7 +35,7 @@ export const SERVICES: Service[] = [
     benefits: [
       "Una web que carga en segundos",
       "Cada visita puede volverse un contacto",
-      "Preparada para conectarse a tu CRM",
+      "Preparada para conectarse a tu ERP",
       "Medible: sabes de dónde vienen los clientes",
     ],
     related: ["crm-inmobiliario", "rrhh"],
@@ -129,7 +129,7 @@ export const SERVICES: Service[] = [
       { title: "Atención 24/7", detail: "Responde de inmediato con el tono y la información de tu empresa." },
       { title: "Preguntas frecuentes", detail: "Horarios, precios, ubicación y servicios sin intervención humana." },
       { title: "Calificación de leads", detail: "Hace las preguntas clave y deja el contacto listo para el equipo comercial." },
-      { title: "Integración con tus sistemas", detail: "Consulta y registra información en tu CRM, agenda o base de datos." },
+      { title: "Integración con tus sistemas", detail: "Consulta y registra información en tu ERP, agenda o base de datos." },
       { title: "Transferencia a humano", detail: "Deriva a una persona con el contexto de lo conversado." },
     ],
     benefits: [
@@ -144,12 +144,12 @@ export const SERVICES: Service[] = [
     id: "integraciones",
     icon: "Plug",
     title: "Integraciones",
-    description: "Conectamos tus herramientas entre sí: CRM, ERP, WhatsApp, pasarelas, hojas de cálculo y APIs.",
+    description: "Conectamos tus herramientas entre sí: ERP, WhatsApp, pasarelas, hojas de cálculo y APIs.",
     tagline: "Tus herramientas dejan de ser islas.",
     problem:
       "Cada herramienta guarda su propia versión de la verdad y alguien tiene que pasar datos de una a otra a mano.",
     summary:
-      "Conectamos tus sistemas entre sí mediante APIs y automatizaciones: CRM, ERP, WhatsApp, pasarelas de pago, hojas de cálculo y servicios externos, para que la información fluya sin intervención manual.",
+      "Conectamos tus sistemas entre sí mediante APIs y automatizaciones: ERP, WhatsApp, pasarelas de pago, hojas de cálculo y servicios externos, para que la información fluya sin intervención manual.",
     includes: [
       { title: "Mapa de sistemas", detail: "Qué herramientas tienes, qué datos comparten y dónde está la fricción." },
       { title: "Conexión por API", detail: "Integraciones sobre APIs oficiales, con manejo de errores y reintentos." },
@@ -174,7 +174,7 @@ export const SERVICES: Service[] = [
     problem:
       "Tu operación tiene una particularidad que ningún producto de estantería resuelve, y adaptarte a la herramienta te cuesta más que el problema original.",
     summary:
-      "Cuando ninguno de nuestros productos encaja del todo, diseñamos y construimos una solución a la medida sobre nuestra base ya probada en producción: CRM, inventario, RRHH, IA y automatización como cimientos.",
+      "Cuando ninguno de nuestros productos encaja del todo, diseñamos y construimos una solución a la medida sobre nuestra base ya probada en producción: ERP, inventario, RRHH, IA y automatización como cimientos.",
     includes: [
       { title: "Descubrimiento", detail: "Entendemos el problema real antes de proponer una solución." },
       { title: "Alcance por escrito", detail: "Qué se construye, en qué orden y con qué criterio de terminado." },

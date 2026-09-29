@@ -62,7 +62,7 @@ export const PLANS: Plan[] = [
     delivery: "Según alcance",
     includes: [
       "Página web +",
-      "CRM, inventario o RRHH",
+      "ERP, inventario o RRHH",
       "Automatización de procesos",
       "Integración empresarial",
       "Inteligencia artificial",
