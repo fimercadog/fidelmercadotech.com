@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   keywords: [
     "desarrollo de software",
     "software empresarial a medida",
-    "CRM",
+    "ERP",
     "control de inventario",
     "automatización de procesos",
     "inteligencia artificial para empresas",

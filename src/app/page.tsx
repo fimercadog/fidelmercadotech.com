@@ -14,6 +14,9 @@ import { IllustratedRow } from "@/components/sections/illustrated-row";
 import { ProductFeatures } from "@/components/sections/product-features";
 import { GetOnTrackCta } from "@/components/sections/get-on-track-cta";
 import { ProcessFunnel } from "@/components/sections/process-funnel";
+import { Pricing } from "@/components/sections/pricing";
+import { FaqSection } from "@/components/sections/faq";
+import { PRICING_FAQ } from "@/content/faq";
 import { CASES } from "@/content/cases";
 
 export default function HomePage() {
@@ -36,8 +39,8 @@ export default function HomePage() {
         illustration="collaboration"
         eyebrow="Todo conectado"
         title="Tu web y tus sistemas hablan el mismo idioma"
-        description="No entregamos piezas sueltas. La página capta el contacto, el CRM lo recibe con su ficha y el equipo le da seguimiento — sin copiar datos de un lado a otro."
-        bullets={["Web + CRM sobre la misma base de datos", "Integración con WhatsApp y tus herramientas", "Un solo lugar con la información correcta"]}
+        description="No entregamos piezas sueltas. La página capta el contacto, el ERP lo recibe con su ficha y el equipo le da seguimiento — sin copiar datos de un lado a otro."
+        bullets={["Web + ERP sobre la misma base de datos", "Integración con WhatsApp y tus herramientas", "Un solo lugar con la información correcta"]}
         href="/servicios/integraciones"
         linkLabel="Ver integraciones"
         tinted
@@ -65,7 +68,7 @@ export default function HomePage() {
       <GetOnTrackCta />
 
       {/* Casos Reales y Proyectos */}
-      <section className="border-t border-border py-24">
+      <section className="saas saas-section border-t border-[rgba(0,0,0,0.07)] bg-[#f9fafb]">
         <Container className="flex flex-col gap-12">
           <Reveal>
             <SectionHeading
@@ -79,16 +82,16 @@ export default function HomePage() {
               <Reveal key={c.slug} delay={i * 0.06}>
                 <Link
                   href={`/casos/${c.slug}`}
-                  className="fmt-elevate group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card"
+                  className="saas-shadow-soft group flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white transition-transform duration-300 hover:-translate-y-1"
                 >
-                  <div className="relative aspect-video bg-muted">
+                  <div className="relative aspect-video bg-[#f5f6f7]">
                     <Image src={c.image} alt={c.title} fill className="object-cover object-top" sizes="(min-width: 768px) 45vw, 100vw" />
                   </div>
                   <div className="flex flex-col gap-2 p-6">
-                    <span className="text-xs font-semibold uppercase text-muted-foreground">{c.sector}</span>
-                    <h3 className="text-base font-bold">{c.title}</h3>
-                    <p className="text-sm leading-6 text-muted-foreground">{c.summary}</p>
-                    <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">{c.sector}</span>
+                    <h3 className="saas-h5 text-[#333]">{c.title}</h3>
+                    <p className="text-[14px] leading-6 text-[#666]">{c.summary}</p>
+                    <span className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
                       Ver el caso
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                     </span>
@@ -98,12 +101,18 @@ export default function HomePage() {
             ))}
           </div>
           <Reveal className="flex justify-center">
-            <Button asChild size="lg" variant="outline" className="rounded-full px-8 font-semibold">
+            <Button asChild size="lg" className="saas-btn saas-btn-black rounded-full px-8">
               <Link href="/casos">Ver todos los casos</Link>
             </Button>
           </Reveal>
         </Container>
       </section>
+
+      {/* Precios */}
+      <div id="precios">
+        <Pricing />
+        <FaqSection items={PRICING_FAQ} />
+      </div>
 
       {/* Proceso y Metodología de Trabajo */}
       <ProcessFunnel />

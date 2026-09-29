@@ -30,7 +30,7 @@ export default function OpengraphImage() {
             Software, automatización e IA para hacer crecer tu empresa
           </div>
           <div style={{ fontSize: 28, color: "#BFC5C2", maxWidth: 900 }}>
-            CRM · Inventario · RRHH · FidelOS · Agentes de WhatsApp · Desarrollo a medida
+            ERP · Inventario · RRHH · FidelOS · Agentes de WhatsApp · Desarrollo a medida
           </div>
         </div>
       </div>

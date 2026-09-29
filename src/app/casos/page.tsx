@@ -5,44 +5,41 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { PageHero } from "@/components/marketing/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { CASES } from "@/content/cases";
 
 export const metadata: Metadata = {
   title: "Casos",
   description:
-    "Proyectos reales de Fidel Mercado Tech: portal inmobiliario con CRM conectado y sistema de Recursos Humanos para PYMES, ambos en producción y con demo pública.",
+    "Proyectos reales de Fidel Mercado Tech: portal inmobiliario con ERP conectado y sistema de Recursos Humanos para PYMES, ambos con demo disponible.",
   alternates: { canonical: "/casos" },
 };
 
 export default function CasosPage() {
   return (
     <>
-      <section className="fmt-dark fmt-gradient-band relative overflow-hidden py-24 text-foreground">
-        <div className="fmt-aurora" aria-hidden="true" />
-        <div className="fmt-shapes" aria-hidden="true">
-          <span className="s-ring" style={{ top: "18%", left: "7%" }} />
-          <span className="s-tri" style={{ bottom: "20%", right: "9%" }} />
-        </div>
-        <Container className="relative">
-          <SectionHeading
-            level={1}
-            eyebrow="Casos"
-            title="Proyectos reales, en producción"
-            description="No mostramos plantillas: estas son plataformas que construimos y que puedes abrir y probar ahora mismo."
-          />
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Casos"
+        title="Proyectos reales, en producción"
+        description="No mostramos plantillas: estas son plataformas que construimos y que puedes abrir y probar ahora mismo."
+        ctas={[
+          { label: "Ver proyectos", href: "#proyectos" },
+          { label: "Solicitar demo", href: "/contacto?motivo=demo", variant: "outline" },
+        ]}
+        image={{ src: "/assets/saas-product/saas-37.png", alt: "Widgets del dashboard FidelOS", width: 760, height: 520 }}
+      />
 
-      <section className="py-20">
+      {/* Grid de casos con diseño SaaS pack */}
+      <section className="saas saas-section bg-[#f9fafb]">
         <Container className="flex flex-col gap-10">
           {CASES.map((c, i) => (
             <Reveal key={c.slug} delay={i * 0.06}>
               <Link
                 href={`/casos/${c.slug}`}
-                className="fmt-elevate group grid gap-8 overflow-hidden rounded-3xl border border-border bg-card p-6 md:grid-cols-2 md:items-center md:p-8"
+                className="saas-shadow-soft group grid gap-8 overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6 transition-transform duration-300 hover:-translate-y-1 md:grid-cols-2 md:items-center md:p-8"
               >
-                <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-muted">
+                <div className="relative aspect-16/10 overflow-hidden rounded-[18px] bg-[#f5f6f7]">
                   <Image
                     src={c.image}
                     alt={`${c.client} — ${c.title}`}
@@ -52,10 +49,10 @@ export default function CasosPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-3">
-                  <span className="fmt-eyebrow-pill w-fit">{c.sector}</span>
-                  <h2 className="text-xl font-bold sm:text-2xl">{c.title}</h2>
-                  <p className="text-sm leading-7 text-muted-foreground">{c.summary}</p>
-                  <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">{c.sector}</span>
+                  <h2 className="saas-h5 text-[#333]">{c.title}</h2>
+                  <p className="text-[14px] leading-7 text-[#666]">{c.summary}</p>
+                  <span className="mt-2 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
                     Ver el caso
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                   </span>

@@ -5,8 +5,9 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import { PageHero } from "@/components/marketing/page-hero";
 import { Illustration } from "@/components/marketing/illustration";
-import { Icon } from "@/components/icon";
+import { IconCard, Row, type PackIcon } from "@/components/saas/kit";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { PillBar } from "@/components/marketing/pill-bar";
 import { CASES } from "@/content/cases";
@@ -19,44 +20,34 @@ export const metadata: Metadata = {
   alternates: { canonical: "/nosotros" },
 };
 
-const PRINCIPLES = [
-  { icon: "Target", title: "Resolvemos un problema concreto", detail: "Cada proyecto arranca entendiendo qué proceso duele hoy, no vendiendo funciones." },
-  { icon: "Layers", title: "Construido sobre base probada", detail: "Partimos de módulos ya en producción (CRM, inventario, RRHH, IA), no de cero absoluto." },
-  { icon: "ShieldCheck", title: "Con trazabilidad y control", detail: "Roles, permisos y auditoría desde el primer día: sabes quién hizo qué y cuándo." },
-  { icon: "Gauge", title: "Rápido y medible", detail: "Entregas por fases, tecnología moderna y métricas para saber si está funcionando." },
-  { icon: "MessageSquare", title: "Cerca por WhatsApp", detail: "Comunicación directa durante y después del proyecto, sin tickets que se pierden." },
-  { icon: "Puzzle", title: "A tu operación, no al revés", detail: "El software se adapta a cómo trabaja tu equipo, no una plantilla genérica." },
+const PRINCIPLES: { icon: PackIcon; title: string; detail: string }[] = [
+  { icon: "browser", title: "Resolvemos un problema concreto", detail: "Cada proyecto arranca entendiendo qué proceso duele hoy, no vendiendo funciones." },
+  { icon: "sliders", title: "Construido sobre base probada", detail: "Partimos de módulos ya en producción (ERP, inventario, RRHH, IA), no de cero absoluto." },
+  { icon: "lock", title: "Con trazabilidad y control", detail: "Roles, permisos y auditoría desde el primer día: sabes quién hizo qué y cuándo." },
+  { icon: "calendar", title: "Rápido y medible", detail: "Entregas por fases, tecnología moderna y métricas para saber si está funcionando." },
+  { icon: "mail", title: "Cerca por WhatsApp", detail: "Comunicación directa durante y después del proyecto, sin tickets que se pierden." },
+  { icon: "link", title: "A tu operación, no al revés", detail: "El software se adapta a cómo trabaja tu equipo, no una plantilla genérica." },
 ];
 
 export default function NosotrosPage() {
   return (
     <>
-      {/* Hero estilo Divi SaaS About Page */}
-      <section className="fmt-dark fmt-gradient-band relative overflow-hidden pt-20 pb-36 text-foreground sm:pt-28 sm:pb-44">
-        <div className="fmt-aurora" aria-hidden="true" />
-        <div className="fmt-grid-bg absolute inset-0 opacity-20" aria-hidden="true" />
-        <div className="fmt-shapes" aria-hidden="true">
-          <span className="s-ring" style={{ top: "14%", right: "8%" }} />
-          <span className="s-tri" style={{ top: "25%", left: "6%" }} />
-          <span className="s-dot" style={{ bottom: "20%", left: "10%" }} />
-          <span className="s-plus" style={{ top: "50%", right: "6%" }} />
-        </div>
-        <Container className="relative z-10 flex flex-col items-center text-center">
-          <SectionHeading
-            level={1}
-            eyebrow="Nosotros"
-            title="Software que saca a las empresas del proceso manual"
-            description="Somos un equipo de desarrollo enfocado en PYMES: creamos páginas web, sistemas de gestión y soluciones con IA que las empresas de verdad usan a diario."
-            align="center"
-          />
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Nosotros"
+        title="Software que saca a las empresas del proceso manual"
+        description="Somos un equipo de desarrollo enfocado en PYMES: creamos páginas web, sistemas de gestión y soluciones con IA que las empresas de verdad usan a diario."
+        ctas={[
+          { label: "Ver soluciones", href: "/soluciones" },
+          { label: "Hablar con nosotros", href: "/contacto", variant: "outline" },
+        ]}
+        image={{ src: "/assets/saas-product/saas-4.png", alt: "Dashboard FidelOS en laptop", width: 1060, height: 895 }}
+      />
 
       {/* Imagen que se superpone al Hero estilo SaaS About */}
       <section className="relative z-20 -mt-24 sm:-mt-28">
         <Container>
-          <Reveal className="fmt-elevate overflow-hidden rounded-3xl border border-border bg-card shadow-2xl">
-            <div className="relative aspect-[16/8] w-full bg-muted">
+          <Reveal className="saas-shadow-soft overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white">
+            <div className="relative aspect-[16/8] w-full bg-[#f5f6f7]">
               <Image
                 src={CASES[0].image}
                 alt="Plataforma desarrollada por Fidel Mercado Tech"
@@ -70,69 +61,48 @@ export default function NosotrosPage() {
         </Container>
       </section>
 
-      <PillBar
-        links={[
-          { label: "Solicitar demostración", href: "/contacto?motivo=demo", variant: "default" },
-          { label: "Ver soluciones", href: "/soluciones" },
-          { label: "WhatsApp", href: whatsappUrl("Hola, quiero conocer más sobre Fidel Mercado Tech."), external: true },
-        ]}
-      />
-
       {/* Misión — Estilo SaaS 2-Column Split */}
-      <section className="py-20 sm:py-28 bg-background">
+      <section className="saas saas-section bg-white">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="flex flex-col gap-5">
-            <span className="fmt-eyebrow-pill w-fit">Nuestra misión</span>
-            <h2 className="text-3xl font-bold sm:text-4xl text-foreground">
+            <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Nuestra misión</span>
+            <h2 className="saas-h2 text-[#333]">
               Que la tecnología deje de ser el cuello de botella
             </h2>
-            <p className="text-base leading-7 text-muted-foreground">
+            <p className="text-[15px] leading-7 text-[#666]">
               Muchas empresas crecen hasta que las hojas de cálculo, los correos sueltos y las herramientas
               desconectadas les frenan. Nadie sabe cuál es el dato bueno y cada proceso vive en un lugar distinto.
             </p>
-            <p className="text-base leading-7 text-muted-foreground">
+            <p className="text-[15px] leading-7 text-[#666]">
               Nosotros construimos el sistema que refleja cómo trabaja tu equipo: un solo lugar con la información
               correcta, con roles, reportes y automatizaciones. Y cuando tiene sentido, le sumamos IA para casos
               concretos, siempre con revisión humana.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="flex justify-center">
-            <div className="fmt-elevate overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-xl w-full max-w-lg">
+            <div className="saas-shadow-soft overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6 w-full max-w-lg">
               <Illustration name="productivity" alt="Ilustración de productividad" className="w-full h-auto" />
             </div>
           </Reveal>
         </Container>
       </section>
 
-      {/* Cómo trabajamos — Estilo SaaS Principles 3-Col Card Grid */}
-      <section className="border-t border-border bg-card/30 py-20 sm:py-28">
-        <Container className="flex flex-col gap-14">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Cómo trabajamos"
-              title="Seis cosas que no negociamos"
-              description="Los principios que guían cada proyecto, del primero al último día."
-              align="center"
-            />
-          </Reveal>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {PRINCIPLES.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.04}>
-                <div className="fmt-elevate group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-8 shadow-sm transition-all hover:border-primary/50">
-                  <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
-                    <Icon name={p.icon} className="size-6" />
-                  </span>
-                  <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
-                  <p className="text-sm leading-6 text-muted-foreground">{p.detail}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
+      {/* Cómo trabajamos — SaaS Principles 3-Col IconCard outline */}
+      <section className="saas saas-section bg-[#f9fafb]">
+        <Row>
+          <p className="mb-3 text-center text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Cómo trabajamos</p>
+          <h2 className="saas-h2 mb-4 text-center text-[#333]">Seis cosas que no negociamos</h2>
+          <p className="mb-[40px] text-center text-[14px] text-[#666]">Los principios que guían cada proyecto, del primero al último día.</p>
+        </Row>
+        <Row className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
+          {PRINCIPLES.map((p) => (
+            <IconCard key={p.title} icon={p.icon} title={p.title} text={p.detail} variant="outline" />
+          ))}
+        </Row>
       </section>
 
       {/* Casos — Estilo SaaS Grid */}
-      <section className="py-20 sm:py-28 bg-background">
+      <section className="saas saas-section bg-[#f9fafb]">
         <Container className="flex flex-col gap-12">
           <Reveal>
             <SectionHeading
@@ -147,16 +117,16 @@ export default function NosotrosPage() {
               <Reveal key={c.slug} delay={i * 0.06}>
                 <Link
                   href={`/casos/${c.slug}`}
-                  className="fmt-elevate group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
+                  className="saas-shadow-soft group flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white transition-transform duration-300 hover:-translate-y-1"
                 >
-                  <div className="relative aspect-video bg-muted">
+                  <div className="relative aspect-video bg-[#f5f6f7]">
                     <Image src={c.image} alt={c.title} fill className="object-cover object-top" sizes="(min-width: 768px) 45vw, 100vw" />
                   </div>
                   <div className="flex flex-col gap-2 p-8">
-                    <span className="text-xs font-semibold uppercase text-muted-foreground tracking-wider">{c.sector}</span>
-                    <h3 className="text-xl font-bold text-foreground">{c.title}</h3>
-                    <p className="text-sm leading-6 text-muted-foreground">{c.summary}</p>
-                    <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">{c.sector}</span>
+                    <h3 className="saas-h5 text-[#333]">{c.title}</h3>
+                    <p className="text-[14px] leading-6 text-[#666]">{c.summary}</p>
+                    <span className="mt-2 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
                       Ver el caso
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -169,16 +139,16 @@ export default function NosotrosPage() {
       </section>
 
       {/* Quién está detrás — Estilo SaaS Team Card */}
-      <section className="border-t border-border bg-card/40 py-20 sm:py-28">
+      <section className="saas saas-section border-t border-[rgba(0,0,0,0.07)] bg-white">
         <Container className="flex flex-col items-center gap-8 text-center">
-          <Reveal className="fmt-elevate flex max-w-3xl flex-col items-center gap-6 rounded-3xl border border-border bg-card p-10 shadow-xl">
+          <Reveal className="saas-shadow-soft flex max-w-3xl flex-col items-center gap-6 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-10">
             <Illustration name="about" alt="Equipo de Fidel Mercado Tech" className="max-w-xs" />
-            <span className="fmt-eyebrow-pill">Quién está detrás</span>
-            <h2 className="text-3xl font-bold sm:text-4xl text-foreground">Un equipo cercano, no una fábrica de software</h2>
-            <p className="text-base leading-7 text-muted-foreground">
+            <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Quién está detrás</span>
+            <h2 className="saas-h2 text-[#333]">Un equipo cercano, no una fábrica de software</h2>
+            <p className="text-[15px] leading-7 text-[#666]">
               Trabajamos con pocas empresas a la vez para poder entender cada operación a fondo. Hablas directo con
               quien construye, por WhatsApp o llamada, durante y después del proyecto. Escríbenos a{" "}
-              <a href={`mailto:${SITE.email}`} className="font-semibold text-primary underline">
+              <a href={`mailto:${SITE.email}`} className="font-semibold text-[#02e173] underline">
                 {SITE.email}
               </a>
               .
