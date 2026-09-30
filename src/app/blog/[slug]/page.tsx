@@ -55,46 +55,48 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* 1. Imagen destacada */}
-      {post.coverImage && (
-        <div className="w-full bg-[#f5f6f7]">
-          <Container className="px-0 sm:px-6 lg:px-8">
-            <div className="relative w-full overflow-hidden sm:rounded-b-[24px]" style={{ maxHeight: 480 }}>
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                width={1200}
-                height={480}
-                className="h-full w-full object-cover object-top"
-                priority
-              />
-            </div>
-          </Container>
-        </div>
-      )}
-
-      {/* 2. Título, categoría, fecha, autor */}
-      <section className="bg-white pb-10 pt-12">
-        <Container className="flex max-w-3xl flex-col gap-5">
-          <Link href="/blog" className="inline-flex items-center gap-1.5 text-[13px] text-[#666] transition-colors hover:text-[#1a1a1a]">
+      {/* 1. Hero: imagen izquierda + título derecha */}
+      <section className="bg-white pt-10 pb-12">
+        <Container className="max-w-5xl">
+          <Link href="/blog" className="inline-flex items-center gap-1.5 text-[13px] text-[#666] transition-colors hover:text-[#1a1a1a] mb-8">
             <ArrowLeft className="size-4" /> Volver al blog
           </Link>
-          <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-wider">
-            <span className="rounded-full bg-[#4de961]/15 px-3 py-1 text-[#15803d]">{post.category}</span>
-            <span aria-hidden="true" className="text-[#ccc]">·</span>
-            <span className="text-[#999]">{post.readMinutes} min de lectura</span>
-            <span aria-hidden="true" className="text-[#ccc]">·</span>
-            <time dateTime={post.date} className="text-[#999]">{formatDate(post.date)}</time>
-          </div>
-          <h1 className="text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl" style={{ color: "#1a1a1a" }}>
-            {post.title}
-          </h1>
-          <p className="max-w-xl text-[16px] leading-7 text-[#666]">{post.excerpt}</p>
-          <div className="flex items-center gap-3 border-t border-[rgba(0,0,0,0.07)] pt-4">
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#4de961]/20">
-              <span className="text-sm font-black text-[#15803d]">F</span>
+
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+            {/* Imagen */}
+            {post.coverImage && (
+              <div className="relative aspect-4/3 w-full overflow-hidden rounded-[20px] bg-[#f5f6f7] shadow-md">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover object-top"
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              </div>
+            )}
+
+            {/* Meta + título */}
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-wider">
+                <span className="rounded-full bg-[#4de961]/15 px-3 py-1 text-[#15803d]">{post.category}</span>
+                <span aria-hidden="true" className="text-[#ccc]">·</span>
+                <span className="text-[#999]">{post.readMinutes} min de lectura</span>
+                <span aria-hidden="true" className="text-[#ccc]">·</span>
+                <time dateTime={post.date} className="text-[#999]">{formatDate(post.date)}</time>
+              </div>
+              <h1 className="text-3xl font-black leading-[1.1] tracking-tight sm:text-4xl lg:text-[2.6rem]" style={{ color: "#1a1a1a" }}>
+                {post.title}
+              </h1>
+              <p className="text-[16px] leading-7 text-[#666]">{post.excerpt}</p>
+              <div className="flex items-center gap-3 border-t border-[rgba(0,0,0,0.07)] pt-4">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#4de961]/20">
+                  <span className="text-sm font-black text-[#15803d]">F</span>
+                </div>
+                <span className="text-[13px] font-semibold text-[#555]">Fidel Mercado Tech</span>
+              </div>
             </div>
-            <span className="text-[13px] font-semibold text-[#555]">Fidel Mercado Tech</span>
           </div>
         </Container>
       </section>
