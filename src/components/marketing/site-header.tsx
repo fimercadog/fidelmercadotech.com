@@ -18,7 +18,6 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-sm shadow-xs">
@@ -33,12 +32,7 @@ export function SiteHeader() {
 
               if (link.title === "Soluciones") {
                 return (
-                  <div
-                    key="soluciones"
-                    className="relative"
-                    onMouseEnter={() => setSolutionsOpen(true)}
-                    onMouseLeave={() => setSolutionsOpen(false)}
-                  >
+                  <div key="soluciones" className="group relative">
                     <Link
                       href={link.href}
                       className={cn(
@@ -47,11 +41,14 @@ export function SiteHeader() {
                       )}
                     >
                       {link.title}
-                      <ChevronDown className={cn("size-3.5 transition-transform", solutionsOpen && "rotate-180")} />
+                      <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" />
                     </Link>
 
-                    {solutionsOpen && (
-                      <div className="absolute left-0 top-full z-50 mt-2 w-60 rounded-2xl border border-slate-100 bg-white py-2 shadow-xl">
+                    {/* Puente invisible para que el mouse no salga del group al bajar */}
+                    <div className="absolute left-0 top-full h-3 w-60" />
+
+                    <div className="pointer-events-none absolute left-0 top-full z-50 pt-3 opacity-0 transition-opacity group-hover:pointer-events-auto group-hover:opacity-100">
+                      <div className="w-60 rounded-2xl border border-slate-100 bg-white py-2 shadow-xl">
                         {NAV_SOLUTIONS_DROPDOWN.map((item) => (
                           <Link
                             key={item.href}
@@ -69,7 +66,7 @@ export function SiteHeader() {
                           Ver todas las soluciones →
                         </Link>
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               }

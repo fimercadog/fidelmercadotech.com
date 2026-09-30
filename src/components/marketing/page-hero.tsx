@@ -33,7 +33,7 @@ export function PageHero({ eyebrow, title, description, ctas, image }: PageHeroP
               align={image ? "left" : "center"}
             />
             {ctas && ctas.length > 0 && (
-              <div className={`flex flex-wrap gap-3 ${!image ? "justify-center" : ""}`}>
+              <div className={`flex flex-wrap gap-3 mb-6 ${!image ? "justify-center" : ""}`}>
                 {ctas.map((cta) => (
                   <Link
                     key={cta.label}
