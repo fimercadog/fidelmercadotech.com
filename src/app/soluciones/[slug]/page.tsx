@@ -6,7 +6,6 @@ import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { Icon } from "@/components/icon";
 import { BrowserFrame, PhoneFrame } from "@/components/marketing/device-frame";
-import { ImagePlaceholder, type ImageSlot } from "@/components/marketing/image-placeholder";
 import { ContactForm } from "@/components/marketing/contact-form";
 import { whatsappUrl } from "@/content/site";
 import { ExternalLink } from "lucide-react";
@@ -28,31 +27,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-function gallerySlots(slug: string): ImageSlot[] {
-  return [
-    {
-      id: `${slug}-shot-1`,
-      alt: "Captura de pantalla de la solución",
-      ratio: "16/10",
-      kind: "A",
-      description: "Captura real de una pantalla principal de la solución (lista / tabla con datos de demo).",
-    },
-    {
-      id: `${slug}-shot-2`,
-      alt: "Captura de pantalla de un detalle de la solución",
-      ratio: "16/10",
-      kind: "A",
-      description: "Captura real de una vista de detalle o formulario de la solución.",
-    },
-    {
-      id: `${slug}-video`,
-      alt: "Video corto de demostración de la solución",
-      ratio: "16/10",
-      kind: "D",
-      description: "Video corto (20–40 s, MP4/WebM) recorriendo el flujo principal. Sustituir este slot por el reproductor cuando exista.",
-    },
-  ];
-}
 
 export default async function SolutionPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -60,7 +34,6 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   if (!solution) notFound();
 
   const isPhone = solution.heroImage.kind === "B";
-  const gallery = gallerySlots(slug);
 
   return (
     <>
@@ -150,29 +123,6 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         </Container>
       </section>
 
-      {/* Galería / demostraciones */}
-      <section className="saas saas-section bg-white">
-        <Container className="flex flex-col gap-8">
-          <Reveal>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Demo</span>
-            <h2 className="saas-h2 mt-2 text-[#333]">Demostración</h2>
-            <p className="mt-2 max-w-2xl text-[14px] text-[#666]">
-              Screenshots y video del flujo principal. Solicita una demostración para verlo en vivo con datos reales.
-            </p>
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Reveal className="md:col-span-2">
-              <BrowserFrame slot={gallery[0]} />
-            </Reveal>
-            <Reveal delay={0.06}>
-              <ImagePlaceholder slot={gallery[1]} />
-            </Reveal>
-            <Reveal delay={0.12}>
-              <ImagePlaceholder slot={gallery[2]} />
-            </Reveal>
-          </div>
-        </Container>
-      </section>
 
       {/* Beneficios + stack */}
       <section className="saas saas-section bg-[#f9fafb]">
