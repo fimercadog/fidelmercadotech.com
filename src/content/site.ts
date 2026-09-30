@@ -32,7 +32,7 @@ export const NAV_LINKS = [
 export const NAV_SOLUTIONS_DROPDOWN = [
   { title: "ERP para Inmobiliarias", href: "/soluciones/crm-inmobiliario" },
   { title: "ERP Recursos Humanos", href: "/soluciones/rrhh" },
-  { title: "ERP Comercial + Inventario", href: "/soluciones/crm-inventario" },
+  { title: "ERP Comercial", href: "/soluciones/crm-inventario" },
   { title: "ERP para Veterinarias", href: "/soluciones/veterinaria" },
   { title: "ERP para Clínicas Estéticas", href: "/soluciones/clinica-estetica" },
   { title: "FidelOS · Inventario con IA", href: "/soluciones/fidelos" },
