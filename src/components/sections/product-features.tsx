@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
@@ -26,7 +26,7 @@ const ICON_BLURBS = [
 ];
 
 export function ProductFeatures() {
-  const topSolutions = SOLUTIONS.slice(0, 6);
+  const topSolutions = SOLUTIONS.filter((s) => !s.hidden).slice(2, 5);
 
   return (
     <section id="soluciones" className="saas saas-section bg-white">
@@ -41,62 +41,9 @@ export function ProductFeatures() {
           />
         </Reveal>
 
-        {/* 2-Column Detailed Feature Row (Side-by-side con assets saas-13.png y saas-14.png) */}
-        <div className="grid gap-8 lg:grid-cols-2">
-          {topSolutions.slice(0, 2).map((sol, i) => {
-            const assetImg = i === 0 ? "/assets/saas-product/saas-13.png" : "/assets/saas-product/saas-14.png";
-            return (
-              <Reveal key={sol.slug} delay={i * 0.1}>
-                <div className="saas-shadow-soft group flex h-full flex-col justify-between rounded-[24px] bg-white p-8 transition-transform duration-300 hover:-translate-y-1">
-                  <div className="flex flex-col gap-5">
-                    <div className="relative aspect-video w-full max-w-sm mx-auto overflow-hidden">
-                      <Image
-                        src={assetImg}
-                        alt={sol.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="rounded-full bg-[#4de961]/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#333]">
-                        {sol.category}
-                      </span>
-                      <Link
-                        href={`/soluciones/${sol.slug}`}
-                        className="inline-flex size-9 items-center justify-center rounded-full bg-[#f5f5f5] text-[#555] transition-colors group-hover:bg-[#4de961] group-hover:text-black"
-                      >
-                        <ArrowUpRight className="size-4" />
-                      </Link>
-                    </div>
-
-                    <h3 className="saas-h4 text-[#333]">{sol.name}</h3>
-                    <p className="text-[14px] leading-6 text-[#666]">{sol.summary}</p>
-
-                    <ul className="flex flex-col gap-2.5 pt-2">
-                      {sol.highlights.map((h) => (
-                        <li key={h} className="flex items-center gap-2.5 text-[13px] font-semibold text-[#333]">
-                          <span className="size-2 rounded-full bg-[#4de961]" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-8 border-t border-[rgba(0,0,0,0.07)] pt-6">
-                    <Link href={`/soluciones/${sol.slug}`} className="saas-btn saas-btn-outline w-full justify-center">
-                      Ver detalle de {sol.name} <ArrowRight className="ml-1 size-4" />
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-
-        {/* Grid de Soluciones completas */}
+        {/* Fila de 3 SolutionCards */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {topSolutions.slice(2).map((solution, i) => (
+          {topSolutions.map((solution, i) => (
             <Reveal key={solution.slug} delay={i * 0.05}>
               <SolutionCard solution={solution} />
             </Reveal>

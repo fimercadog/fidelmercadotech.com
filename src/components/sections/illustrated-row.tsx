@@ -37,7 +37,7 @@ export function IllustratedRow({
     <section
       className={cn(
         "saas saas-section relative overflow-hidden",
-        tinted ? "bg-[#0f1012]" : "bg-white",
+        tinted ? "!bg-[#0f1012]" : "bg-white",
       )}
     >
       <Container>

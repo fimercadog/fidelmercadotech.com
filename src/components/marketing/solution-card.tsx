@@ -7,9 +7,9 @@ export function SolutionCard({ solution }: { solution: Solution }) {
   return (
     <Link
       href={`/soluciones/${solution.slug}`}
-      className="saas-shadow-soft group block h-full rounded-[24px] bg-white p-[30px] transition-transform duration-300 hover:-translate-y-1"
+      className="saas-shadow-soft group block h-full min-h-[360px] rounded-[24px] bg-white px-10 py-12 transition-transform duration-300 hover:-translate-y-1"
     >
-      <div className="mb-[30px] flex items-start justify-between gap-3">
+      <div className="mb-10 flex items-start justify-between gap-3">
         <span className="flex size-12 items-center justify-center rounded-xl bg-[#4de961]/15 text-[#15803d]">
           <Icon name={solution.icon} className="size-6" />
         </span>

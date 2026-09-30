@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "@/components/marketing/logo";
-import { NAV_LINKS } from "@/content/site";
+import { NAV_LINKS, NAV_SOLUTIONS_DROPDOWN } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 function isActive(pathname: string, href: string) {
@@ -18,18 +18,62 @@ function isActive(pathname: string, href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-sm shadow-xs">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Izquierda: Logo estilo SaaS Product Home / Fidel Mercado Tech */}
         <Logo />
 
-        {/* Derecha: nav + CTA pill + carrito — estructura exacta del SaaS Product Pack */}
+        {/* Desktop nav */}
         <div className="hidden items-center gap-6 lg:flex">
           <nav className="flex items-center gap-5 xl:gap-6">
             {NAV_LINKS.map((link) => {
               const active = isActive(pathname, link.href);
+
+              if (link.title === "Soluciones") {
+                return (
+                  <div
+                    key="soluciones"
+                    className="relative"
+                    onMouseEnter={() => setSolutionsOpen(true)}
+                    onMouseLeave={() => setSolutionsOpen(false)}
+                  >
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "inline-flex items-center gap-1 text-[14px] font-medium transition-colors",
+                        active ? "text-[#333] font-semibold" : "text-[#787f84] hover:text-[#333]",
+                      )}
+                    >
+                      {link.title}
+                      <ChevronDown className={cn("size-3.5 transition-transform", solutionsOpen && "rotate-180")} />
+                    </Link>
+
+                    {solutionsOpen && (
+                      <div className="absolute left-0 top-full z-50 mt-2 w-60 rounded-2xl border border-slate-100 bg-white py-2 shadow-xl">
+                        {NAV_SOLUTIONS_DROPDOWN.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-2.5 text-[13px] font-medium text-[#555] transition-colors hover:bg-[#f9fafb] hover:text-[#333]"
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                        <div className="mx-4 my-2 border-t border-slate-100" />
+                        <Link
+                          href="/soluciones"
+                          className="block px-4 py-2.5 text-[13px] font-semibold text-[#15803d] transition-colors hover:bg-[#f9fafb]"
+                        >
+                          Ver todas las soluciones →
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.title + link.href}
@@ -45,20 +89,17 @@ export function SiteHeader() {
             })}
           </nav>
 
-          {/* Separador visual */}
           <span className="h-5 w-px bg-slate-200" aria-hidden="true" />
 
-          {/* Botón CTA pill verde */}
           <Link
-            href="/contacto"
+            href="/contacto?motivo=demo"
             className="saas-btn saas-btn-green text-[13px] px-5 py-2.5"
           >
             Solicitar demo
           </Link>
-
         </div>
 
-        {/* Menú Mobile para pantallas pequeñas */}
+        {/* Mobile menu */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Abrir menú">
@@ -71,19 +112,36 @@ export function SiteHeader() {
                 <Logo />
               </SheetTitle>
             </SheetHeader>
-            <nav className="flex flex-col gap-1 p-4">
+            <nav className="flex flex-col gap-1 p-4 overflow-y-auto">
               {NAV_LINKS.map((link) => (
-                <SheetClose asChild key={link.title + link.href}>
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "rounded-lg px-3 py-2.5 text-base font-semibold transition-colors hover:bg-slate-100 hover:text-slate-900",
-                      isActive(pathname, link.href) ? "bg-slate-100 text-slate-900 font-bold" : "text-slate-600",
-                    )}
-                  >
-                    {link.title}
-                  </Link>
-                </SheetClose>
+                <div key={link.title + link.href}>
+                  <SheetClose asChild>
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "block rounded-lg px-3 py-2.5 text-base font-semibold transition-colors hover:bg-slate-100 hover:text-slate-900",
+                        isActive(pathname, link.href) ? "bg-slate-100 text-slate-900 font-bold" : "text-slate-600",
+                      )}
+                    >
+                      {link.title}
+                    </Link>
+                  </SheetClose>
+
+                  {link.title === "Soluciones" && (
+                    <div className="ml-4 mt-1 flex flex-col gap-0.5 border-l-2 border-slate-100 pl-3">
+                      {NAV_SOLUTIONS_DROPDOWN.map((item) => (
+                        <SheetClose asChild key={item.href}>
+                          <Link
+                            href={item.href}
+                            className="block rounded-md px-2 py-2 text-sm text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-800"
+                          >
+                            {item.title}
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
             <div className="mt-auto border-t border-slate-100 p-4">

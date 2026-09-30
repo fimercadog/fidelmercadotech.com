@@ -166,6 +166,82 @@ export const SERVICES: Service[] = [
     related: ["crm-inventario"],
   },
   {
+    id: "consultoria-ia",
+    icon: "Lightbulb",
+    title: "Consultoría de IA",
+    description: "Diagnóstico estratégico: auditamos tus procesos y te entregamos un roadmap de automatización con IA.",
+    tagline: "Antes de automatizar, entendemos cómo trabaja tu empresa.",
+    problem:
+      "Muchas empresas quieren adoptar IA pero no saben por dónde empezar, qué automatizar primero ni qué puede salir mal. El resultado: proyectos que se inician sin criterio, se abandonan a la mitad o automatizan el proceso equivocado.",
+    summary:
+      "Realizamos un diagnóstico de cuatro etapas que convierte el caos operativo en un plan ejecutable: auditamos cómo trabajan hoy, identificamos qué se puede automatizar y con qué tecnología, evaluamos qué puede romperse y cómo mitigarlo, y entregamos un roadmap priorizado con el orden de implementación.",
+    includes: [
+      {
+        title: "Auditoría de procesos",
+        detail: "Mapeamos cómo trabaja tu equipo hoy: flujos, herramientas, puntos de contacto, cuellos de botella y tareas repetitivas que consumen tiempo sin agregar valor.",
+      },
+      {
+        title: "Análisis de oportunidades",
+        detail: "Identificamos qué procesos son candidatos reales de automatización con IA, qué tecnología aplica a cada caso (LLM, visión, voz, RPA) y cuál es el retorno esperado.",
+      },
+      {
+        title: "Estudio de vulnerabilidades",
+        detail: "Evaluamos qué puede romperse si automatizamos: dependencias ocultas, riesgos de datos, resistencia del equipo, y puntos donde la IA puede fallar sin que nadie lo detecte.",
+      },
+      {
+        title: "Roadmap de implementación",
+        detail: "Entregamos un plan priorizado por impacto y riesgo: qué se hace primero, qué se deja para después, y los criterios para saber que cada etapa está terminada.",
+      },
+    ],
+    benefits: [
+      "Claridad estratégica antes de invertir en tecnología",
+      "Evitas automatizar el proceso equivocado",
+      "Sabes exactamente en qué orden implementar",
+      "Reduces el riesgo de proyectos abandonados a la mitad",
+    ],
+    related: ["fidelos", "ia", "automatizacion"],
+  },
+  {
+    id: "ia-local",
+    icon: "Server",
+    title: "Modelos de IA en Local",
+    description: "Desplegamos modelos de IA en tu infraestructura: tus datos nunca salen, sin costo por consulta.",
+    tagline: "Tus modelos de IA corren en tu servidor. Tus datos nunca salen.",
+    problem:
+      "Las APIs de IA en la nube implican enviar datos de la empresa a servidores externos, costos variables que escalan con el uso, dependencia de la disponibilidad del proveedor y riesgo de cambios de condiciones o precios.",
+    summary:
+      "Desplegamos modelos de lenguaje e inteligencia artificial dentro de tu propia infraestructura usando soluciones open-source de primer nivel. Sin enviar datos a terceros, sin costo por consulta, sin riesgo de cortes externos ni lock-in de proveedor.",
+    includes: [
+      {
+        title: "Selección del modelo",
+        detail: "Evaluamos qué modelo encaja con tu caso de uso: Llama, Mistral, Phi, Qwen u otros modelos open-source, según el balance entre capacidad, velocidad y recursos de tu servidor.",
+      },
+      {
+        title: "Despliegue en tu infraestructura",
+        detail: "Instalamos y configuramos el modelo en tus servidores (on-premise o VPS privado), con la capa de inferencia optimizada para tu hardware disponible.",
+      },
+      {
+        title: "API interna",
+        detail: "Exponemos el modelo como una API compatible con OpenAI, de modo que cualquier sistema tuyo puede consumirlo sin cambiar el código de integración.",
+      },
+      {
+        title: "Ajuste fino (fine-tuning)",
+        detail: "Cuando el modelo base no es suficiente, entrenamos sobre tus datos: documentos internos, catálogos, políticas o conversaciones propias de tu negocio.",
+      },
+      {
+        title: "Monitoreo y mantenimiento",
+        detail: "Panel de uso, latencia y errores. Actualizamos el modelo cuando sale una versión mejor sin interrumpir la operación.",
+      },
+    ],
+    benefits: [
+      "Tus datos nunca salen de tu red",
+      "Costo fijo de infraestructura, uso ilimitado sin tarifas por token",
+      "Funciona sin internet y sin depender de terceros",
+      "Sin lock-in: cambias de modelo cuando quieras",
+    ],
+    related: ["ia", "automatizacion"],
+  },
+  {
     id: "personalizadas",
     icon: "Puzzle",
     title: "Soluciones personalizadas",

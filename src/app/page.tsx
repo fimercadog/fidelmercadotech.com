@@ -1,55 +1,38 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Container } from "@/components/marketing/container";
-import { Reveal } from "@/components/marketing/reveal";
-import { SectionHeading } from "@/components/marketing/section-heading";
-import { CapabilityStrip } from "@/components/marketing/capability-strip";
 import { SocialProof } from "@/components/marketing/social-proof";
 import { Hero } from "@/components/sections/hero";
-import { DemoShowcase } from "@/components/sections/demo-showcase";
-import { QuickTour } from "@/components/sections/quick-tour";
+import { ProblemContext } from "@/components/sections/problem-context";
 import { IllustratedRow } from "@/components/sections/illustrated-row";
+import { CapabilityStrip } from "@/components/marketing/capability-strip";
+import { QuickTour } from "@/components/sections/quick-tour";
 import { ProductFeatures } from "@/components/sections/product-features";
-import { GetOnTrackCta } from "@/components/sections/get-on-track-cta";
 import { ProcessFunnel } from "@/components/sections/process-funnel";
-import { Pricing } from "@/components/sections/pricing";
-import { FaqSection } from "@/components/sections/faq";
-import { PRICING_FAQ } from "@/content/faq";
-import { CASES } from "@/content/cases";
+import { ServicesStrip } from "@/components/sections/services-strip";
+import { AiUseCases } from "@/components/sections/ai-use-cases";
+import { GetOnTrackCta } from "@/components/sections/get-on-track-cta";
 
 export default function HomePage() {
   return (
     <>
-      {/* Sección 0: Hero Split (Headline + CTAs a la izquierda, Mockup en perspectiva a la derecha) */}
+      {/* 1. Hero — Qué es FidelOS y cuál es su propuesta de valor */}
       <Hero />
 
-      {/* Sección 1: Tarjetas de Capacidad (3 columnas con bordes e íconos) */}
-      <CapabilityStrip />
+      {/* 2. Problema / contexto — Qué problemas operativos resuelve FidelOS */}
+      <ProblemContext />
 
-      {/* Sección 2: Marco de Demostración Interactivas / Video Box Centrado */}
-      <DemoShowcase />
-
-      {/* Sección 3: Recorrido Rápido (Encabezado + Disposición asimétrica 2/3 y 1/3 con cifra 10x) */}
-      <QuickTour />
-
-      {/* Sección 4: Fila Destacada en Banda con Fondo ("Todo Conectado") */}
+      {/* 3. Solución FidelOS — Todo conectado: web + ERP + WhatsApp */}
       <IllustratedRow
         illustration="collaboration"
-        eyebrow="Todo conectado"
+        eyebrow="La solución"
         title="Tu web y tus sistemas hablan el mismo idioma"
         description="No entregamos piezas sueltas. La página capta el contacto, el ERP lo recibe con su ficha y el equipo le da seguimiento — sin copiar datos de un lado a otro."
         bullets={["Web + ERP sobre la misma base de datos", "Integración con WhatsApp y tus herramientas", "Un solo lugar con la información correcta"]}
         href="/servicios/integraciones"
         linkLabel="Ver integraciones"
-        tinted
       />
 
-      {/* Sección 5: Soluciones & Características de Producto (2 columnas detalladas + 3 blurbs de íconos) */}
-      <ProductFeatures />
-
-      {/* Sección 6: Demostración de Datos e Inventario con IA */}
+      {/* 4. Capacidades principales — Qué puede hacer FidelOS */}
+      <CapabilityStrip />
+      <QuickTour />
       <IllustratedRow
         illustration="productivity"
         eyebrow="Inventario con IA"
@@ -61,61 +44,23 @@ export default function HomePage() {
         reverse
       />
 
-      {/* Sección 7: Cuadrícula 2x2 de Testimonios y Confianza con Calificación de 5 Estrellas */}
+      {/* 5. Soluciones por vertical — Para quién es FidelOS */}
+      <ProductFeatures />
+
+      {/* 6. Cómo funciona — El recorrido del visitante a cliente */}
+      <ProcessFunnel />
+
+      {/* 7. Servicios — Catálogo de lo que construimos */}
+      <ServicesStrip />
+
+      {/* 8. Servicios de IA destacados — zoom en los 2 más diferenciados */}
+      <AiUseCases />
+
+      {/* Prueba social */}
       <SocialProof />
 
-      {/* Sección 8: Banda de Llamado a la Acción "Da el Siguiente Paso" (Pre-Footer Split Showcase) */}
+      {/* 9. CTA final — Llevar al visitante a contactar o pedir demo */}
       <GetOnTrackCta />
-
-      {/* Casos Reales y Proyectos */}
-      <section className="saas saas-section border-t border-[rgba(0,0,0,0.07)] bg-[#f9fafb]">
-        <Container className="flex flex-col gap-12">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Casos"
-              title="Proyectos reales que puedes probar"
-              description="No mostramos plantillas: estas plataformas están en producción y tienen demo pública."
-            />
-          </Reveal>
-          <div className="grid gap-6 md:grid-cols-2">
-            {CASES.map((c, i) => (
-              <Reveal key={c.slug} delay={i * 0.06}>
-                <Link
-                  href={`/casos/${c.slug}`}
-                  className="saas-shadow-soft group flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white transition-transform duration-300 hover:-translate-y-1"
-                >
-                  <div className="relative aspect-video bg-[#f5f6f7]">
-                    <Image src={c.image} alt={c.title} fill className="object-cover object-top" sizes="(min-width: 768px) 45vw, 100vw" />
-                  </div>
-                  <div className="flex flex-col gap-2 p-6">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">{c.sector}</span>
-                    <h3 className="saas-h5 text-[#333]">{c.title}</h3>
-                    <p className="text-[14px] leading-6 text-[#666]">{c.summary}</p>
-                    <span className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
-                      Ver el caso
-                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="flex justify-center">
-            <Button asChild size="lg" className="saas-btn saas-btn-black rounded-full px-8">
-              <Link href="/casos">Ver todos los casos</Link>
-            </Button>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* Precios */}
-      <div id="precios">
-        <Pricing />
-        <FaqSection items={PRICING_FAQ} />
-      </div>
-
-      {/* Proceso y Metodología de Trabajo */}
-      <ProcessFunnel />
     </>
   );
 }

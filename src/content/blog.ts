@@ -5,6 +5,7 @@ export interface BlogPost {
   category: string;
   date: string; // ISO
   readMinutes: number;
+  coverImage?: string;
   /** Body as an array of paragraphs / headings. */
   body: { type: "p" | "h2" | "ul"; text?: string; items?: string[] }[];
 }
@@ -13,6 +14,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: "crm-vs-hoja-de-calculo",
     title: "ERP vs. hoja de cálculo: cuándo dejar el Excel",
+    coverImage: "/assets/saas-product/saas-24.png",
     excerpt:
       "La hoja de cálculo funciona hasta que deja de funcionar. Estas son las señales de que tu equipo comercial ya necesita un ERP.",
     category: "Comercial",
@@ -35,6 +37,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: "por-que-el-inventario-nunca-cuadra",
     title: "Por qué tu inventario nunca cuadra (y cómo arreglarlo)",
+    coverImage: "/assets/saas-product/saas-47.png",
     excerpt:
       "El conteo físico casi nunca coincide con el sistema. La causa casi siempre es la misma: hay más de un camino para registrar un movimiento.",
     category: "Operaciones",
@@ -57,6 +60,7 @@ export const POSTS: BlogPost[] = [
   {
     slug: "cuando-conviene-automatizar-un-proceso",
     title: "Cuándo conviene automatizar un proceso (y cuándo no)",
+    coverImage: "/assets/saas-product/saas-46.png",
     excerpt:
       "Automatizar por automatizar sale caro. Estas tres preguntas te dicen si un proceso vale la pena.",
     category: "Automatización",

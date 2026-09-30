@@ -40,7 +40,7 @@ export function QuickTour() {
             </Reveal>
 
             <div className="grid gap-6 sm:grid-cols-12 sm:items-center">
-              <Reveal className="sm:col-span-4 flex flex-col justify-center rounded-[18px] bg-[#d2f800] p-6 text-center shadow-md">
+              <Reveal className="sm:col-span-4 flex flex-col justify-center rounded-[18px] bg-[#d2f800] p-8 text-center shadow-xl">
                 <span className="font-heading text-5xl font-extrabold text-slate-950">10x</span>
                 <span className="mt-1 text-xs font-bold uppercase tracking-wider text-slate-900">
                   Más rápido en captura de datos
@@ -59,7 +59,7 @@ export function QuickTour() {
           {/* Columna Derecha (5 cols): Asset original saas-19.png */}
           <div className="flex flex-col gap-6 lg:col-span-5">
             <Reveal>
-              <div className="saas-shadow-soft flex flex-col gap-6 rounded-[24px] bg-white p-8">
+              <div className="saas-shadow-soft flex flex-col gap-6 rounded-[24px] bg-white px-10 py-12">
                 <div className="relative mx-auto aspect-square w-full max-w-[240px] overflow-hidden">
                   <Image
                     src="/assets/saas-product/saas-19.png"

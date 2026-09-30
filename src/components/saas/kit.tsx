@@ -71,14 +71,16 @@ export function IconCard({
 }) {
   const body = (
     <>
-      <PackIconImg name={icon} className={variant === "float" ? "mb-[60px]" : "mb-[26px]"} />
+      <PackIconImg name={icon} className={variant === "float" ? "mb-[60px]" : "mb-[36px]"} />
       <h3 className="saas-h5 mb-2">{title}</h3>
       <p className="saas-small">{text}</p>
     </>
   );
   const cls = cn(
-    "block h-full p-[30px] transition-transform duration-300",
-    variant === "outline" ? "rounded-[10px] border border-black" : "rounded-[24px] bg-white saas-shadow-soft",
+    "block h-full px-10 py-12 transition-transform duration-300",
+    variant === "outline"
+      ? "rounded-[24px] border border-black/10 saas-shadow-soft min-h-[280px] hover:-translate-y-1"
+      : "rounded-[24px] bg-white saas-shadow-soft min-h-[300px]",
     href && "hover:-translate-y-1",
     className,
   );
@@ -222,7 +224,16 @@ export function GetOnTrack({
             {cta.label}
           </Pill>
         </div>
-        <div className="saas-dots relative -mr-[12vw] aspect-[624/400] rounded-[230px_43px_43px] bg-black shadow-[144px_0_0_#000] max-md:hidden" />
+        <div className="relative -mr-[12vw] max-md:hidden" style={{ width: "58%" }}>
+          <Image
+            src="/assets/saas-product/saas-37.png"
+            alt="Dashboard FidelOS"
+            width={900}
+            height={620}
+            className="w-full h-auto object-contain drop-shadow-2xl"
+            priority
+          />
+        </div>
       </Row>
     </section>
   );

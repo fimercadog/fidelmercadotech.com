@@ -267,13 +267,13 @@
 }
 
 .fmt-card-shadow {
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 8px 28px -6px rgba(0, 0, 0, 0.10);
 }
 
 /* Premium Card Elevation */
 .fmt-elevate {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 6px 20px -4px rgba(0, 0, 0, 0.10), 0 16px 40px -8px rgba(0, 0, 0, 0.07);
   background-color: #ffffff;
   border-color: #e2e8f0;
 }
@@ -314,7 +314,8 @@
   letter-spacing: -0.02em;
   text-wrap: pretty;
 }
-.saas-section { padding-block: 54px; position: relative; }
+.saas-section { padding-block: 54px; position: relative; background-color: #ffffff; }
+.saas-section:nth-child(even) { background-color: #eef0f3; }
 .saas-row { width: 80%; max-width: 1080px; margin-inline: auto; padding-block: 27px; position: relative; }
 
 .saas-h1 { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.2; }
@@ -353,8 +354,8 @@
 .saas-grad-peach { background-image: linear-gradient(240deg, #f8cbad 20%, #bdb7ea 75%); }
 .saas-shadow-green { box-shadow: 0 60px 80px 0 rgba(0, 135, 28, .2); }
 .saas-shadow-orange { box-shadow: 0 60px 80px 0 rgba(254, 139, 119, .3); }
-.saas-shadow-soft { box-shadow: 0 100px 100px 0 rgba(194, 194, 200, .4); }
-.saas-shadow-toggle { box-shadow: 0 20px 100px 0 rgba(194, 194, 200, .4); }
+.saas-shadow-soft { box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 8px 28px -4px rgba(0,0,0,.09), 0 100px 100px 0 rgba(194, 194, 200, .3); }
+.saas-shadow-toggle { box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 20px 100px 0 rgba(194, 194, 200, .4); }
 
 /* Texturas con grano */
 .saas-tex-green-yellow {

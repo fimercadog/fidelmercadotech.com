@@ -29,6 +29,15 @@ export const NAV_LINKS = [
   { title: "Nosotros", href: "/nosotros" },
 ] as const;
 
+export const NAV_SOLUTIONS_DROPDOWN = [
+  { title: "ERP para Inmobiliarias", href: "/soluciones/crm-inmobiliario" },
+  { title: "ERP Recursos Humanos", href: "/soluciones/rrhh" },
+  { title: "ERP Comercial + Inventario", href: "/soluciones/crm-inventario" },
+  { title: "ERP para Veterinarias", href: "/soluciones/veterinaria" },
+  { title: "ERP para Clínicas Estéticas", href: "/soluciones/clinica-estetica" },
+  { title: "FidelOS · Inventario con IA", href: "/soluciones/fidelos" },
+] as const;
+
 export const FOOTER_NAV = [
   {
     heading: "Soluciones",
@@ -42,13 +51,14 @@ export const FOOTER_NAV = [
     ],
   },
   {
-    heading: "Servicios",
+    heading: "Capacidades",
     links: [
       { title: "Desarrollo de software", href: "/servicios/software" },
       { title: "FidelOS", href: "/servicios/automatizacion" },
       { title: "Inteligencia Artificial", href: "/servicios/ia" },
+      { title: "Consultoría de IA", href: "/servicios/consultoria-ia" },
+      { title: "IA en Local", href: "/servicios/ia-local" },
       { title: "Integraciones", href: "/servicios/integraciones" },
-      { title: "Desarrollo web", href: "/servicios/web" },
     ],
   },
   {

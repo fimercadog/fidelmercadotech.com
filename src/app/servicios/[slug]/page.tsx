@@ -40,6 +40,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     agentes: "collaboration",
     software: "productivity",
     web: "productivity",
+    "consultoria-ia": "about",
+    "ia-local": "automation",
   };
   const illustration = ILLUS[service.id];
 
@@ -86,12 +88,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       <section className="saas saas-section bg-white">
         <Container className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-6">
-            <div className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8">
+            <div className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-10 py-10">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">El problema</span>
               <h2 className="saas-h5 text-[#333]">El reto que enfrentas</h2>
               <p className="text-[14px] leading-7 text-[#666]">{service.problem}</p>
             </div>
-            <div className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[#4de961]/20 bg-[#4de961]/5 p-8">
+            <div className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[#4de961]/20 bg-[#4de961]/5 px-10 py-10">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Cómo lo abordamos</span>
               <h2 className="saas-h5 text-[#333]">Nuestra solución</h2>
               <p className="text-[14px] leading-7 text-[#555]">{service.summary}</p>
@@ -121,11 +123,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="grid gap-5 sm:grid-cols-2">
             {service.includes.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.04}>
-                <div className="saas-shadow-toggle flex h-full flex-col gap-2 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6">
+                <div className="saas-shadow-toggle flex h-full flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-8 py-10">
                   <span className="flex size-10 items-center justify-center rounded-xl bg-[#4de961]/10 text-[#333]">
                     <Icon name={service.icon} className="size-4" />
                   </span>
-                  <h3 className="saas-h5 mt-1 text-[#333]">{f.title}</h3>
+                  <h3 className="saas-h5 mt-2 text-[#333]">{f.title}</h3>
                   <p className="text-[14px] leading-6 text-[#666]">{f.detail}</p>
                 </div>
               </Reveal>
@@ -143,7 +145,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </Reveal>
           <ul className="grid gap-4 sm:grid-cols-2">
             {service.benefits.map((b, i) => (
-              <Reveal as="li" key={b} delay={i * 0.04} className="saas-shadow-toggle flex gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6 text-[14px]">
+              <Reveal as="li" key={b} delay={i * 0.04} className="saas-shadow-toggle flex gap-4 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-8 py-8 text-[14px]">
                 <Check className="mt-0.5 size-4 shrink-0 text-[#4de961]" aria-hidden="true" />
                 <span className="text-[#555]">{b}</span>
               </Reveal>
@@ -195,7 +197,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="saas-shadow-soft rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8">
+            <div className="saas-shadow-soft rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-10 py-10">
               <ContactForm defaultMotivo="proyecto" defaultInteres={service.title} />
             </div>
           </Reveal>

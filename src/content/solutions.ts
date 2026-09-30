@@ -206,13 +206,14 @@ export const SOLUTIONS: Solution[] = [
       "Lista para demostrar con datos reales",
     ],
     stack: ["Next.js 16", "Laravel 12", "Sanctum"],
-    cta: { label: "Solicitar demostración", kind: "contact" },
+    cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "veterinaria-hero",
-      alt: "Ficha de paciente veterinario con historial y datos del propietario",
+      alt: "Web pública de la Clínica Vet Los Andes — sitio del cliente incluido en el ERP Veterinaria",
       ratio: "16/10",
-      kind: "C",
-      description: "Ilustración conceptual o mockup de la ficha de paciente veterinario (propietario + mascota + historial). Reemplazar por captura real cuando el módulo esté disponible.",
+      kind: "A",
+      src: "/brand/veterinaria.png",
+      description: "Captura del homepage público de la clínica veterinaria demo: hero con servicios, equipo y contacto.",
     },
   },
   {
@@ -250,10 +251,11 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "clinica-estetica-hero",
-      alt: "ERP para Clínicas Estéticas — agenda y ficha del paciente",
+      alt: "Web pública de la clínica estética demo — sitio del cliente incluido en el ERP",
       ratio: "16/10",
       kind: "A",
-      description: "Captura del ERP: vista de la agenda de citas o la ficha del paciente con historial de tratamientos.",
+      src: "/brand/clinica-estetica.png",
+      description: "Captura del homepage público de la clínica estética demo: hero con servicios, agenda y contacto.",
     },
   },
   {
@@ -291,10 +293,11 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "cuidado-domiciliario-hero",
-      alt: "ERP para Cuidado Domiciliario — programación de visitas",
+      alt: "Web pública del servicio de cuidado domiciliario demo — sitio del cliente incluido en el ERP",
       ratio: "16/10",
       kind: "A",
-      description: "Captura del ERP: calendario de visitas o ficha del paciente con historial de atenciones domiciliarias.",
+      src: "/brand/cuidado-domiciliario.png",
+      description: "Captura del homepage público del servicio de cuidado domiciliario demo: hero con servicios y contacto.",
     },
   },
   {
@@ -332,10 +335,11 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "agencia-viajes-hero",
-      alt: "ERP para Agencias de Viajes — cotizaciones y reservas",
+      alt: "Web pública de la agencia de viajes demo — sitio del cliente incluido en el ERP",
       ratio: "16/10",
       kind: "A",
-      description: "Captura del ERP: vista de cotizaciones o pipeline de reservas con datos de demo.",
+      src: "/brand/agencia-viajes.png",
+      description: "Captura del homepage público de la agencia de viajes demo: hero con destinos, servicios y contacto.",
     },
   },
   {
@@ -373,10 +377,11 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "escuela-futbol-hero",
-      alt: "ERP para Escuelas Deportivas — asistencia y estudiantes",
+      alt: "Web pública de la escuela deportiva demo — sitio del cliente incluido en el ERP",
       ratio: "16/10",
       kind: "A",
-      description: "Captura del ERP: lista de estudiantes por grupo o registro de asistencia de la sesión.",
+      src: "/brand/escuela-futbol.png",
+      description: "Captura del homepage público de la escuela deportiva demo: hero con programas, equipo e inscripciones.",
     },
   },
   {
@@ -414,10 +419,11 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "ips-hero",
-      alt: "ERP para IPS — historia clínica y agenda",
+      alt: "Web pública de la IPS demo — sitio del cliente incluido en el ERP de Salud",
       ratio: "16/10",
       kind: "A",
-      description: "Captura del ERP: ficha del paciente con historia clínica o agenda de citas por especialidad.",
+      src: "/brand/ips.png",
+      description: "Captura del homepage público de la IPS demo: hero con especialidades, equipo médico y citas.",
     },
   },
   {
@@ -455,10 +461,11 @@ export const SOLUTIONS: Solution[] = [
     cta: { label: "Ver demostración", kind: "demo" },
     heroImage: {
       id: "erp-general-hero",
-      alt: "ERP General — dashboard y módulo comercial",
+      alt: "Web pública del ERP General demo — sitio del cliente incluido en la plataforma",
       ratio: "16/10",
       kind: "A",
-      description: "Captura del ERP: dashboard principal o pipeline Kanban de oportunidades con datos de demo.",
+      src: "/brand/erp-general.png",
+      description: "Captura del homepage público del ERP General demo: hero con propuesta de valor, características y contacto.",
     },
   },
   {
