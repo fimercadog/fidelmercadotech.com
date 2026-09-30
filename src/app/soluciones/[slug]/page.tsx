@@ -10,6 +10,7 @@ import { ContactForm } from "@/components/marketing/contact-form";
 import { whatsappUrl } from "@/content/site";
 import { ExternalLink } from "lucide-react";
 import { SOLUTIONS, getSolution, STATUS_LABEL } from "@/content/solutions";
+import { TermBadge } from "@/components/marketing/term-badge";
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ slug: s.slug }));
@@ -48,10 +49,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
               <span className="flex size-11 items-center justify-center rounded-xl bg-[#4de961]/20 text-[#15803d]">
                 <Icon name={solution.icon} className="size-5" />
               </span>
-              <span className="rounded-full bg-[#f0f0f0] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#555]">
-                {STATUS_LABEL[solution.status]}
-              </span>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#15803d]">{solution.category}</span>
+              <TermBadge term={STATUS_LABEL[solution.status]} className="rounded-full bg-[#f0f0f0] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#555]" />
+              <TermBadge term={solution.category} className="text-[11px] font-bold uppercase tracking-wider text-[#15803d]" />
             </div>
             <h1 className="saas-h1" style={{ color: "#1a1a1a" }}>{solution.name}</h1>
             <p className="text-[15px] leading-7 text-[#666]">{solution.tagline}</p>
@@ -144,9 +143,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             <h2 className="saas-h2 text-[#333]">Tecnología</h2>
             <div className="flex flex-wrap gap-2">
               {solution.stack.map((tech) => (
-                <span key={tech} className="rounded-full bg-white px-3 py-1 text-[11px] font-bold text-[#555] shadow-sm border border-[rgba(0,0,0,0.07)]">
-                  {tech}
-                </span>
+                <TermBadge key={tech} term={tech} className="rounded-full bg-white px-3 py-1 text-[11px] font-bold text-[#555] shadow-sm border border-[rgba(0,0,0,0.07)]" />
               ))}
             </div>
           </Reveal>
