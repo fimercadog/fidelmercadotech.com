@@ -473,6 +473,7 @@ export const SOLUTIONS: Solution[] = [
     name: "ERP para HVAC",
     category: "HVAC y climatización",
     status: "demo",
+    hidden: true,
     icon: "AirVent",
     demoUrl: "https://demo-erp-web-hvac.api.fidelmercadotech.com",
     tagline: "Gestiona clientes, equipos, instalaciones y mantenimientos de tu empresa HVAC.",
