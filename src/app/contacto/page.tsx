@@ -62,13 +62,13 @@ export default function ContactoPage() {
                         "saas-shadow-toggle group flex items-center justify-between gap-4 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6 transition-transform hover:-translate-y-0.5"
                       )}
                     >
-                      <div className="flex items-center gap-4">
-                        <span className="flex size-12 items-center justify-center rounded-2xl bg-[#4de961]/10 text-[#333] transition-transform duration-300 group-hover:scale-110">
+                      <div className="flex min-w-0 items-center gap-4">
+                        <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#4de961]/10 text-[#333] transition-transform duration-300 group-hover:scale-110">
                           <c.icon className="size-6" aria-hidden="true" />
                         </span>
-                        <div className="flex flex-col gap-0.5">
+                        <div className="flex min-w-0 flex-col gap-0.5">
                           <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">{c.label}</span>
-                          <span className="text-[15px] font-semibold text-[#333]">{c.value}</span>
+                          <span className="truncate text-[15px] font-semibold text-[#333]">{c.value}</span>
                         </div>
                       </div>
                       <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">

@@ -174,6 +174,7 @@ export const SOLUTIONS: Solution[] = [
       ratio: "16/10",
       kind: "A",
       description: "Captura real: pipeline Kanban de oportunidades o la vista de movimientos de inventario, con datos de demo.",
+      src: "/brand/crm-inventario.png",
     },
   },
   {

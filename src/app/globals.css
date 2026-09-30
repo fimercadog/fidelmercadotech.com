@@ -318,7 +318,7 @@
 .saas-section:nth-child(even) { background-color: #eef0f3; }
 .saas-row { width: 80%; max-width: 1080px; margin-inline: auto; padding-block: 27px; position: relative; }
 
-.saas-h1 { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.2; }
+.saas-h1 { font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 1.2; overflow-wrap: break-word; }
 .saas-h1-xl { font-size: clamp(3.5rem, 8.3vw, 7.5rem); line-height: 1.1; }
 .saas-h2 { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.2; }
 .saas-h2-lg { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.2; }
