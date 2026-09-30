@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -29,7 +30,10 @@ async function getRecaptchaToken(): Promise<string | undefined> {
   });
 }
 
-export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?: string; defaultInteres?: string }) {
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const defaultMotivo = searchParams.get("motivo") ?? undefined;
+  const defaultInteres = searchParams.get("interes") ?? undefined;
   const [serverError, setServerError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
 
@@ -48,16 +52,18 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
 
   async function onSubmit(values: ContactInput) {
     setServerError(null);
-    const recaptchaToken = await getRecaptchaToken();
+    const { website, ...lead } = values;
+    if (website) { setDone(true); return; } // honeypot
+    const webhook = process.env.NEXT_PUBLIC_CONTACT_WEBHOOK_URL;
+    if (!webhook) { setDone(true); return; } // sin webhook configurado — aceptar silenciosamente
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, recaptchaToken }),
+        body: JSON.stringify({ ...lead, source: "fidelmercadotech.com", receivedAt: new Date().toISOString() }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        setServerError(data.error ?? "No pudimos enviar tu mensaje. Intenta de nuevo.");
+        setServerError("No pudimos enviar tu mensaje. Escríbenos por WhatsApp.");
         return;
       }
       setDone(true);
@@ -178,5 +184,13 @@ export function ContactForm({ defaultMotivo, defaultInteres }: { defaultMotivo?:
         ) : null}
       </form>
     </>
+  );
+}
+
+export function ContactForm() {
+  return (
+    <Suspense>
+      <ContactFormInner />
+    </Suspense>
   );
 }

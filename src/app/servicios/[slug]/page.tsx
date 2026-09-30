@@ -198,7 +198,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </Reveal>
           <Reveal delay={0.08}>
             <div className="saas-shadow-soft rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-10 py-10">
-              <ContactForm defaultMotivo="proyecto" defaultInteres={service.title} />
+              <ContactForm />
             </div>
           </Reveal>
         </Container>

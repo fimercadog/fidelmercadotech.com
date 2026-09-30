@@ -159,7 +159,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </Reveal>
           <Reveal delay={0.08}>
             <div className="saas-shadow-soft rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8">
-              <ContactForm defaultMotivo="proyecto" defaultInteres={study.client} />
+              <ContactForm />
             </div>
           </Reveal>
         </Container>

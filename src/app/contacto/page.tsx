@@ -22,13 +22,7 @@ const CHANNELS = [
   { icon: Mail, label: "Correo", value: SITE.email, href: `mailto:${SITE.email}`, variant: "outline" },
 ] as const;
 
-export default async function ContactoPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ motivo?: string; interes?: string }>;
-}) {
-  const { motivo, interes } = await searchParams;
-
+export default function ContactoPage() {
   return (
     <>
       <PageHero
@@ -106,7 +100,7 @@ export default async function ContactoPage({
                       Llena los datos a continuación y nos pondremos en contacto contigo.
                     </p>
                   </div>
-                  <ContactForm defaultMotivo={motivo} defaultInteres={interes} />
+                  <ContactForm />
                 </div>
               </Reveal>
             </div>

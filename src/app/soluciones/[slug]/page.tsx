@@ -216,7 +216,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           </Reveal>
           <Reveal delay={0.08}>
             <div className="saas-shadow-soft rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8">
-              <ContactForm defaultMotivo={solution.cta.kind === "demo" ? "demo" : "proyecto"} defaultInteres={solution.slug} />
+              <ContactForm />
             </div>
           </Reveal>
         </Container>
