@@ -71,7 +71,7 @@ export function IconCard({
 }) {
   const body = (
     <>
-      <PackIconImg name={icon} className={variant === "float" ? "mb-[60px]" : "mb-[36px]"} />
+      <PackIconImg name={icon} className={variant === "float" ? "mb-15" : "mb-9"} />
       <h3 className="saas-h5 mb-2">{title}</h3>
       <p className="saas-small">{text}</p>
     </>
@@ -150,7 +150,7 @@ export interface FaqItem {
 /** Acordeón del pack: tarjetas blancas radio 24, "+" verde, la primera abierta. */
 export function FaqColumn({ items, openFirst = true }: { items: FaqItem[]; openFirst?: boolean }) {
   return (
-    <div className="flex flex-col gap-[30px]">
+    <div className="flex flex-col gap-7.5">
       {items.map((f, i) => (
         <details key={f.q} open={openFirst && i === 0} className="saas-toggle saas-shadow-toggle rounded-[24px] bg-white p-5">
           <summary className="flex items-start justify-between gap-4">
@@ -167,9 +167,9 @@ export function FaqColumn({ items, openFirst = true }: { items: FaqItem[]; openF
 /** Banda verde redondeada con título, texto y botón negro (hiring / request a feature). */
 export function GreenBand({ title, text, cta }: { title: string; text: string; cta: { label: string; href: string } }) {
   return (
-    <div className="saas-grad-green-soft saas-shadow-green rounded-[24px] px-[8%] py-[57px] text-center">
-      <h2 className="saas-h2 mx-auto max-w-[850px]">{title}</h2>
-      <p className="mx-auto mt-5 max-w-[850px] text-[14px] leading-[1.7] font-semibold text-black">{text}</p>
+    <div className="saas-grad-green-soft saas-shadow-green rounded-[24px] px-[8%] py-14.25 text-center">
+      <h2 className="saas-h2 mx-auto max-w-212.5">{title}</h2>
+      <p className="mx-auto mt-5 max-w-212.5 text-[14px] leading-[1.7] font-semibold text-black">{text}</p>
       <Pill href={cta.href} variant="black" className="mt-6">
         {cta.label}
       </Pill>
@@ -180,7 +180,7 @@ export function GreenBand({ title, text, cta }: { title: string; text: string; c
 /** Composición de widgets sobre el arco amarillo-verde (saas-32 + saas-30). */
 export function WidgetArc({ className }: { className?: string }) {
   return (
-    <div className={cn("relative mx-auto aspect-[1080/820] w-full text-[clamp(7px,1.1vw,16px)]", className)}>
+    <div className={cn("relative mx-auto aspect-1080/820 w-full text-[clamp(7px,1.1vw,16px)]", className)}>
       <Image src="/assets/saas-product/saas-32.png" alt="" fill sizes="(min-width: 1080px) 1080px, 80vw" className="object-contain" />
       <span className="absolute top-[26%] left-[8%] h-[16%] w-[8%] rotate-[-30deg] rounded-[50%] border border-black saas-grad-orange opacity-90 blur-[0.3px]" />
       <SparkCard className="absolute top-[6%] left-[10%] w-[31%]" />
@@ -204,11 +204,11 @@ export function GetOnTrack({
   cta: { label: string; href: string };
 }) {
   return (
-    <section className="saas saas-section overflow-hidden pt-[58px]">
+    <section className="saas saas-section overflow-hidden pt-14.5">
       <Row className="relative">
-        <div className="saas-tex-sun relative mx-auto aspect-[1080/839] w-full rounded-[600px_600px_300px_30px]">
+        <div className="saas-tex-sun relative mx-auto aspect-1080/839 w-full rounded-[600px_600px_300px_30px]">
           <span className="saas-grad-orange absolute top-[5%] left-[5%] h-[27%] w-[13%] rounded-[60px_10px] shadow-[0_60px_80px_rgba(253,150,97,.5)]" />
-          <div className="saas-widget absolute top-[35%] left-[4%] aspect-[574/348] w-[42%] text-[clamp(7px,1.05vw,15px)]">
+          <div className="saas-widget absolute top-[35%] left-[4%] aspect-574/348 w-[42%] text-[clamp(7px,1.05vw,15px)]">
             <RingCard value={90} className="absolute inset-[8%_10%_8%_24%] bg-none shadow-none" />
           </div>
           <SparkCard className="absolute top-[42%] left-[-4%] w-[28%] text-[clamp(7px,1vw,14px)]" />
@@ -224,15 +224,12 @@ export function GetOnTrack({
             {cta.label}
           </Pill>
         </div>
-        <div className="relative -mr-[12vw] max-md:hidden" style={{ width: "58%" }}>
-          <Image
-            src="/assets/saas-product/saas-37.png"
-            alt="Dashboard FidelOS"
-            width={900}
-            height={620}
-            className="w-full h-auto object-contain drop-shadow-2xl"
-            priority
-          />
+        <div className="relative max-md:hidden" style={{ width: "100%" }}>
+          {/* Widgets dibujados en código (el PNG del pack traía "Divi X / By Elegant Themes" y un 90% impresos). */}
+          <div className="relative aspect-800/485 w-full text-[clamp(9px,1.4vw,20px)] drop-shadow-2xl" aria-hidden="true">
+            <RingCard value={72} caption="Todo en un solo sistema" footer="FidelOS" className="absolute inset-y-0 right-0 w-[68%]" />
+            <SparkCard className="absolute top-[18%] left-0 w-[58%]" />
+          </div>
         </div>
       </Row>
     </section>

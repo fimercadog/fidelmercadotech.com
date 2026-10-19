@@ -36,9 +36,9 @@ const DEFINITIONS: Record<string, string> = {
 
   // Status labels
   "DEMO DISPONIBLE": "Puedes ver el sistema funcionando en vivo con datos de ejemplo. Solicita acceso y lo pruebas hoy mismo.",
-  "PRODUCTO PROPIO": "Desarrollado y mantenido 100% por FidelOS. Tenemos control total sobre el código y podemos adaptarlo a tus necesidades.",
-  "EN DESARROLLO": "Estamos construyendo este módulo activamente. Puedes reservar tu lugar y participar en la definición de funcionalidades.",
-  "PROYECTO A MEDIDA": "Lo desarrollamos desde cero según las necesidades específicas de tu empresa y sector.",
+  "PRODUCTO PROPIO": "Desarrollado y mantenido 100% por FidelOS. Tengo el control total del código y puedo adaptarlo a tus necesidades.",
+  "EN DESARROLLO": "Estoy construyendo este módulo activamente. Puedes reservar tu lugar y participar en la definición de funcionalidades.",
+  "PROYECTO A MEDIDA": "Lo desarrollo desde cero según las necesidades específicas de tu empresa y sector.",
   "EN PRODUCCIÓN": "Sistema funcionando con clientes reales. Probado, estable y listo para operar tu negocio desde el primer día.",
 
   // Categorías
@@ -100,7 +100,7 @@ export function TermBadge({ term, className = "" }: TermBadgeProps) {
             <X className="size-3.5" />
           </button>
           {/* flecha */}
-          <span className="absolute -bottom-[6px] left-1/2 -translate-x-1/2 block size-3 rotate-45 border-b border-r border-[rgba(0,0,0,0.08)] bg-white" />
+          <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 block size-3 rotate-45 border-b border-r border-[rgba(0,0,0,0.08)] bg-white" />
         </span>
       )}
     </span>

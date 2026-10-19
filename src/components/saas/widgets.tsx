@@ -75,7 +75,7 @@ export function Bars({ className, highlight = 4, labels = true }: { className?: 
 
 function Avatar({ initials, online, className }: { initials: string; online?: boolean; className?: string }) {
   return (
-    <span className={cn("relative inline-flex shrink-0 items-center justify-center rounded-full border-[3px] border-white/80 bg-gradient-to-br from-[#9df14b] to-[#02e173] font-bold text-black", className)}>
+    <span className={cn("relative inline-flex shrink-0 items-center justify-center rounded-full border-[3px] border-white/80 bg-linear-to-br from-[#9df14b] to-[#02e173] font-bold text-black", className)}>
       {initials}
       {online ? <span className="absolute -top-0.5 -right-0.5 size-[26%] rounded-full border-2 border-white bg-[#4de961]" /> : null}
     </span>
@@ -106,7 +106,6 @@ export function GaugeCard({ title = "FidelOS", subtitle = BRAND, value = 60, leg
       {subtitle ? <p className="text-[.7em] text-white/50">{subtitle}</p> : null}
       <div className="relative mt-3 w-full">
         <Gauge value={value} className="w-full" />
-        <span className="absolute inset-x-0 bottom-0 text-[2.1em] leading-none font-medium">{value}%</span>
       </div>
       <div className="mt-3 flex w-full justify-between text-[.7em] text-white/70">
         <span className="flex flex-col items-center gap-1"><i className="size-1.5 rounded-full bg-[#6fbf3f]" />{legend[0]}</span>
@@ -121,7 +120,6 @@ export function RingCard({ value = 90, caption = BRAND, footer, color = "#4de961
     <div className={cn("saas-widget flex flex-col items-center px-6 pt-7 pb-6 text-center", className)} style={style}>
       <div className="relative w-[78%]">
         <Arc value={value} color={color} className="w-full" />
-        <span className="absolute inset-x-0 bottom-0 text-[1.8em] font-bold leading-none">{value}%</span>
       </div>
       <p className="mt-2 text-[.75em] text-white/60">{caption}</p>
       {footer ? <p className="mt-4 text-[.95em] font-semibold text-[#fe8a6e]">{footer}</p> : null}
@@ -184,7 +182,6 @@ export function BigGaugeCard({ value, variant = "duo", className, style }: Box &
         ) : (
           <Gauge value={value} className="w-full" />
         )}
-        <span className="absolute inset-x-0 bottom-0 text-center text-[3.2em] font-normal leading-none">{value}%</span>
       </div>
     </div>
   );
@@ -195,14 +192,14 @@ export function BigGaugeCard({ value, variant = "duo", className, style }: Box &
 /** Panel negro 16:9 con widgets + botón play (equivalente al video del pack). */
 export function TourPanel({ href, label = "Ver demo en vivo", className }: { href: string; label?: string; className?: string }) {
   return (
-    <div className={cn("relative aspect-[1080/608] w-full overflow-hidden rounded-[24px] bg-black text-[clamp(7px,1.05vw,15px)]", className)}>
+    <div className={cn("relative aspect-1080/608 w-full overflow-hidden rounded-[24px] bg-black text-[clamp(7px,1.05vw,15px)]", className)}>
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_40%,rgba(255,255,255,.07),transparent_70%)]" />
-      <StatCard value="24/7" label="Atención WhatsApp" className="absolute top-[6%] left-[15.5%] w-[11.5%] rounded-[14px]" />
-      <RingCard value={90} caption={BRAND} footer="Captura con IA" className="absolute top-[39%] left-[8.5%] w-[24%]" />
+      <StatCard value="24/7" label="Atención WhatsApp" className="absolute top-[6%] left-[15.5%] w-[11.5%] rounded-md" />
+      <RingCard value={90} caption={BRAND} footer="Todo en un solo sistema" className="absolute top-[39%] left-[8.5%] w-[24%]" />
       <GaugeCard title="FidelOS" subtitle={BRAND} value={60} className="absolute top-[2%] left-[36.5%] w-[32%]" />
       <SparkCard className="absolute top-[80%] left-[36.5%] w-[32%]" />
-      <ProfileCard className="absolute top-[21%] left-[76%] w-[15%] rounded-[14px] text-[.8em]" />
-      <BarsCard title="" className="absolute top-[60%] left-[76%] h-[32%] w-[15.5%] rounded-[14px] text-[.7em]" />
+      <ProfileCard className="absolute top-[21%] left-[76%] w-[15%] rounded-md text-[.8em]" />
+      <BarsCard title="" className="absolute top-[60%] left-[76%] h-[32%] w-[15.5%] rounded-md text-[.7em]" />
       <a
         href={href}
         target="_blank"
@@ -223,13 +220,13 @@ export function MiniDashboard({ layout = "wide" }: { layout?: "wide" | "phone" }
       <div className="grid h-full grid-cols-2 content-start gap-[4%] p-[7%] text-[5px]">
         {[0, 1, 2].map((k) => (
           <div key={k} className="contents">
-            <BarsCard title="Rendimiento" className="aspect-[3/4] rounded-[6px] px-1.5 pt-1.5 pb-1 text-[4px]" />
+            <BarsCard title="Rendimiento" className="aspect-3/4 rounded-[6px] px-1.5 pt-1.5 pb-1 text-[4px]" />
             <div className="flex flex-col gap-[6%]">
               <GaugeCard title="FidelOS" subtitle="" value={60} legend={["", ""]} className="rounded-[6px] px-1 pt-1.5 pb-1 text-[4px]" />
               <SparkCard className="rounded-[6px] px-1.5 py-1 text-[3.5px]" />
             </div>
             <div className="col-span-2 grid grid-cols-2 gap-[4%]">
-              {["Lead nuevo", "Cita agendada", "Stock bajo", "Venta cerrada"].map((t) => (
+              {["Interesado nuevo", "Cita agendada", "Stock bajo", "Venta cerrada"].map((t) => (
                 <LeadCard key={t} name={t} sub={BRAND} initials="FM" className="rounded-[6px] gap-1 px-1.5 py-1 text-[4px]" />
               ))}
             </div>
@@ -241,9 +238,9 @@ export function MiniDashboard({ layout = "wide" }: { layout?: "wide" | "phone" }
   return (
     <div className="grid h-full grid-cols-[1fr_2.1fr] grid-rows-[auto_1fr] gap-[3%] p-[4%] text-[clamp(4px,.55vw,8px)]">
       <div className="col-span-2 grid grid-cols-3 gap-[4%]">
-        <SparkCard title="ERP" className="rounded-[10px] px-3 py-2" />
-        <SparkCard title="Inventario" className="rounded-[10px] px-3 py-2" />
-        <SparkCard title="RRHH" className="rounded-[10px] px-3 py-2" />
+        <SparkCard title="ERP" className="rounded-sm px-3 py-2" />
+        <SparkCard title="Inventario" className="rounded-sm px-3 py-2" />
+        <SparkCard title="RRHH" className="rounded-sm px-3 py-2" />
       </div>
       <GaugeCard title="FidelOS" subtitle={BRAND} value={60} className="rounded-[12px] px-2 pt-3 pb-2" />
       <div className="saas-widget relative flex flex-col rounded-[12px] px-4 pt-3 pb-2">
@@ -253,7 +250,6 @@ export function MiniDashboard({ layout = "wide" }: { layout?: "wide" | "phone" }
             <span key={i} className="w-full rounded-full" style={{ height: `${h}%`, background: i === 7 ? "linear-gradient(#f8c701,#fe7e8e)" : "linear-gradient(#4de961,#2fbf4a)" }} />
           ))}
         </div>
-        <span className="absolute top-[26%] left-[62%] rounded-md bg-black/80 px-1.5 py-0.5 text-[.9em]">2.000</span>
       </div>
     </div>
   );
@@ -262,14 +258,14 @@ export function MiniDashboard({ layout = "wide" }: { layout?: "wide" | "phone" }
 /** Laptop en perspectiva (saas-4 / saas-45 del pack). */
 export function Laptop({ className }: { className?: string }) {
   return (
-    <div className={cn("[perspective:1800px]", className)} aria-hidden="true">
-      <div className="relative [transform:rotateX(8deg)_rotateY(-26deg)_rotateZ(3deg)] [transform-style:preserve-3d]">
-        <div className="rounded-[14px] border-[6px] border-[#1a1a1a] bg-black p-[1.2%] shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
-          <div className="saas-screen aspect-[16/10] overflow-hidden rounded-[6px]">
+    <div className={cn("perspective-[1800px]", className)} aria-hidden="true">
+      <div className="relative transform-[rotateX(8deg)_rotateY(-26deg)_rotateZ(3deg)] transform-3d">
+        <div className="rounded-md border-[6px] border-[#1a1a1a] bg-black p-[1.2%] shadow-[0_30px_60px_-20px_rgba(0,0,0,.6)]">
+          <div className="saas-screen aspect-16/10 overflow-hidden rounded-[6px]">
             <MiniDashboard />
           </div>
         </div>
-        <div className="relative -mt-[1px] h-[14px] origin-top rounded-b-[18px] bg-gradient-to-b from-[#d9d9de] to-[#8d8f96] [transform:rotateX(-72deg)_scaleX(1.12)] shadow-[0_40px_40px_-10px_rgba(0,0,0,.35)]" />
+        <div className="relative -mt-px h-3.5 origin-top rounded-b-lg bg-linear-to-b from-[#d9d9de] to-[#8d8f96] transform-[rotateX(-72deg)_scaleX(1.12)] shadow-[0_40px_40px_-10px_rgba(0,0,0,.35)]" />
         <div className="mx-auto mt-6 h-6 w-[90%] rounded-[50%] bg-black/25 blur-xl" />
       </div>
     </div>
@@ -279,12 +275,12 @@ export function Laptop({ className }: { className?: string }) {
 /** Tablet inclinada (saas-46 del pack). */
 export function Tablet({ className, tilt = "left" }: { className?: string; tilt?: "left" | "right" }) {
   return (
-    <div className={cn("[perspective:2000px]", className)} aria-hidden="true">
+    <div className={cn("perspective-[2000px]", className)} aria-hidden="true">
       <div
-        className="rounded-[28px] bg-gradient-to-br from-[#2b2d33] to-[#0c0c0e] p-[2.2%] shadow-[0_50px_70px_-25px_rgba(0,0,0,.55)] ring-1 ring-[#5b5e66]"
+        className="rounded-[28px] bg-linear-to-br from-[#2b2d33] to-[#0c0c0e] p-[2.2%] shadow-[0_50px_70px_-25px_rgba(0,0,0,.55)] ring-1 ring-[#5b5e66]"
         style={{ transform: tilt === "left" ? "rotateX(24deg) rotateY(-8deg) rotateZ(-9deg)" : "rotateX(20deg) rotateY(10deg) rotateZ(-8deg)" }}
       >
-        <div className="saas-screen aspect-[4/3] overflow-hidden rounded-[14px]">
+        <div className="saas-screen aspect-4/3 overflow-hidden rounded-md">
           <MiniDashboard />
         </div>
       </div>
@@ -295,9 +291,9 @@ export function Tablet({ className, tilt = "left" }: { className?: string; tilt?
 /** Teléfono inclinado (saas-47 del pack). */
 export function Phone({ className }: { className?: string }) {
   return (
-    <div className={cn("[perspective:1600px]", className)} aria-hidden="true">
-      <div className="rounded-[36px] bg-[#111] p-[3.5%] shadow-[0_50px_70px_-25px_rgba(0,0,0,.6)] ring-2 ring-[#2c2c2c] [transform:rotateZ(22deg)_rotateY(-14deg)_rotateX(6deg)]">
-        <div className="saas-screen aspect-[9/19] overflow-hidden rounded-[28px]">
+    <div className={cn("perspective-[1600px]", className)} aria-hidden="true">
+      <div className="rounded-[36px] bg-[#111] p-[3.5%] shadow-[0_50px_70px_-25px_rgba(0,0,0,.6)] ring-2 ring-[#2c2c2c] transform-[rotateZ(22deg)_rotateY(-14deg)_rotateX(6deg)]">
+        <div className="saas-screen aspect-9/19 overflow-hidden rounded-[28px]">
           <MiniDashboard layout="phone" />
         </div>
       </div>

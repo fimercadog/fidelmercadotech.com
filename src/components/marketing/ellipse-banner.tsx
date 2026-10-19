@@ -35,12 +35,13 @@ export function EllipseBanner({
           </Reveal>
 
           <Reveal delay={0.1} className="hidden lg:flex items-center justify-center">
+            {/* TODO(imagen): reemplazar por una captura real de un producto (la anterior era una portada vacía). */}
             <Image
-              src="/assets/saas-product/saas-24.png"
-              alt="Dashboard FidelOS"
-              width={760}
-              height={700}
-              className="w-full max-w-md drop-shadow-xl"
+              src="/brand/illus-collaboration.png"
+              alt="Ilustración de sistemas conectados"
+              width={1600}
+              height={1200}
+              className="w-full max-w-md rounded-[20px] border border-[rgba(0,0,0,0.07)] bg-white drop-shadow-xl"
             />
           </Reveal>
         </div>

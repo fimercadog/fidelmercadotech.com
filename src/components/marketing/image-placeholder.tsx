@@ -23,7 +23,7 @@ export function ImagePlaceholder({ slot, className, priority }: { slot: ImageSlo
   if (slot.src) {
     return (
       <div className={cn("relative overflow-hidden rounded-2xl bg-muted", className)} style={{ aspectRatio: slot.ratio }}>
-        <Image src={slot.src} alt={slot.alt} fill priority={priority} className="object-cover object-top" sizes="(min-width: 1024px) 900px, 100vw" />
+        <Image src={slot.src} alt={slot.alt} fill priority={priority} className={slot.kind === "C" ? "object-contain bg-white" : "object-cover object-top"} sizes="(min-width: 1024px) 900px, 100vw" />
       </div>
     );
   }

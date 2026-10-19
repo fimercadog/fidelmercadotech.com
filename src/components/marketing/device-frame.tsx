@@ -21,7 +21,7 @@ export function BrowserFrame({ slot, className, priority }: { slot: ImageSlot; c
 /** Phone frame — for FidelOS captures and WhatsApp conversations. */
 export function PhoneFrame({ slot, className }: { slot: ImageSlot; className?: string }) {
   return (
-    <div className={cn("mx-auto w-full max-w-[300px] rounded-[2.5rem] border-8 border-navy bg-navy p-2 fmt-card-shadow", className)}>
+    <div className={cn("mx-auto w-full max-w-75 rounded-[2.5rem] border-8 border-navy bg-navy p-2 fmt-card-shadow", className)}>
       <div className="overflow-hidden rounded-[1.8rem] bg-card">
         <ImagePlaceholder slot={{ ...slot, ratio: "9/19" }} className="rounded-none border-0" />
       </div>

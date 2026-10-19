@@ -73,7 +73,7 @@ export function PageHero({ eyebrow, title, description, ctas, image }: PageHeroP
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                className="relative z-10 w-full max-w-[560px] drop-shadow-2xl"
+                className="relative z-10 w-full max-w-140 rounded-[20px] border border-[rgba(0,0,0,0.07)] bg-white drop-shadow-2xl"
                 priority
               />
             </div>

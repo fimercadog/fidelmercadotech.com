@@ -8,12 +8,13 @@ export function SiteFooter() {
     <footer className="border-t border-slate-800 bg-slate-950 text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Grid de 5 columnas estilo Divi SaaS (Sección 9) */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
+        {/* La primera columna (logo) es más ancha que las demás para que el logo no se pegue a la segunda. */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.7fr_1fr_1fr_1fr_1fr] lg:gap-x-8 xl:gap-x-12">
           {/* Columna 1: Marca & Eslogan */}
           <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
-            <Logo inverted textClassName="text-white" />
-            <p className="text-xs leading-relaxed text-slate-400">
-              Desarrollamos software empresarial, automatizaciones y soluciones con inteligencia artificial para
+            <Logo inverted />
+            <p className="max-w-68 text-xs leading-relaxed text-slate-400">
+              Desarrollo software empresarial, automatizaciones y soluciones con inteligencia artificial para
               empresas que quieren dejar atrás los procesos manuales.
             </p>
           </div>
