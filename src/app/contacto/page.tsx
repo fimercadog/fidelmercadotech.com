@@ -33,7 +33,8 @@ export default function ContactoPage() {
           { label: "Solicitar demo", href: "#formulario" },
           { label: "WhatsApp", href: whatsappUrl("Hola, quiero información sobre sus soluciones."), external: true, variant: "outline" },
         ]}
-        image={{ src: "/assets/saas-product/saas-47.png", alt: "App móvil FidelOS", width: 850, height: 1540 }}
+        // TODO(imagen): reemplazar por una captura real de un producto (la anterior era una portada vacía).
+        image={{ src: "/brand/illus-collaboration.png", alt: "Ilustración de colaboración entre sistemas", width: 1600, height: 1200 }}
       />
 
       <section className="saas saas-section bg-[#f9fafb]">
@@ -47,7 +48,7 @@ export default function ContactoPage() {
                   Canales de contacto directo
                 </h2>
                 <p className="text-[15px] leading-7 text-[#666]">
-                  Elige el medio que prefieras o envíanos un mensaje a través del formulario para agendar una demostración de nuestras soluciones.
+                  Elige el medio que prefieras o envíame un mensaje a través del formulario para agendar una demostración de mis soluciones.
                 </p>
               </Reveal>
 
@@ -84,7 +85,7 @@ export default function ContactoPage() {
                 <div className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6">
                   <h4 className="text-[13px] font-bold uppercase tracking-wider text-[#4de961]">Horario & Respuesta</h4>
                   <p className="text-[13px] leading-5 text-[#666]">
-                    Atención de Lunes a Viernes de 8:00 AM a 6:00 PM (Hora Colombia). Respondemos todas las solicitudes en menos de 24 horas hábiles.
+                    Atención de Lunes a Viernes de 8:00 AM a 6:00 PM (Hora Colombia). Respondo todas las solicitudes en menos de 24 horas hábiles.
                   </p>
                 </div>
               </Reveal>

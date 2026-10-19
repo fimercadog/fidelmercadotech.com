@@ -21,13 +21,13 @@ export default function CasosPage() {
     <>
       <PageHero
         eyebrow="Casos"
-        title="Proyectos reales, en producción"
-        description="No mostramos plantillas: estas son plataformas que construimos y que puedes abrir y probar ahora mismo."
+        title="Problemas reales y las soluciones que construí"
+        description="No muestro plantillas: son plataformas que construí para negocios que tenían algo trabado, y que puedes abrir y probar ahora mismo."
         ctas={[
           { label: "Ver proyectos", href: "#proyectos" },
           { label: "Solicitar demo", href: "/contacto?motivo=demo", variant: "outline" },
         ]}
-        image={{ src: "/assets/saas-product/saas-37.png", alt: "Widgets del dashboard FidelOS", width: 760, height: 520 }}
+        image={{ src: "/brand/rrhh.png", alt: "Sitio y panel del ERP de Recursos Humanos", width: 1440, height: 900 }}
       />
 
       {/* Grid de casos con diseño SaaS pack */}
@@ -39,7 +39,7 @@ export default function CasosPage() {
                 href={`/casos/${c.slug}`}
                 className="saas-shadow-soft group grid gap-8 overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-6 transition-transform duration-300 hover:-translate-y-1 md:grid-cols-2 md:items-center md:p-8"
               >
-                <div className="relative aspect-16/10 overflow-hidden rounded-[18px] bg-[#f5f6f7]">
+                <div className="relative aspect-16/10 overflow-hidden rounded-lg bg-[#f5f6f7]">
                   <Image
                     src={c.image}
                     alt={`${c.client} — ${c.title}`}
@@ -64,9 +64,9 @@ export default function CasosPage() {
       </section>
 
       <CtaBand
-        title="¿Quieres algo parecido para tu empresa?"
-        description="Cuéntanos tu operación y te proponemos el alcance, con precio de referencia."
-        primaryLabel="Solicitar propuesta"
+        title="¿Tienes una situación parecida?"
+        description="Cuéntame tu operación y te propongo el alcance, con precio de referencia."
+        primaryLabel="Cuéntame tu caso"
         primaryHref="/contacto?motivo=proyecto"
       />
     </>

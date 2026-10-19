@@ -85,8 +85,8 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             <p className="text-[14px] leading-7 text-[#666]">{study.challenge}</p>
           </Reveal>
           <Reveal delay={0.08} className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[#4de961]/20 bg-[#4de961]/5 p-8">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Qué construimos</span>
-            <h2 className="saas-h5 text-[#333]">Nuestra solución</h2>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Qué construí</span>
+            <h2 className="saas-h5 text-[#333]">La solución</h2>
             <ul className="flex flex-col gap-2.5">
               {study.approach.map((a) => (
                 <li key={a} className="flex gap-3 text-[14px] leading-6">
@@ -115,7 +115,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             ))}
           </ul>
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">Tecnología:</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">Qué lo hace funcionar:</span>
             {study.stack.map((t) => (
               <span key={t} className="rounded-full bg-white px-3 py-1 text-[11px] font-bold text-[#555] shadow-sm border border-[rgba(0,0,0,0.07)]">{t}</span>
             ))}
@@ -154,7 +154,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Siguiente paso</span>
             <h2 className="saas-h2 text-[#333]">¿Un proyecto parecido?</h2>
             <p className="text-[14px] leading-7 text-[#666]">
-              Cuéntanos tu caso y te enviamos una propuesta con alcance y precio de referencia.
+              Cuéntame tu caso y te envío una propuesta con alcance y precio de referencia.
             </p>
           </Reveal>
           <Reveal delay={0.08}>

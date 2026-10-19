@@ -30,8 +30,7 @@ export default function PrivacidadPage() {
           body: (
             <p>
               Cuando completas el formulario de contacto recolectamos: nombre, empresa (opcional), correo electrónico,
-              teléfono (opcional), motivo de contacto y el mensaje que escribes. No solicitamos datos sensibles. El
-              sitio usa reCAPTCHA de Google para prevenir envíos automatizados.
+              teléfono (opcional), motivo de contacto y el mensaje que escribes. No solicitamos datos sensibles.
             </p>
           ),
         },

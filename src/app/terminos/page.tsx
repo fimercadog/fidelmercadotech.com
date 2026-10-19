@@ -55,7 +55,7 @@ export default function TerminosPage() {
           heading: "Enlaces y servicios de terceros",
           body: (
             <p>
-              El sitio usa servicios de terceros como Google reCAPTCHA y WhatsApp. Su uso se rige por las políticas de
+              El sitio usa servicios de terceros como WhatsApp. Su uso se rige por las políticas de
               cada proveedor.
             </p>
           ),

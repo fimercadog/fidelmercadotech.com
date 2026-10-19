@@ -6,13 +6,14 @@ import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
 import { CapabilityStrip } from "@/components/marketing/capability-strip";
-import { SocialProof } from "@/components/marketing/social-proof";
 import { GetOnTrackCta } from "@/components/sections/get-on-track-cta";
 import { CASES } from "@/content/cases";
 
 export const metadata = {
-  title: "Landing Page — SaaS Product",
-  description: "Landing de producto SaaS — Fidel Mercado Tech",
+  title: "Tú pones el negocio, yo me encargo de lo que se complica",
+  description: "Página para campañas de Fidel Mercado Tech: cuéntame qué se te complica y te muestro la solución funcionando.",
+  // Página de campaña: no compite con la portada en Google.
+  robots: { index: false, follow: true },
 };
 
 export default function LandingLayoutPage() {
@@ -52,13 +53,14 @@ export default function LandingLayoutPage() {
       <section className="relative z-20 -mt-24 sm:-mt-32">
         <Container>
           <Reveal className="saas-shadow-soft overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-2">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-slate-100">
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-slate-100">
+              {/* TODO(imagen): reemplazar por una captura real de un producto (la anterior era una portada vacía). */}
               <Image
-                src="/assets/saas-product/saas-27.jpg"
-                alt="Plataforma SaaS Dashboard"
+                src="/brand/illus-hero.png"
+                alt="Ilustración de una persona trabajando con su sistema"
                 fill
                 priority
-                className="object-cover object-top"
+                className="object-contain"
                 sizes="(min-width: 1024px) 1100px, 100vw"
               />
             </div>
@@ -78,7 +80,7 @@ export default function LandingLayoutPage() {
               Un solo lugar para todos tus clientes y ventas
             </h2>
             <p className="saas-small">
-              Recibe contactos desde tu sitio web, WhatsApp y redes sociales directamente en una ficha unificada con trazabilidad completa de cada interacción.
+              Recibe contactos desde tu sitio web, WhatsApp y redes sociales directamente en una ficha unificada con registro completo de cada interacción.
             </p>
             <ul className="flex flex-col gap-3">
               {[
@@ -101,7 +103,7 @@ export default function LandingLayoutPage() {
           <Reveal delay={0.1} className="flex justify-center">
             <div className="saas-shadow-soft relative aspect-video w-full overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white">
               <Image
-                src={CASES[0]?.image || "/assets/saas-product/saas-45.png"}
+                src={CASES[0]?.image || "/brand/illus-productivity.png"}
                 alt="Plataforma ERP"
                 fill
                 className="object-cover object-top"
@@ -118,7 +120,7 @@ export default function LandingLayoutPage() {
           <Reveal delay={0.1} className="order-2 lg:order-1 flex justify-center">
             <div className="saas-shadow-soft relative aspect-video w-full overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white">
               <Image
-                src={CASES[1]?.image || "/assets/saas-product/saas-46.png"}
+                src={CASES[1]?.image || "/brand/rrhh.png"}
                 alt="Inventario e IA"
                 fill
                 className="object-cover object-top"
@@ -127,17 +129,17 @@ export default function LandingLayoutPage() {
             </div>
           </Reveal>
           <Reveal className="order-1 lg:order-2 flex flex-col gap-6">
-            <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Automatización con IA</span>
+            <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Todo en un solo sistema</span>
             <h2 className="saas-h2 text-[#333]">
-              Procesos inteligentes sin intervención manual
+              Un solo sistema para toda la empresa
             </h2>
             <p className="saas-small">
-              Nuestra tecnología FidelOS analiza fotografías de productos, documentos y notas de voz para mantener tus inventarios y reportes al día en tiempo real.
+              FidelOS reúne comercial, inventario, ventas y finanzas sobre una misma base, para mantener tus operaciones y reportes al día.
             </p>
             <ul className="flex flex-col gap-3">
               {[
-                "Reconocimiento de imágenes e insumos por IA",
-                "Revisión y validación previa a guardar datos",
+                "Módulos que se activan según tu negocio",
+                "IA y agente de WhatsApp como módulos premium",
                 "Reportes ejecutivos automáticos sin hojas de cálculo",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm font-semibold text-[#333]">
@@ -154,9 +156,6 @@ export default function LandingLayoutPage() {
           </Reveal>
         </Container>
       </section>
-
-      {/* Testimonios */}
-      <SocialProof />
 
       {/* CTA final */}
       <GetOnTrackCta />

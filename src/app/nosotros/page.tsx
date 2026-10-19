@@ -21,12 +21,12 @@ export const metadata: Metadata = {
 };
 
 const PRINCIPLES: { icon: PackIcon; title: string; detail: string }[] = [
-  { icon: "browser", title: "Resolvemos un problema concreto", detail: "Cada proyecto arranca entendiendo qué proceso duele hoy, no vendiendo funciones." },
-  { icon: "sliders", title: "Construido sobre base probada", detail: "Partimos de módulos ya en producción (ERP, inventario, RRHH, IA), no de cero absoluto." },
-  { icon: "lock", title: "Con trazabilidad y control", detail: "Roles, permisos y auditoría desde el primer día: sabes quién hizo qué y cuándo." },
+  { icon: "browser", title: "Voy al problema real", detail: "Cada proyecto arranca entendiendo qué proceso se te complica hoy, no vendiendo funciones." },
+  { icon: "sliders", title: "Sobre base ya construida", detail: "Parto de módulos que ya tengo construidos (ERP, inventario, RRHH, IA), no de cero absoluto." },
+  { icon: "lock", title: "Tu información, a salvo", detail: "Roles, permisos y auditoría desde el primer día: sabes quién hizo qué y cuándo." },
   { icon: "calendar", title: "Rápido y medible", detail: "Entregas por fases, tecnología moderna y métricas para saber si está funcionando." },
-  { icon: "mail", title: "Cerca por WhatsApp", detail: "Comunicación directa durante y después del proyecto, sin tickets que se pierden." },
-  { icon: "link", title: "A tu operación, no al revés", detail: "El software se adapta a cómo trabaja tu equipo, no una plantilla genérica." },
+  { icon: "mail", title: "Cerca después de entregar", detail: "Comunicación directa por WhatsApp durante y después del proyecto, sin tickets que se pierden." },
+  { icon: "link", title: "Me adapto a tu operación", detail: "El software se ajusta a cómo trabaja tu equipo, no a una plantilla genérica." },
 ];
 
 export default function NosotrosPage() {
@@ -34,20 +34,21 @@ export default function NosotrosPage() {
     <>
       <PageHero
         eyebrow="Nosotros"
-        title="Software que saca a las empresas del proceso manual"
-        description="Somos un equipo de desarrollo enfocado en PYMES: creamos páginas web, sistemas de gestión y soluciones con IA que las empresas de verdad usan a diario."
+        title="A quien llaman cuando algo se complica"
+description="Llevo años siendo la persona a la que buscan cuando algo se traba y nadie más logra destrabarlo. Hoy lo hago con software de gestión, automatización e IA para PYMES, entendiendo tu operación antes de escribir una línea de código."
         ctas={[
           { label: "Ver soluciones", href: "/soluciones" },
-          { label: "Hablar con nosotros", href: "/contacto", variant: "outline" },
+          { label: "Cuéntame tu caso", href: "/contacto", variant: "outline" },
         ]}
-        image={{ src: "/assets/saas-product/saas-4.png", alt: "Dashboard FidelOS en laptop", width: 1060, height: 895 }}
+        // TODO(imagen): reemplazar por una captura real de un producto (la anterior era una portada vacía).
+        image={{ src: "/brand/illus-about.png", alt: "Ilustración de un equipo de trabajo", width: 1600, height: 1200 }}
       />
 
       {/* Imagen que se superpone al Hero estilo SaaS About */}
-      <section className="relative z-20 -mt-24 sm:-mt-28">
+      <section className="relative z-20">
         <Container>
           <Reveal className="saas-shadow-soft overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white">
-            <div className="relative aspect-[16/8] w-full bg-[#f5f6f7]">
+            <div className="relative aspect-16/8 w-full bg-[#f5f6f7]">
               <Image
                 src={CASES[0].image}
                 alt="Plataforma desarrollada por Fidel Mercado Tech"
@@ -65,18 +66,19 @@ export default function NosotrosPage() {
       <section className="saas saas-section bg-white">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="flex flex-col gap-5">
-            <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Nuestra misión</span>
+            <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Mi misión</span>
             <h2 className="saas-h2 text-[#333]">
-              Que la tecnología deje de ser el cuello de botella
+              Que tú te dediques a tu negocio, y yo a lo que se complica
             </h2>
             <p className="text-[15px] leading-7 text-[#666]">
-              Muchas empresas crecen hasta que las hojas de cálculo, los correos sueltos y las herramientas
-              desconectadas les frenan. Nadie sabe cuál es el dato bueno y cada proceso vive en un lugar distinto.
+              Mucha gente me busca cuando algo se traba y nadie más logra destrabarlo. Y es muy común en las
+              empresas: crecen hasta que las hojas de cálculo, los correos sueltos y las herramientas
+              desconectadas les frenan, y nadie sabe cuál es el dato bueno.
             </p>
             <p className="text-[15px] leading-7 text-[#666]">
-              Nosotros construimos el sistema que refleja cómo trabaja tu equipo: un solo lugar con la información
-              correcta, con roles, reportes y automatizaciones. Y cuando tiene sentido, le sumamos IA para casos
-              concretos, siempre con revisión humana.
+              Ahí entro yo: construyo el sistema que refleja cómo trabaja tu equipo, con la información correcta
+              en un solo lugar, roles, reportes y automatizaciones. Cuando tiene sentido le sumo IA para casos
+              concretos, siempre con revisión humana, y sigo cerca para que todo siga funcionando.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="flex justify-center">
@@ -90,11 +92,11 @@ export default function NosotrosPage() {
       {/* Cómo trabajamos — SaaS Principles 3-Col IconCard outline */}
       <section className="saas saas-section bg-[#f9fafb]">
         <Row>
-          <p className="mb-3 text-center text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Cómo trabajamos</p>
-          <h2 className="saas-h2 mb-4 text-center text-[#333]">Seis cosas que no negociamos</h2>
-          <p className="mb-[40px] text-center text-[14px] text-[#666]">Los principios que guían cada proyecto, del primero al último día.</p>
+          <p className="mb-3 text-center text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Cómo trabajo</p>
+          <h2 className="saas-h2 mb-4 text-center text-[#333]">Seis compromisos que no negocio</h2>
+          <p className="mb-10 text-center text-[14px] text-[#666]">Los compromisos que guían cada proyecto, del primero al último día.</p>
         </Row>
-        <Row className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 lg:grid-cols-3">
+        <Row className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">
           {PRINCIPLES.map((p) => (
             <IconCard key={p.title} icon={p.icon} title={p.title} text={p.detail} variant="outline" />
           ))}
@@ -107,8 +109,8 @@ export default function NosotrosPage() {
           <Reveal>
             <SectionHeading
               eyebrow="Casos"
-              title="Lo que hemos construido"
-              description="Proyectos en producción que puedes abrir y probar."
+              title="Lo que he resuelto"
+              description="Proyectos con demo que puedes abrir y probar."
               align="center"
             />
           </Reveal>
@@ -138,29 +140,93 @@ export default function NosotrosPage() {
         </Container>
       </section>
 
-      {/* Quién está detrás — Estilo SaaS Team Card */}
+      {/* Quién está detrás — Perfil del fundador */}
       <section className="saas saas-section border-t border-[rgba(0,0,0,0.07)] bg-white">
-        <Container className="flex flex-col items-center gap-8 text-center">
-          <Reveal className="saas-shadow-soft flex max-w-3xl flex-col items-center gap-6 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-10">
-            <Illustration name="about" alt="Equipo de Fidel Mercado Tech" className="max-w-xs" />
+        <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Columna izquierda: narrativa */}
+          <Reveal className="flex flex-col gap-5">
             <span className="text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Quién está detrás</span>
-            <h2 className="saas-h2 text-[#333]">Un equipo cercano, no una fábrica de software</h2>
+            <h2 className="saas-h2 text-[#333]">
+              Hablas directo con quien te va a resolver el problema
+            </h2>
             <p className="text-[15px] leading-7 text-[#666]">
-              Trabajamos con pocas empresas a la vez para poder entender cada operación a fondo. Hablas directo con
-              quien construye, por WhatsApp o llamada, durante y después del proyecto. Escríbenos a{" "}
-              <a href={`mailto:${SITE.email}`} className="font-semibold text-[#02e173] underline">
-                {SITE.email}
-              </a>
-              .
+              Soy <strong className="text-[#1a1a1a]">Fidel Mercado</strong>, fundador de Fidel Mercado Tech —
+              un grupo de desarrolladores especializados en software empresarial para PYMES.
+              Desde 2020 hemos construido sistemas de gestión para negocios reales: clínicas veterinarias,
+              clínicas estéticas, ferreterías, instituciones educativas, comercios y empresas de servicios
+              en Colombia y Estados Unidos.
             </p>
+            <p className="text-[15px] leading-7 text-[#666]">
+              No vendo plantillas. Cada módulo que te ofrezco — inventario, agenda, historia clínica, facturación,
+              CRM, agentes de WhatsApp con IA — ya lo construí y ajusté en proyectos anteriores. También monto
+              modelos de IA que corren en tu propio servidor, para que tu información no salga de tu empresa.
+              Parto de una base ya construida y la adapto a tu operación sin empezar desde cero.
+            </p>
+            <p className="text-[15px] leading-7 text-[#666]">
+              Cuando me contratas, el trato es directo conmigo desde el diagnóstico y durante toda la entrega —
+              no hay vendedor en el medio que prometa lo que no sabe construir.
+            </p>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="mt-1 inline-flex w-fit text-[15px] font-semibold text-[#15803d] transition-colors hover:text-[#4de961]"
+            >
+              {SITE.email}
+            </a>
+          </Reveal>
+
+          {/* Columna derecha: certificaciones */}
+          <Reveal delay={0.1} className="flex flex-col gap-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="saas-shadow-soft flex flex-col gap-1 rounded-[20px] border border-[rgba(0,0,0,0.07)] bg-white p-6">
+                <span className="text-[32px] font-black leading-none tracking-tight text-[#1a1a1a]">+6</span>
+                <span className="text-[13px] leading-5 text-[#888]">años en sistemas empresariales</span>
+              </div>
+              <div className="saas-shadow-soft flex flex-col gap-1 rounded-[20px] border border-[rgba(0,0,0,0.07)] bg-white p-6">
+                <span className="text-[32px] font-black leading-none tracking-tight text-[#1a1a1a]">+10</span>
+                <span className="text-[13px] leading-5 text-[#888]">sistemas desarrollados de punta a punta</span>
+              </div>
+            </div>
+            {/* Card ancha: 15 años programando */}
+            <div className="saas-shadow-soft flex flex-col gap-1 rounded-[20px] border-2 border-[#4de961]/40 bg-[#f0fdf4] p-6">
+              <span className="text-[48px] font-black leading-none tracking-tight text-[#1a1a1a]">16 años</span>
+              <span className="text-[14px] font-semibold text-[#15803d]">programando — desde 2010</span>
+              <span className="mt-1 text-[13px] leading-5 text-[#666]">De apps móviles en Bogotá a ERP empresariales en Colombia y EE.UU.</span>
+            </div>
+            {/* Badges certificaciones */}
+            {[
+              {
+                label: "Meta Back-End Developer",
+                sub: "Certificado profesional · Coursera × Meta · ene 2026",
+                url: "https://coursera.org/verify/professional-cert/IGI8N24BEKR3",
+              },
+              {
+                label: "Back-End Developer Certified Professional",
+                sub: "Certificado profesional · jun 2025",
+                url: "https://www.linkedin.com/in/fidel-mercado-g/details/certifications/",
+              },
+            ].map((cert) => (
+              <div key={cert.label} className="saas-shadow-soft flex items-center gap-4 rounded-[20px] border border-[rgba(0,0,0,0.07)] bg-white p-5">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#0081fb]/10 text-[20px] font-black text-[#0081fb]">
+                  M
+                </div>
+                <div className="flex min-w-0 flex-col gap-0.5">
+                  <span className="text-[13px] font-bold text-[#1a1a1a]">{cert.label}</span>
+                  <span className="text-[12px] text-[#888]">{cert.sub}</span>
+                  <a href={cert.url} target="_blank" rel="noopener noreferrer" className="text-[12px] font-semibold text-[#15803d] hover:underline">
+                    Verificar certificado →
+                  </a>
+                </div>
+              </div>
+            ))}
           </Reveal>
         </Container>
       </section>
 
+
       <CtaBand
-        title="¿Hablamos de tu operación?"
-        description="Cuéntanos qué proceso quieres mejorar y te proponemos por dónde empezar."
-        primaryLabel="Solicitar demostración"
+        title="¿Qué se te está complicando?"
+        description="Cuéntame qué proceso quieres mejorar o destrabar y te propongo por dónde empezar."
+        primaryLabel="Cuéntame tu caso"
         primaryHref="/contacto?motivo=demo"
       />
     </>

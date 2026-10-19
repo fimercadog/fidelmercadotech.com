@@ -10,7 +10,7 @@ import { SOLUTIONS } from "@/content/solutions";
 export const metadata: Metadata = {
   title: "Soluciones por industria",
   description:
-    "ERP para inmobiliarias, RRHH, veterinarias, clínicas, agencias de viajes y más. Plataformas propias de Fidel Mercado Tech, en producción y con demo pública.",
+    "ERP para inmobiliarias, RRHH, veterinarias, clínicas, agencias de viajes y más. Plataformas propias de Fidel Mercado Tech, con demo pública.",
   alternates: { canonical: "/soluciones" },
 };
 
@@ -19,13 +19,14 @@ export default function SolucionesPage() {
     <>
       <PageHero
         eyebrow="Soluciones"
-        title="Una plataforma lista para tu industria"
-        description="Cada solución es un ERP completo adaptado a una vertical específica: con demo pública, módulos probados en producción y acceso inmediato."
+        title="La solución que tu industria ya necesita"
+        description="Cada solución es un ERP completo adaptado a un tipo de negocio, pensado para destrabar lo que más se complica en ese negocio: con demo pública, módulos ya construidos y acceso inmediato."
         ctas={[
           { label: "Ver soluciones", href: "#soluciones" },
           { label: "Solicitar demo", href: "/contacto?motivo=demo", variant: "outline" },
         ]}
-        image={{ src: "/assets/saas-product/saas-45.png", alt: "Dashboard FidelOS", width: 1060, height: 900 }}
+        // TODO(imagen): reemplazar por una captura real de un ERP con datos cargados (la anterior era una portada vacía).
+        image={{ src: "/brand/illus-productivity.png", alt: "Ilustración de una persona trabajando con su sistema", width: 1600, height: 1200 }}
       />
 
       {/* Grid de 6 Soluciones Principales (6 Cards en Grid 3x2) */}
@@ -35,7 +36,7 @@ export default function SolucionesPage() {
             <SectionHeading
               eyebrow="Catálogo"
               title="Soluciones especializadas"
-              description="Cada módulo resuelve una necesidad concreta de tu empresa con tecnología moderna y soporte continuo."
+              description="Cada módulo resuelve algo concreto de tu operación, con tecnología moderna y acompañamiento después de la entrega."
               align="center"
             />
           </Reveal>
@@ -50,9 +51,9 @@ export default function SolucionesPage() {
       </section>
 
       <CtaBand
-        title="¿No encuentras tu industria?"
-        description="Si ninguna solución encaja del todo, la construimos desde cero sobre la misma base probada. Cuéntanos tu operación."
-        primaryLabel="Hablar de mi caso"
+        title="¿Tu caso es distinto?"
+        description="Si ninguna solución encaja del todo, la construyo desde cero sobre la misma base ya construida. Cuéntame tu operación."
+        primaryLabel="Cuéntame tu caso"
         primaryHref="/contacto?motivo=proyecto"
       />
     </>

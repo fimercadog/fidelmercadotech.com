@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="mt-6 flex items-center gap-4 rounded-[20px] border border-[rgba(0,0,0,0.07)] bg-[#f5fef7] p-6">
             <div className="flex-1">
               <p className="text-[15px] font-extrabold text-[#1a1a1a]">¿Te aplicó este artículo?</p>
-              <p className="mt-1 text-[13px] text-[#666]">Cuéntanos tu caso y te decimos cómo FidelOS puede ayudarte.</p>
+              <p className="mt-1 text-[13px] text-[#666]">Cuéntame tu caso y te digo cómo FidelOS puede ayudarte.</p>
             </div>
             <Link
               href="/contacto?motivo=demo"
@@ -241,7 +241,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       <CtaBand
         title="¿Te suena tu caso en esto?"
-        description="Cuéntanos qué proceso quieres mejorar y te proponemos por dónde empezar."
+        description="Cuéntame qué proceso quieres mejorar y te propongo por dónde empezar."
         primaryLabel="Solicitar demostración"
         primaryHref="/contacto?motivo=demo"
       />

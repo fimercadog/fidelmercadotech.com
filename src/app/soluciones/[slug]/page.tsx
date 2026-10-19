@@ -7,6 +7,7 @@ import { Reveal } from "@/components/marketing/reveal";
 import { Icon } from "@/components/icon";
 import { BrowserFrame, PhoneFrame } from "@/components/marketing/device-frame";
 import { ContactForm } from "@/components/marketing/contact-form";
+import { StoryBlock } from "@/components/marketing/story-block";
 import { whatsappUrl } from "@/content/site";
 import { ExternalLink } from "lucide-react";
 import { SOLUTIONS, getSolution, STATUS_LABEL } from "@/content/solutions";
@@ -35,6 +36,10 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
   if (!solution) notFound();
 
   const isPhone = solution.heroImage.kind === "B";
+
+  // Secciones tras "Qué incluye" (blanco): alternan gris ↔ blanco sin repetir fondo.
+  const tail = [solution.story ? "story" : null, "benefits", "contact"].filter(Boolean);
+  const bg = (k: string) => (tail.indexOf(k) % 2 === 0 ? "bg-[#f9fafb]!" : "bg-white!");
 
   return (
     <>
@@ -87,7 +92,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* Problema / solución */}
-      <section className="saas saas-section bg-white">
+      <section className="saas saas-section bg-[#f9fafb]!">
         <Container className="grid gap-8 lg:grid-cols-2">
           <Reveal className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">El problema</span>
@@ -95,15 +100,15 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             <p className="text-[14px] leading-7 text-[#666]">{solution.problem}</p>
           </Reveal>
           <Reveal delay={0.08} className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[#4de961]/20 bg-[#4de961]/5 p-8">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Cómo lo resolvemos</span>
-            <h2 className="saas-h5 text-[#333]">Nuestra solución</h2>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Cómo lo resuelvo</span>
+            <h2 className="saas-h5 text-[#333]">La solución</h2>
             <p className="text-[14px] leading-7 text-[#555]">{solution.summary}</p>
           </Reveal>
         </Container>
       </section>
 
       {/* Funcionalidades */}
-      <section className="saas saas-section bg-[#f9fafb]">
+      <section className="saas saas-section bg-white!">
         <Container className="flex flex-col gap-10">
           <Reveal>
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Alcance</span>
@@ -123,8 +128,11 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       </section>
 
 
+      {/* Ejemplo con historia de usuario: la ganancia concreta de la solución */}
+      {solution.story ? <StoryBlock story={solution.story} className={bg("story")} /> : null}
+
       {/* Beneficios + stack */}
-      <section className="saas saas-section bg-[#f9fafb]">
+      <section className={`saas saas-section ${bg("benefits")}`}>
         <Container className="grid gap-10 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-4">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Beneficios</span>
@@ -139,8 +147,8 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             </ul>
           </Reveal>
           <Reveal delay={0.08} className="flex flex-col gap-4">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">Stack</span>
-            <h2 className="saas-h2 text-[#333]">Tecnología</h2>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">Por dentro</span>
+            <h2 className="saas-h2 text-[#333]">Qué lo hace funcionar</h2>
             <div className="flex flex-wrap gap-2">
               {solution.stack.map((tech) => (
                 <TermBadge key={tech} term={tech} className="rounded-full bg-white px-3 py-1 text-[11px] font-bold text-[#555] shadow-sm border border-[rgba(0,0,0,0.07)]" />
@@ -151,13 +159,13 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className="saas saas-section bg-white">
+      <section id="contacto" className={`saas saas-section ${bg("contact")}`}>
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal className="flex flex-col gap-4">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Siguiente paso</span>
             <h2 className="saas-h2 text-[#333]">Pide la demostración de {solution.name}</h2>
             <p className="text-[14px] leading-7 text-[#666]">
-              Déjanos tus datos y coordinamos una sesión corta para mostrarte la solución funcionando y resolver tus
+              Déjame tus datos y coordinamos una sesión corta para mostrarte la solución funcionando y resolver tus
               dudas.
             </p>
           </Reveal>

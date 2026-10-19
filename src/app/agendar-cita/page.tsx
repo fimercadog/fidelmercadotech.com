@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Container } from "@/components/marketing/container";
 import { PawPrint, Scissors, Stethoscope, ChevronLeft, Check, Loader2, CalendarDays } from "lucide-react";
 
@@ -49,6 +50,7 @@ export default function AgendarCitaPage() {
   const [booking, setBooking] = useState<{ starts_at: string; service: string } | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [consent, setConsent] = useState(false);
 
   /* ── helpers ── */
   const api = (v: typeof VERTICALS[0], path: string) =>
@@ -107,7 +109,7 @@ export default function AgendarCitaPage() {
       pet_name: form.petName || form.name,
       // Para IPS / estética: campos opcionales que el backend ignora si no aplican
       species_id: 1,
-      consent: true,
+      consent,
     };
 
     try {
@@ -147,7 +149,7 @@ export default function AgendarCitaPage() {
             Agenda una cita
           </h1>
           <p className="mt-3 text-[#666] text-[15px] max-w-md mx-auto">
-            Prueba el sistema de agendamiento en tiempo real. Elige la vertical y reserva un turno demo.
+            Prueba el sistema de agendamiento en tiempo real. Elige el tipo de negocio y reserva un turno demo.
           </p>
         </div>
 
@@ -321,9 +323,21 @@ export default function AgendarCitaPage() {
                   </div>
                 ))}
               </div>
+              <label className="mt-5 flex items-start gap-3 text-xs leading-5 text-[#555]">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 size-4 shrink-0 accent-[#15803d]"
+                />
+                <span>
+                  Autorizo el uso de mis datos para gestionar esta cita y contactarme. Conoce tus derechos en la{" "}
+                  <Link href="/privacidad" className="underline">política de tratamiento de datos</Link>.
+                </span>
+              </label>
               <button
                 onClick={() => setStep("confirm")}
-                disabled={!form.name || !form.email}
+                disabled={!form.name || !form.email || !consent}
                 className="mt-6 w-full rounded-xl bg-[#15803d] py-3 text-sm font-bold text-white hover:bg-[#166534] transition-colors disabled:opacity-40"
               >
                 Revisar y confirmar
@@ -342,7 +356,7 @@ export default function AgendarCitaPage() {
               <div className="rounded-2xl border-2 border-[#15803d] bg-white p-6 mb-5">
                 <div className="grid gap-3 text-sm">
                   {[
-                    { label: "Vertical", value: vertical.label },
+                    { label: "Tipo de negocio", value: vertical.label },
                     { label: "Servicio", value: service.name },
                     { label: "Fecha", value: new Date(date + "T00:00:00").toLocaleDateString("es-CO", { weekday: "long", year: "numeric", month: "long", day: "numeric" }) },
                     { label: "Hora", value: slot },

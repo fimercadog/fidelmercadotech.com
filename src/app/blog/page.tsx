@@ -26,7 +26,7 @@ export default function BlogPage() {
         description="Sin humo: qué hemos aprendido construyendo ERP, inventario y automatizaciones para PYMES."
         ctas={[
           { label: "Ver soluciones", href: "/soluciones" },
-          { label: "Escríbenos", href: "/contacto?motivo=proyecto", variant: "outline" },
+          { label: "Escríbeme", href: "/contacto?motivo=proyecto", variant: "outline" },
         ]}
       />
 
@@ -73,8 +73,8 @@ export default function BlogPage() {
 
       <CtaBand
         title="¿Tienes un proceso que te está frenando?"
-        description="Cuéntanoslo y te decimos si lo resolvemos con un producto nuestro o con un desarrollo a medida."
-        primaryLabel="Escríbenos"
+        description="Cuéntamelo y te digo si lo resolvemos con un producto mío o con un desarrollo a medida."
+        primaryLabel="Escríbeme"
         primaryHref="/contacto?motivo=proyecto"
       />
     </>

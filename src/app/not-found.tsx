@@ -8,7 +8,7 @@ export default function NotFound() {
       <span className="fmt-eyebrow-pill">Error 404</span>
       <h1 className="text-3xl font-bold sm:text-4xl">Esta página no existe</h1>
       <p className="max-w-md text-sm text-muted-foreground">
-        Puede que el enlace esté roto o que la página se haya movido. Prueba desde el inicio o revisa nuestras
+        Puede que el enlace esté roto o que la página se haya movido. Prueba desde el inicio o revisa mis
         soluciones.
       </p>
       <div className="flex flex-wrap justify-center gap-3">
