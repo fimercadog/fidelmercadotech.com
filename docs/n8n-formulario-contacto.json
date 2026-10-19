@@ -1,0 +1,241 @@
+{
+  "name": "FMT · Formulario de contacto (web)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "fmt-contacto",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://fidelmercadotech.com"
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "Webhook contacto",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "fmt-contacto-0001"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normaliza lo que envía el formulario de fidelmercadotech.com, lo sanea y decide si es válido.\n// El webhook es público: cualquiera puede llamarlo sin pasar por el formulario, así que aquí se valida de nuevo todo.\nconst b = $input.first().json.body ?? $input.first().json;\n\n// Una sola línea: sin saltos ni caracteres de control (evita inyectar cabeceras en el correo).\nconst line = (v, n) => String(v ?? \"\").replace(/[\\u0000-\\u001F\\u007F\\u2028\\u2029]+/g, \" \").replace(/\\s+/g, \" \").trim().slice(0, n);\n// Varias líneas: conserva los saltos de línea y elimina el resto de caracteres de control.\nconst text = (v, n) => String(v ?? \"\").replace(/\\r\\n?/g, \"\\n\").replace(/[\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F\\u2028\\u2029]/g, \"\").trim().slice(0, n);\n// Si empieza como una fórmula de hoja de cálculo (=, @, o +/- seguido de letra o paréntesis), se antepone un apóstrofo.\n// Los teléfonos como \"+57 300...\" no se tocan. (La hoja además se escribe en modo RAW.)\nconst safe = (s) => (/^[=@]/.test(s) || /^[+\\-]\\s*[A-Za-z(]/.test(s) ? \"'\" + s : s);\n\nconst MOTIVOS = [\"demo\", \"proyecto\", \"automatizacion\", \"ia\", \"otro\"];\nconst email = line(b.email, 160).toLowerCase();\nconst motivo = line(b.motivo, 40);\n\nconst out = {\n  fecha: new Date().toLocaleString(\"es-CO\", { timeZone: \"America/Bogota\" }),\n  nombre: safe(line(b.nombre, 120)),\n  empresa: safe(line(b.empresa, 160)),\n  email,\n  telefono: safe(line(b.telefono, 40)),\n  motivo: MOTIVOS.includes(motivo) ? motivo : \"otro\",\n  interes: safe(line(b.interes, 80)),\n  mensaje: safe(text(b.mensaje, 3000)),\n  origen: \"fidelmercadotech.com\",\n  estado: \"Nuevo\",\n};\nout.ok =\n  out.nombre.length >= 2 &&\n  /^[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,}$/.test(email) &&\n  out.mensaje.length >= 10 &&\n  b.consentimiento === true &&\n  !b.website; // campo trampa: un humano nunca lo llena\nreturn [{ json: out }];"
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Normalizar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1000000-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.ok }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "¿Datos válidos?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "PEGAR_AQUI_EL_ID_DE_TU_HOJA",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Contactos",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Fecha": "={{ $json.fecha }}",
+            "Nombre": "={{ $json.nombre }}",
+            "Empresa": "={{ $json.empresa }}",
+            "Correo": "={{ $json.email }}",
+            "Teléfono": "={{ $json.telefono }}",
+            "Motivo": "={{ $json.motivo }}",
+            "Interés": "={{ $json.interes }}",
+            "Mensaje": "={{ $json.mensaje }}",
+            "Origen": "={{ $json.origen }}",
+            "Estado": "={{ $json.estado }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {
+          "cellFormat": "RAW"
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "name": "Guardar en hoja",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        720,
+        -80
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "Si la hoja falla, el flujo sigue y el correo igual te avisa. Se guarda en modo RAW: la hoja no interpreta fórmulas. Si tu versión de n8n no muestra la opción, búscala en Options → Cell Format → «Let n8n format»."
+    },
+    {
+      "parameters": {
+        "fromEmail": "contacto@fidelmercadotech.com",
+        "toEmail": "contacto@fidelmercadotech.com",
+        "subject": "=Nuevo contacto: {{ $('Normalizar').item.json.nombre }} ({{ $('Normalizar').item.json.motivo }})",
+        "emailFormat": "text",
+        "text": "=Nuevo contacto desde fidelmercadotech.com\n\nNombre: {{ $('Normalizar').item.json.nombre }}\nEmpresa: {{ $('Normalizar').item.json.empresa }}\nCorreo: {{ $('Normalizar').item.json.email }}\nTeléfono / WhatsApp: {{ $('Normalizar').item.json.telefono }}\nMotivo: {{ $('Normalizar').item.json.motivo }}\nInterés: {{ $('Normalizar').item.json.interes }}\nFecha: {{ $('Normalizar').item.json.fecha }}\n\nMensaje:\n{{ $('Normalizar').item.json.mensaje }}\n\nPara responder, usa «Responder»: el correo del interesado ya está en el campo Reply-To.",
+        "options": {
+          "replyTo": "={{ $('Normalizar').item.json.email }}"
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000005",
+      "name": "Avisar por correo",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        -80
+      ],
+      "notes": "Si este nodo falla, el flujo termina con error y el formulario le pide al visitante escribirte por WhatsApp. Así nunca se pierde un contacto en silencio."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: true } }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000006",
+      "name": "Responder OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1200,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { ok: false, error: 'Datos incompletos' } }}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000007",
+      "name": "Responder error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        140
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook contacto": {
+      "main": [
+        [
+          {
+            "node": "Normalizar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalizar": {
+      "main": [
+        [
+          {
+            "node": "¿Datos válidos?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Datos válidos?": {
+      "main": [
+        [
+          {
+            "node": "Guardar en hoja",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Responder error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar en hoja": {
+      "main": [
+        [
+          {
+            "node": "Avisar por correo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Avisar por correo": {
+      "main": [
+        [
+          {
+            "node": "Responder OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "tags": []
+}

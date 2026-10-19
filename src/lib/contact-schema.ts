@@ -9,7 +9,7 @@ export const contactSchema = z.object({
   telefono: z.string().trim().max(40).optional().or(z.literal("")),
   motivo: z.enum(MOTIVOS),
   interes: z.string().trim().max(80).optional().or(z.literal("")),
-  mensaje: z.string().trim().min(10, "Cuéntanos un poco más (mín. 10 caracteres)").max(3000),
+  mensaje: z.string().trim().min(10, "Cuéntame un poco más (mín. 10 caracteres)").max(3000),
   // Honeypot — real users leave it empty.
   website: z.string().max(0).optional().or(z.literal("")),
   consentimiento: z.literal(true, { message: "Necesitamos tu autorización para contactarte" }),
