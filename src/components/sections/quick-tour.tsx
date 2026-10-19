@@ -6,7 +6,7 @@ import { Reveal } from "@/components/marketing/reveal";
 
 const TOUR_HIGHLIGHTS = [
   "Captura automática de prospectos y fichas de clientes",
-  "Inventario actualizado en tiempo real por fotos y notas de voz",
+  "Inventario, compras y ventas conectados en un solo sistema",
   "Flujos de trabajo simplificados para todo el equipo",
   "Información correcta centralizada en una sola base de datos",
 ];
@@ -19,7 +19,7 @@ export function QuickTour() {
           <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Recorrido rápido</p>
           <h2 className="saas-h2 text-[#333]">Un recorrido por la experiencia FidelMercadoTech</h2>
           <p className="mx-auto mt-4 max-w-2xl text-[15px] text-[#666]">
-            Gestionar tu negocio no tiene por qué ser complejo. Diseñamos pantallas claras para acelerar decisiones.
+            Gestionar tu negocio no tiene por qué ser complejo. Diseño pantallas claras para acelerar decisiones.
           </p>
         </div>
 
@@ -28,10 +28,10 @@ export function QuickTour() {
           <div className="flex flex-col gap-8 lg:col-span-7">
             <Reveal>
               <div className="saas-shadow-soft overflow-hidden rounded-[24px] bg-white p-2">
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[18px] bg-slate-50">
+                <div className="relative aspect-16/10 w-full overflow-hidden rounded-lg bg-slate-50">
                   <Image
-                    src="/assets/saas-product/saas-46.png"
-                    alt="Gráfico de interfaz saas-46"
+                    src="/brand/crm-inmobiliario.png"
+                    alt="Portal inmobiliario conectado a su ERP"
                     fill
                     className="object-contain"
                   />
@@ -40,17 +40,17 @@ export function QuickTour() {
             </Reveal>
 
             <div className="grid gap-6 sm:grid-cols-12 sm:items-center">
-              <Reveal className="sm:col-span-4 flex flex-col justify-center rounded-[18px] bg-[#d2f800] p-8 text-center shadow-xl">
-                <span className="font-heading text-5xl font-extrabold text-slate-950">10x</span>
+              <Reveal className="sm:col-span-4 flex flex-col justify-center rounded-lg bg-[#d2f800] p-8 text-center shadow-xl">
+                <span className="font-heading text-4xl font-extrabold text-slate-950">Módulos</span>
                 <span className="mt-1 text-xs font-bold uppercase tracking-wider text-slate-900">
-                  Más rápido en captura de datos
+                  Activas solo lo que necesitas
                 </span>
               </Reveal>
 
               <div className="flex flex-col gap-3 sm:col-span-8">
                 <h3 className="saas-h5 text-[#333]">Consolida tu relación con cada cliente</h3>
                 <p className="text-[14px] leading-relaxed text-[#666]">
-                  Nuestras herramientas permiten registrar interacciones, productos e historial de solicitudes sin duplicar tareas.
+                  Las herramientas permiten registrar interacciones, productos e historial de solicitudes sin duplicar tareas.
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ export function QuickTour() {
           <div className="flex flex-col gap-6 lg:col-span-5">
             <Reveal>
               <div className="saas-shadow-soft flex flex-col gap-6 rounded-[24px] bg-white px-10 py-12">
-                <div className="relative mx-auto aspect-square w-full max-w-[240px] overflow-hidden">
+                <div className="relative mx-auto aspect-square w-full max-w-60 overflow-hidden">
                   <Image
                     src="/assets/saas-product/saas-19.png"
                     alt="Ilustración saas-19"

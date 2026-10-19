@@ -4,16 +4,16 @@ import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 
 const ROADMAP_STEPS = [
-  { n: "01", title: "Auditoría de procesos", desc: "Cómo trabajan hoy: flujos, herramientas, cuellos de botella." },
-  { n: "02", title: "Análisis de oportunidades", desc: "Qué se puede automatizar y con qué tecnología." },
-  { n: "03", title: "Estudio de vulnerabilidades", desc: "Qué se rompe si lo hacemos y cómo mitigarlo." },
-  { n: "04", title: "Roadmap de implementación", desc: "En qué orden se hace para maximizar impacto y minimizar riesgo." },
+  { n: "01", title: "Auditoría de procesos", desc: "¿Cómo trabajan hoy?" },
+  { n: "02", title: "Análisis de oportunidades", desc: "¿Qué se puede automatizar y con qué?" },
+  { n: "03", title: "Estudio de vulnerabilidades", desc: "¿Qué se rompe si lo hacemos?" },
+  { n: "04", title: "Hoja de ruta de implementación", desc: "¿En qué orden se hace?" },
 ];
 
 const LOCAL_AI_BENEFITS = [
-  { icon: "🔒", title: "Privacidad total", desc: "Tus datos nunca salen de tu red. Cumplimiento GDPR/habeas data sin esfuerzo." },
-  { icon: "💰", title: "Sin costo por consulta", desc: "Sin API keys ni tarifas por token. Costo fijo de infraestructura, uso ilimitado." },
-  { icon: "⚡", title: "Sin dependencia externa", desc: "Funciona sin internet. Sin riesgo de cambios de precios o condiciones del proveedor." },
+  { icon: "🔒", title: "Privacidad", desc: "Tus datos se procesan en tus propios equipos y no se envían a terceros." },
+  { icon: "💰", title: "Sin costo por consulta", desc: "Sin tarifas por consulta. Pagas tus equipos y su mantenimiento." },
+  { icon: "⚡", title: "Menos dependencia externa", desc: "Puede operar sin internet si todo está alojado localmente, y no depende de los precios de un proveedor." },
 ];
 
 export function AiUseCases() {
@@ -41,7 +41,7 @@ export function AiUseCases() {
                 </span>
                 <h3 className="saas-h4 text-white">Diagnóstico y consultoría inicial</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-white/60">
-                  Antes de automatizar, entendemos cómo opera tu empresa. Cuatro etapas que convierten el caos operativo en un plan ejecutable.
+                  Cuatro preguntas, en orden, y al final un plan que se puede ejecutar.
                 </p>
               </div>
               <ol className="flex flex-col gap-4">
@@ -57,6 +57,9 @@ export function AiUseCases() {
                   </li>
                 ))}
               </ol>
+              <p className="border-l-2 border-[#4de961]/60 pl-4 text-[13px] leading-snug text-white/70">
+                Puede ser un solo proceso o buena parte de tu operación: lo deciden los hallazgos, no una meta.
+              </p>
               <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-[14px] font-semibold text-[#4de961]">
                 Ver servicio completo <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
@@ -73,9 +76,9 @@ export function AiUseCases() {
                 <span className="mb-3 inline-block rounded-full bg-[#0f1012]/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-[#0f1012]">
                   IA en Local
                 </span>
-                <h3 className="saas-h4 text-[#333]">Modelos de IA que corren en tus servidores</h3>
+                <h3 className="saas-h4 text-[#333]">Modelos de IA que corren en tus propios equipos</h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-[#666]">
-                  No todo tiene que ir a la nube. Desplegamos modelos de lenguaje e IA dentro de tu infraestructura — sin enviar datos a terceros.
+                  No todo tiene que ir a la nube. Instalo modelos de lenguaje e IA dentro de tus propios equipos, sin enviar tus datos a terceros.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">

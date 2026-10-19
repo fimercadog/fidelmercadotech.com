@@ -3,12 +3,12 @@ import { Reveal } from "@/components/marketing/reveal";
 import { SectionHeading } from "@/components/marketing/section-heading";
 
 const STEPS = [
-  { n: "01", title: "Visitante", text: "Llega a la web buscando resolver un problema concreto de su operación." },
-  { n: "02", title: "Interés", text: "Entiende qué hacemos y reconoce su caso en una de nuestras soluciones." },
-  { n: "03", title: "Solución", text: "Explora la solución que encaja: qué resuelve, qué incluye y cómo se ve." },
-  { n: "04", title: "Demostración", text: "Pide una demo y la ve funcionando con datos reales, sin compromiso." },
-  { n: "05", title: "Contacto", text: "Hablamos por WhatsApp o llamada para ajustar el alcance a su empresa." },
-  { n: "06", title: "Oportunidad", text: "Arranca el proyecto o la implementación con un plan claro." },
+  { n: "01", title: "Me cuentas", text: "Me explicas qué se te está complicando, por WhatsApp o llamada, sin formalismos." },
+  { n: "02", title: "Lo entiendo", text: "Reviso tu operación y te digo con claridad qué está pasando y por dónde conviene empezar." },
+  { n: "03", title: "Te lo muestro", text: "Ves la solución funcionando con datos reales antes de comprometerte a nada." },
+  { n: "04", title: "Lo resuelvo", text: "Construyo y ajusto el sistema sobre una base ya construida, por fases y con avances medibles." },
+  { n: "05", title: "Lo dejo seguro", text: "Roles, permisos, auditoría y respaldos para que tu información y tu operación estén a salvo." },
+  { n: "06", title: "Sigo contigo", text: "Sigo cerca después de la entrega: si algo falla o necesitas crecer, me escribes y lo resolvemos." },
 ];
 
 export function ProcessFunnel() {
@@ -17,9 +17,9 @@ export function ProcessFunnel() {
       <Container className="flex flex-col gap-14">
         <Reveal>
           <SectionHeading
-            eyebrow="Cómo trabajamos"
-            title="De visita en la web a oportunidad comercial"
-            description="Cada sección de este sitio está pensada para acompañar una decisión, no solo para informar."
+            eyebrow="Cómo trabajo"
+            title="Me cuentas, lo resuelvo y sigo contigo"
+            description="Un camino claro de seis pasos, con trato directo conmigo desde el primer mensaje hasta mucho después de la entrega."
             align="center"
           />
         </Reveal>

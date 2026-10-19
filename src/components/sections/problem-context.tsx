@@ -29,9 +29,9 @@ export function ProblemContext() {
       <Container className="flex flex-col gap-12">
         <Reveal>
           <SectionHeading
-            eyebrow="El problema"
-            title="¿Qué frena a las empresas hoy?"
-            description="Estos tres cuellos de botella se repiten en casi todo negocio que crece sin sistemas: datos en silos, procesos manuales y atención reactiva."
+            eyebrow="Lo que se complica"
+            title="Esto es lo que suelen traerme"
+            description="Tres problemas que se repiten en casi todo negocio que crece sin sistemas: datos regados, procesos manuales y clientes sin respuesta. Es justo donde entro a ayudar."
             align="center"
           />
         </Reveal>

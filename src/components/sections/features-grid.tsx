@@ -4,11 +4,11 @@ import { SectionHeading } from "@/components/marketing/section-heading";
 import { Icon } from "@/components/icon";
 
 const FEATURES = [
-  { icon: "Gauge", title: "Rápido", detail: "Tecnología moderna (Next.js, Laravel) y entregas por fases: ves avances funcionando pronto." },
+  { icon: "Gauge", title: "Rápido", detail: "Tecnología moderna y entregas por fases: ves avances funcionando pronto." },
   { icon: "ShieldCheck", title: "Con control", detail: "Roles, permisos y auditoría campo a campo desde el primer día." },
-  { icon: "Layers", title: "Base probada", detail: "Partimos de módulos ya en producción, no de una hoja en blanco." },
-  { icon: "Plug", title: "Conectado", detail: "Se integra con tu ERP, WhatsApp, pasarelas y hojas de cálculo." },
-  { icon: "BrainCircuit", title: "Con IA donde ayuda", detail: "Asistentes y captura por voz/imagen, siempre con revisión humana." },
+  { icon: "Layers", title: "Base ya construida", detail: "Parto de módulos que ya tengo construidos, no de una hoja en blanco." },
+  { icon: "Plug", title: "Conectado", detail: "Se integra con tu ERP, WhatsApp, medios de pago en línea y hojas de cálculo." },
+  { icon: "BrainCircuit", title: "IA como módulo premium", detail: "Asistentes y agentes de WhatsApp para tu tipo de negocio, siempre con revisión humana." },
   { icon: "LineChart", title: "Medible", detail: "Reportes y métricas para saber si de verdad está funcionando." },
 ];
 
@@ -19,8 +19,8 @@ export function FeaturesGrid() {
         <Reveal>
           <SectionHeading
             eyebrow="Características"
-            title="Cómo construimos"
-            description="Lo que tienen en común todos nuestros proyectos, sean un producto de estantería o un desarrollo a medida."
+            title="Cómo construyo"
+            description="Lo que tienen en común todos mis proyectos, sean un producto de estantería o un desarrollo a medida."
             align="center"
           />
         </Reveal>

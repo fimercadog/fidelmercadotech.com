@@ -10,8 +10,8 @@ import { SolutionCard } from "@/components/marketing/solution-card";
 const ICON_BLURBS = [
   {
     icon: "/assets/saas-product/saas-icon-12.png",
-    title: "Multicanal & Social",
-    description: "Captura clientes desde WhatsApp, formularios web e Instagram directamente hacia tu base de datos.",
+    title: "Multicanal",
+    description: "Captura clientes desde WhatsApp y formularios web directamente hacia tu base de datos.",
   },
   {
     icon: "/assets/saas-product/saas-icon-05.png",
@@ -34,7 +34,7 @@ export function ProductFeatures() {
         {/* Section Header */}
         <Reveal>
           <SectionHeading
-            eyebrow="Nuestras soluciones"
+            eyebrow="Soluciones"
             title="Productos listos para tu empresa"
             description="Desarrollos propios que resuelven un problema concreto. Cada uno tiene demostración y página con el detalle."
             align="center"

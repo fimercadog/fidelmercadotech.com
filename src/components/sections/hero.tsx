@@ -16,12 +16,12 @@ export function Hero() {
               </span>
 
               <h1 className="font-heading text-[2.6rem] font-black leading-[1.08] tracking-tight text-[#1a1a1a] sm:text-5xl lg:text-[3.5rem]">
-                Software, automatización e IA para hacer crecer tu empresa.
+                Tú pones el negocio. Yo me encargo de lo que se complica.
               </h1>
 
               <p className="max-w-lg text-[15px] leading-7 text-[#666]">
-                Creamos páginas web, sistemas empresariales, ERP, inventarios y agentes inteligentes que
-                convierten procesos manuales en operaciones digitales.
+                Cuando un proceso se traba, los datos no cuadran o nadie sabe por dónde empezar, resuelvo el
+                problema con un sistema a tu medida (ERP), inventarios, automatización e IA, y sigo contigo para que todo siga funcionando.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -29,19 +29,19 @@ export function Hero() {
                   href="/soluciones"
                   className="saas-btn saas-btn-green"
                 >
-                  Conoce nuestras soluciones
+                  Ver cómo lo resuelvo
                 </Link>
               </div>
 
               <p className="pt-1 text-[13px] text-[#787f84]">
-                ¿Prefieres hablar directamente?{" "}
+                ¿Tienes algo complicado ahora mismo?{" "}
                 <Link
-                  href={whatsappUrl("Hola, quiero información sobre sus soluciones.")}
+                  href={whatsappUrl("Hola Fidel, tengo un problema en mi operación y quiero que me ayudes a resolverlo.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-bold text-[#1a1a1a] underline underline-offset-4 hover:text-[#02e173]"
                 >
-                  Escríbenos por WhatsApp
+                  Cuéntamelo por WhatsApp
                 </Link>
               </p>
             </HeroIntro>
@@ -134,8 +134,8 @@ export function Hero() {
                   </svg>
                   <span className="absolute bottom-1 right-1 block size-4 rounded-full bg-[#4de961] ring-2 ring-[#1c1c1e]" />
                 </div>
-                <p className="text-[15px] font-bold text-white text-center leading-snug">Juan Martínez</p>
-                <p className="text-[10px] text-white/35 mt-1 text-center">juan@empresa.com</p>
+                <p className="text-[15px] font-bold text-white text-center leading-snug">Cliente de ejemplo</p>
+                <p className="text-[10px] text-white/35 mt-1 text-center">cliente@ejemplo.com</p>
               </div>
 
               {/* Card 3: Wave + número grande */}
@@ -146,8 +146,8 @@ export function Hero() {
                   <path d="M0 46 C24 46 40 30 66 36 C92 42 106 26 136 28 C158 29 180 20 220 16"
                     stroke="#e8a025" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.5" />
                 </svg>
-                <p className="text-[36px] font-black text-white leading-none">1.2k</p>
-                <p className="text-[11px] text-white/35 mt-1">Clientes activos</p>
+                <p className="text-[30px] font-black text-white leading-none">Demo</p>
+                <p className="text-[11px] text-white/35 mt-1">Datos de ejemplo</p>
               </div>
 
               {/* Card 4: Gauge */}
@@ -156,9 +156,9 @@ export function Hero() {
                   <path d="M8 56 A42 42 0 0 1 92 56" stroke="#2c2c2c" strokeWidth="7" strokeLinecap="round" fill="none" />
                   <path d="M8 56 A42 42 0 0 1 80 18" stroke="#4de961" strokeWidth="7" strokeLinecap="round" fill="none" />
                 </svg>
-                <p className="text-[32px] font-black text-[#4de961] leading-none">92%</p>
-                <p className="text-[10px] text-white/35 mt-1.5">Por FidelOS</p>
-                <p className="text-[12px] font-semibold text-white/65 mt-0.5">FidelOS Product</p>
+                <p className="text-[32px] font-black text-[#4de961] leading-none">ERP</p>
+                <p className="text-[10px] text-white/35 mt-1.5">Todo en un solo sistema</p>
+                <p className="text-[12px] font-semibold text-white/65 mt-0.5">FidelOS</p>
               </div>
             </div>
           </div>

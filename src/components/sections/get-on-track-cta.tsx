@@ -3,10 +3,10 @@ import { GetOnTrack } from "@/components/saas/kit";
 export function GetOnTrackCta() {
   return (
     <GetOnTrack
-      title="Digitaliza tu operación"
-      subtitle="Sistemas conectados que escalan con tu empresa"
-      text="Cuéntanos qué proceso necesitas automatizar o controlar. Creamos la solución adecuada con demostración previa y acompañamiento continuo."
-      cta={{ label: "Solicitar demostración", href: "/contacto?motivo=demo" }}
+      title="¿Qué se te está complicando?"
+      subtitle="Cuéntamelo y lo resolvemos juntos"
+      text="Dime qué proceso se te traba o qué necesitas controlar. Te muestro la solución funcionando antes de decidir y sigo acompañándote después de la entrega."
+      cta={{ label: "Cuéntame tu caso", href: "/contacto?motivo=demo" }}
     />
   );
 }

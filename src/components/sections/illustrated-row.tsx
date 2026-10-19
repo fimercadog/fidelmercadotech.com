@@ -26,18 +26,22 @@ export function IllustratedRow({
   reverse?: boolean;
   tinted?: boolean;
 }) {
+  // TODO(imagen): cambiar las ilustraciones por capturas reales cuando existan:
+  //  - productivity (Todo en un solo sistema) -> captura del panel de FidelOS con su menú de módulos
+  //  - automation -> captura del producto que corresponda
+  //  - hero -> captura de un ERP con datos cargados
   const imageSrc =
-    illustration === "collaboration" ? "/assets/saas-product/saas-47.png"
-    : illustration === "productivity" ? "/assets/saas-product/saas-24.png"
-    : illustration === "about" ? "/assets/saas-product/saas-4.png"
-    : illustration === "automation" ? "/assets/saas-product/saas-46.png"
-    : "/assets/saas-product/saas-45.png"; // hero
+    illustration === "collaboration" ? "/brand/crm-inmobiliario.png"
+    : illustration === "productivity" ? "/brand/illus-productivity.png"
+    : illustration === "about" ? "/brand/rrhh.png"
+    : illustration === "automation" ? "/brand/illus-automation.png"
+    : "/brand/illus-hero.png"; // hero
 
   return (
     <section
       className={cn(
         "saas saas-section relative overflow-hidden",
-        tinted ? "!bg-[#0f1012]" : "bg-white",
+        tinted ? "bg-[#0f1012]!" : "bg-white",
       )}
     >
       <Container>
@@ -73,7 +77,7 @@ export function IllustratedRow({
                     )}
                   >
                     <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#4de961]/20">
-                      <Check className="size-3.5 stroke-[3] text-[#4de961]" aria-hidden="true" />
+                      <Check className="size-3.5 stroke-3 text-[#4de961]" aria-hidden="true" />
                     </span>
                     <span>{b}</span>
                   </li>
@@ -101,9 +105,9 @@ export function IllustratedRow({
               <Image
                 src={imageSrc}
                 alt={title}
-                width={800}
-                height={660}
-                className="h-auto w-full object-contain"
+                width={1440}
+                height={900}
+                className="h-auto w-full rounded-xl object-contain"
               />
             </div>
           </Reveal>
