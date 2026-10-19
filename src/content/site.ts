@@ -7,9 +7,9 @@ export const SITE = {
   shortName: "FMT",
   domain: "fidelmercadotech.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fidelmercadotech.com",
-  tagline: "Software, IA y automatización para hacer crecer tu empresa.",
+  tagline: "Tú pones el negocio, yo me encargo de lo que se complica.",
   description:
-    "Creamos sistemas empresariales, ERP, inventarios, soluciones especializadas y agentes inteligentes que convierten procesos manuales en operaciones digitales.",
+    "Resuelvo lo que se complica en tu operación: ERP, inventarios, automatización e IA que convierten procesos manuales en operaciones digitales, con acompañamiento directo antes y después de la entrega.",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "573027029498",
   phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+57 302 702 9498",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contacto@fidelmercadotech.com",
@@ -35,7 +35,7 @@ export const NAV_SOLUTIONS_DROPDOWN = [
   { title: "ERP Comercial", href: "/soluciones/crm-inventario" },
   { title: "ERP para Veterinarias", href: "/soluciones/veterinaria" },
   { title: "ERP para Clínicas Estéticas", href: "/soluciones/clinica-estetica" },
-  { title: "FidelOS · Inventario con IA", href: "/soluciones/fidelos" },
+  { title: "FidelOS · ERP modular", href: "/soluciones/fidelos" },
 ] as const;
 
 export const FOOTER_NAV = [
@@ -74,7 +74,7 @@ export const FOOTER_NAV = [
   {
     heading: "Por qué FidelOS",
     links: [
-      { title: "Captura con IA", href: "/servicios/ia" },
+      { title: "IA como módulo premium", href: "/servicios/ia" },
       { title: "Omnicanalidad", href: "/servicios/integraciones" },
       { title: "Escalabilidad", href: "/soluciones" },
       { title: "Ver Demostración", href: "/contacto?motivo=demo" },
