@@ -2,7 +2,7 @@
 
 ## Graphify — actualizar antes de desarrollar
 
-Antes de cualquier tarea que implique analizar, modificar o crear código: ejecutar `graphify --update`. Solo reutilizar el grafo existente si Graphify confirma explícitamente que no hubo cambios. No esperar que el usuario lo solicite.
+Antes de cualquier tarea que implique analizar, modificar o crear código: ejecutar `graphify update .` (en terminal; re-extrae el código sin LLM, ~5 s). Para documentos o imágenes nuevas, usar `/graphify --update` desde el asistente. Solo reutilizar el grafo existente si Graphify confirma explícitamente que no hubo cambios. No esperar que el usuario lo solicite.
 
 ## Layouts Elegant Themes — referencia visual autorizada
 

@@ -19,7 +19,6 @@ Fecha: 2026-08-30 · Rama: `main`
 | `/contacto` | Dynamic | Canales + formulario (lee `?motivo=` y `?interes=`) |
 | `/privacidad` | Static | Política de tratamiento de datos (Ley 1581) |
 | `/terminos` | Static | Términos y condiciones |
-| `/api/contact` | Route Handler | Valida (Zod) + verifica reCAPTCHA v3 + reenvía a webhook |
 | `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, `/opengraph-image`, `/icon.svg` | Metadata | SEO / PWA |
 | `/no-existe` (cualquier 404) | Static | `not-found.tsx` con CTAs |
 
@@ -104,9 +103,11 @@ TypeScript sin errores.
    Marketing"); las bandas oscuras (hero, CTA, footer) usan la clase local
    `.fmt-dark`. Sin `next-themes` provider para no invertir la página por
    `prefers-color-scheme`.
-4. **Contacto sin backend Laravel** (no está en el stack): Route Handler de Next
-   que verifica reCAPTCHA v3 y reenvía el lead a `CONTACT_WEBHOOK_URL` (n8n); si
-   no hay webhook, lo registra en logs. Honeypot + consentimiento obligatorio.
+4. **Contacto sin backend** (el sitio es estático): el formulario valida con Zod
+   y envía el lead desde el navegador a un webhook de n8n
+   (`NEXT_PUBLIC_CONTACT_WEBHOOK_URL`, ver `docs/n8n-formulario-contacto.md`).
+   Si falta en producción, el formulario termina en WhatsApp con el mensaje ya redactado, en vez de simular éxito.
+   Honeypot + consentimiento obligatorio.
 5. **reCAPTCHA**: clave de sitio en `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`; **clave
    secreta solo en `.env.local` (gitignored)**, placeholder en `.env.example`.
 6. **Precios**: página dedicada `/precios` con la estructura del layout de

@@ -10,7 +10,7 @@ software empresarial, automatización y soluciones con inteligencia artificial.
 - **Framer Motion** (entrada del hero) + reveals propios por IntersectionObserver
 - **Lucide React** (iconografía)
 - **React Hook Form** + **Zod** (formulario de contacto)
-- **reCAPTCHA v3** (anti-spam del formulario)
+- **n8n** (recibe los contactos del formulario: correo + hoja de Google)
 - **Playwright** (E2E)
 
 Design System: `../fidelmercadotech/fidel-mercado-tech-brand-guide.md`
@@ -41,7 +41,6 @@ npm run dev                  # http://localhost:3000
 ```
 src/
   app/                 rutas (App Router) + sitemap/robots/manifest/opengraph
-    api/contact/        route handler del formulario (reCAPTCHA + webhook)
   components/
     marketing/          header, footer, cards, formulario, placeholders
     sections/           hero, feature-row, pricing, faq, process-funnel
@@ -58,12 +57,13 @@ docs/
 El catálogo de soluciones (`src/content/solutions.ts`) está redactado a partir
 de la documentación real de cada proyecto hermano
 (`docs/development-status.md`). No añadir funcionalidades que el producto
-subyacente no tenga. Prueba social (`social-proof.tsx`) va **sin datos
-inventados**: se rellena cuando haya referencias verificables.
+subyacente no tenga. El sitio **no muestra testimonios ni cifras
+que no se puedan verificar**.
 
 ## Variables de entorno
 
 Ver `.env.example`. El formulario de contacto:
 
-- verifica reCAPTCHA v3 en `RECAPTCHA_SECRET_KEY` (si no está, no verifica — solo local);
-- reenvía el lead a `CONTACT_WEBHOOK_URL` (p. ej. n8n) si está definido; si no, lo registra en logs.
+- envía cada contacto a un webhook de n8n: `NEXT_PUBLIC_CONTACT_WEBHOOK_URL` (el sitio es estático, la variable se incrusta al compilar);
+- si falta en producción, el formulario termina en WhatsApp con el mensaje ya redactado y no guarda nada en hoja ni correo;
+- guía de puesta en marcha: `docs/n8n-formulario-contacto.md`.
