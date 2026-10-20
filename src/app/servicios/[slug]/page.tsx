@@ -52,6 +52,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const flowTarget = service.flow ? getService(service.flow.slug) : undefined;
 
+  const MOTIVO_BY_SERVICE: Record<string, string> = {
+    "ia-local": "ia",
+    "consultoria-ia": "ia",
+    agentes: "ia",
+    automatizacion: "automatizacion",
+    integraciones: "proyecto",
+  };
+  const serviceMotivo = MOTIVO_BY_SERVICE[service.id];
+
   // Secciones tras "Qué incluye" (blanco): alternan gris ↔ blanco sin repetir fondo.
   const tail = [service.story ? "story" : null, "benefits", related.length ? "related" : null, "contact"].filter(Boolean);
   const bg = (k: string) => (tail.indexOf(k) % 2 === 0 ? "bg-[#f9fafb]!" : "bg-white!");
@@ -74,7 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <p className="max-w-2xl text-[15px] leading-7 text-[#666]">{service.tagline}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href={`/contacto?motivo=proyecto&interes=${encodeURIComponent(service.title)}`}
+              href="#contacto"
               className="saas-btn saas-btn-green"
             >
               Solicitar cotización
@@ -88,27 +97,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               Hablar por WhatsApp
             </Link>
           </div>
-          {flowTarget && service.flow ? (
-            <Link
-              href={`/servicios/${flowTarget.id}`}
-              className="saas-shadow-soft group mt-2 flex max-w-2xl flex-col gap-1.5 rounded-[20px] border-2 border-[#4de961]/40 bg-[#f0fdf4] px-6 py-5 text-left transition-transform duration-300 hover:-translate-y-0.5"
-            >
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#15803d]">
-                {service.flow.direction === "next" ? "Siguiente paso" : "Primer paso recomendado"}
-              </span>
-              <span className="text-[14px] leading-6 text-[#555]">{service.flow.text}</span>
-              <span className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
-                {flowTarget.title}
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Link>
-          ) : null}
         </Container>
       </section>
 
       {/* Problema / cómo lo abordamos */}
-      <section className="saas saas-section bg-[#f9fafb]!">
-        <Container className="grid items-center gap-12 lg:grid-cols-2">
+      <section className="saas saas-section overflow-hidden bg-[#f9fafb]!">
+        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-6">
             <div className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-10 py-10">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#787f84]">El problema</span>
@@ -194,7 +188,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <Reveal key={f.title} delay={i * 0.04}>
                 <div className="saas-shadow-toggle flex h-full flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-8 py-10">
                   <span className="flex size-10 items-center justify-center rounded-xl bg-[#4de961]/10 text-[#333]">
-                    <Icon name={service.icon} className="size-4" />
+                    <Icon name={f.icon ?? service.icon} className="size-4" />
                   </span>
                   <h3 className="saas-h5 mt-2 text-[#333]">{f.title}</h3>
                   <p className="text-[14px] leading-6 text-[#666]">{f.detail}</p>
@@ -202,6 +196,24 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </Reveal>
             ))}
           </div>
+          {/* Flow card — aparece después de los includes para no interrumpir el hero */}
+          {flowTarget && service.flow ? (
+            <Reveal className="mt-4">
+              <Link
+                href={`/servicios/${flowTarget.id}`}
+                className="saas-shadow-soft group flex max-w-2xl flex-col gap-1.5 rounded-[20px] border-2 border-[#4de961]/40 bg-[#f0fdf4] px-6 py-5 text-left transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#15803d]">
+                  {service.flow.direction === "next" ? "Siguiente paso" : "Primer paso recomendado"}
+                </span>
+                <span className="text-[14px] leading-6 text-[#555]">{service.flow.text}</span>
+                <span className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
+                  {flowTarget.title}
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            </Reveal>
+          ) : null}
         </Container>
       </section>
       )}
@@ -271,7 +283,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </Reveal>
           <Reveal delay={0.08}>
             <div className="saas-shadow-soft rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white px-10 py-10">
-              <ContactForm />
+              <ContactForm defaultMotivo={serviceMotivo} />
             </div>
           </Reveal>
         </Container>

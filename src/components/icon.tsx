@@ -38,6 +38,7 @@ import {
   AirVent,
   Package,
   Network,
+  Server,
   type LucideIcon,
 } from "lucide-react";
 
@@ -81,6 +82,7 @@ const ICONS: Record<string, LucideIcon> = {
   AirVent,
   Package,
   Network,
+  Server,
 };
 
 export function Icon({ name, className }: { name: string; className?: string }) {

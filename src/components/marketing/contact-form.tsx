@@ -22,9 +22,9 @@ const STEPS: { title: string; hint: string; fields: (keyof ContactInput)[] }[] =
 ];
 const LAST = STEPS.length - 1;
 
-function ContactFormInner() {
+function ContactFormInner({ defaultMotivo: propMotivo }: { defaultMotivo?: string }) {
   const searchParams = useSearchParams();
-  const defaultMotivo = searchParams.get("motivo") ?? undefined;
+  const defaultMotivo = propMotivo ?? searchParams.get("motivo") ?? undefined;
   const defaultInteres = searchParams.get("interes") ?? undefined;
   const [serverError, setServerError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
@@ -296,10 +296,10 @@ function ContactFormInner() {
   );
 }
 
-export function ContactForm() {
+export function ContactForm({ defaultMotivo }: { defaultMotivo?: string } = {}) {
   return (
     <Suspense>
-      <ContactFormInner />
+      <ContactFormInner defaultMotivo={defaultMotivo} />
     </Suspense>
   );
 }

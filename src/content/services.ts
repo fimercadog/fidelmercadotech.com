@@ -10,7 +10,7 @@ export interface Service {
   tagline: string;
   problem: string;
   summary: string;
-  includes: { title: string; detail: string }[];
+  includes: { title: string; detail: string; icon?: string }[];
   benefits: string[];
   /** Slugs of solutions in content/solutions.ts that relate to this service. */
   related?: string[];
@@ -384,36 +384,12 @@ export const SERVICES: Service[] = [
   summary:
     "Diseño e implemento soluciones de inteligencia artificial que funcionan en tus propios equipos o en un servidor privado bajo tu control. Elijo modelos de IA de código abierto según las necesidades del negocio, optimizo su rendimiento y los integro con tus sistemas para automatizar procesos, consultar información interna y construir aplicaciones inteligentes sin depender obligatoriamente de servicios externos.",
   includes: [
-    {
-      title: "Selección estratégica del modelo",
-      detail:
-        "Analizo tu caso de uso, los requisitos de privacidad, la calidad de respuesta y los recursos disponibles para seleccionar el modelo más adecuado. Evalúo varias opciones de modelos de IA de código abierto, con licencias compatibles con tu proyecto."
-    },
-    {
-      title: "Instalación y ajuste",
-      detail:
-        "Instalo y configuro los modelos en equipos propios o en un entorno privado. Ajusto su funcionamiento según la capacidad de tus equipos (potencia, memoria y almacenamiento) para equilibrar rendimiento, calidad y costos."
-    },
-    {
-      title: "Conexión privada con tus sistemas",
-      detail:
-        "Dejo el modelo disponible mediante una conexión privada y lo conecto con tus aplicaciones, CRM, ERP, plataformas internas y automatizaciones existentes."
-    },
-    {
-      title: "IA conectada al conocimiento de tu empresa",
-      detail:
-        "Conecto los modelos con documentos, manuales, catálogos, políticas y bases de conocimiento internas para que la IA responda con base en tus propias fuentes, sin tener que volver a entrenarla cada vez que cambia la información."
-    },
-    {
-      title: "Personalización y ajuste fino",
-      detail:
-        "Cuando el caso de uso lo justifica, adapto el comportamiento del modelo mediante instrucciones, ejemplos, conjuntos de datos propios o entrenamiento adicional a tu medida. Defino el método según el objetivo, la calidad de los datos y el presupuesto."
-    },
-    {
-      title: "Seguridad, monitoreo y mantenimiento",
-      detail:
-        "Configuro controles de acceso, métricas de rendimiento, registros operativos y seguimiento de errores. Planifico actualizaciones, respaldos y pruebas para mantener la solución estable y facilitar su evolución."
-    }
+    { icon: "ScanLine", title: "Selección estratégica del modelo", detail: "Analizo tu caso de uso, los requisitos de privacidad, la calidad de respuesta y los recursos disponibles para seleccionar el modelo más adecuado. Evalúo varias opciones de modelos de IA de código abierto, con licencias compatibles con tu proyecto." },
+    { icon: "Gauge", title: "Instalación y ajuste", detail: "Instalo y configuro los modelos en equipos propios o en un entorno privado. Ajusto su funcionamiento según la capacidad de tus equipos (potencia, memoria y almacenamiento) para equilibrar rendimiento, calidad y costos." },
+    { icon: "Plug", title: "Conexión privada con tus sistemas", detail: "Dejo el modelo disponible mediante una conexión privada y lo conecto con tus aplicaciones, CRM, ERP, plataformas internas y automatizaciones existentes." },
+    { icon: "Database", title: "IA conectada al conocimiento de tu empresa", detail: "Conecto los modelos con documentos, manuales, catálogos, políticas y bases de conocimiento internas para que la IA responda con base en tus propias fuentes, sin tener que volver a entrenarla cada vez que cambia la información." },
+    { icon: "Sparkles", title: "Personalización y ajuste fino", detail: "Cuando el caso de uso lo justifica, adapto el comportamiento del modelo mediante instrucciones, ejemplos, conjuntos de datos propios o entrenamiento adicional a tu medida. Defino el método según el objetivo, la calidad de los datos y el presupuesto." },
+    { icon: "ShieldCheck", title: "Seguridad, monitoreo y mantenimiento", detail: "Configuro controles de acceso, métricas de rendimiento, registros operativos y seguimiento de errores. Planifico actualizaciones, respaldos y pruebas para mantener la solución estable y facilitar su evolución." },
   ],
   benefits: [
     "Mayor control sobre la información y dónde se procesa.",
