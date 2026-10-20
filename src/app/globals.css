@@ -1,9 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Tailwind v4: ping keyframe must be explicit or it gets tree-shaken */
+/* Tailwind v4: ping keyframe + custom property explicit para garantizar animate-ping */
 @keyframes ping {
   75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+:root {
+  --animate-ping: ping 1s cubic-bezier(0, 0, .2, 1) infinite;
 }
 
 @custom-variant dark (&:is(.dark *, .fmt-dark, .fmt-dark *));
