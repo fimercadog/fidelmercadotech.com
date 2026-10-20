@@ -1,13 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Tailwind v4: ping keyframe + custom property explicit para garantizar animate-ping */
-@keyframes ping {
+/* WhatsApp ping: clase propia que no depende del sistema de animaciones de Tailwind v4 */
+@keyframes wa-ping {
   75%, 100% { transform: scale(2); opacity: 0; }
 }
-
-:root {
-  --animate-ping: ping 1s cubic-bezier(0, 0, .2, 1) infinite;
+.wa-ping {
+  animation: wa-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0.75;
 }
 
 @custom-variant dark (&:is(.dark *, .fmt-dark, .fmt-dark *));
