@@ -6,7 +6,8 @@
   75%, 100% { transform: scale(2); opacity: 0; }
 }
 .wa-ping {
-  animation: wa-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: wa-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+  animation-duration: 1s !important;
   opacity: 0.75;
 }
 
