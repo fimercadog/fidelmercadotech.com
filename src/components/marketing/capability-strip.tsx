@@ -1,20 +1,17 @@
-import { IconCard, Row, type PackIcon } from "@/components/saas/kit";
+import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { IconCard, Row } from "@/components/saas/kit";
 
-const CAPABILITY_CARDS: { icon: PackIcon; title: string; text: string }[] = [
+const FEATURED_CARDS = [
   {
-    icon: "browser",
-    title: "Software Empresarial",
-    text: "Sistemas a la medida, plataformas web y tableros operativos diseñados para centralizar la información de tu negocio.",
+    href: "/servicios/consultoria-ia",
+    title: "Consultoría de IA",
+    text: "Diagnóstico en cuatro preguntas encadenadas: entiendo cómo trabajas, qué automatizar, qué puede romperse y en qué orden hacerlo.",
   },
   {
-    icon: "sliders",
-    title: "IA como módulo premium",
-    text: "Asistentes y el agente de WhatsApp para tu tipo de negocio, que se suman a tu ERP cuando los necesitas.",
-  },
-  {
-    icon: "mail",
-    title: "Automatización & ERP",
-    text: "Flujos automatizados que conectan tu sitio web, agentes de WhatsApp y ERP para evitar tareas manuales repetitivas.",
+    href: "/servicios/ia-local",
+    title: "Inteligencia Artificial en tus propios equipos",
+    text: "Implemento modelos de inteligencia artificial en equipos propios o en un servidor privado para que tu empresa tenga mayor control sobre sus datos, costos y tecnología.",
   },
 ];
 
@@ -22,8 +19,28 @@ export function CapabilityStrip() {
   return (
     <section className="saas saas-section border-y border-[rgba(0,0,0,0.07)]">
       <Row className="grid grid-cols-1 gap-7.5 md:grid-cols-3">
-        {CAPABILITY_CARDS.map((card) => (
-          <IconCard key={card.title} icon={card.icon} title={card.title} text={card.text} variant="outline" />
+        <IconCard
+          icon="browser"
+          title="Software Empresarial"
+          text="Sistemas a la medida, plataformas web y tableros operativos diseñados para centralizar la información de tu negocio."
+          variant="outline"
+        />
+        {FEATURED_CARDS.map((card) => (
+          <Link
+            key={card.href}
+            href={card.href}
+            className="group flex flex-col gap-4 rounded-[24px] border-2 border-[#86efac] bg-[#f0fdf4] p-8 transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div className="flex size-11 items-center justify-center rounded-full bg-white shadow-sm">
+              <Sparkles className="size-5 text-[#15803d]" />
+            </div>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#15803d]">Destacado</span>
+            <h3 className="text-[18px] font-bold leading-snug text-[#1a1a1a]">{card.title}</h3>
+            <p className="text-[14px] leading-relaxed text-[#555]">{card.text}</p>
+            <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-[14px] font-semibold text-[#15803d]">
+              Ver el servicio <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
         ))}
       </Row>
     </section>
