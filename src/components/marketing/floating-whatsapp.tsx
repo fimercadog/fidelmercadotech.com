@@ -18,7 +18,7 @@ export function FloatingWhatsApp() {
       aria-label="Contactar por WhatsApp"
       className="group fixed right-4 bottom-20 z-50 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/25 transition-transform hover:-translate-y-1 focus-visible:ring-4 focus-visible:ring-[#25D366]/30 focus-visible:outline-none sm:right-6 sm:bottom-20"
     >
-      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" aria-hidden="true" />
+      <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping" style={{ animationDuration: "2s" }} aria-hidden="true" />
       <WhatsAppGlyph className="relative size-7" />
     </Link>
   );
