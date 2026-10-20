@@ -24,6 +24,7 @@ export function CapabilityStrip() {
           title="Software Empresarial"
           text="Sistemas a la medida, plataformas web y tableros operativos diseñados para centralizar la información de tu negocio."
           variant="outline"
+          href="/servicios"
         />
         {FEATURED_CARDS.map((card) => (
           <Link
