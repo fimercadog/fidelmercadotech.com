@@ -1,4 +1,6 @@
 export const dynamic = "force-static";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { ImageResponse } from "next/og";
 import { SITE } from "@/content/site";
 
@@ -7,6 +9,9 @@ export const contentType = "image/png";
 export const alt = `${SITE.name} — ${SITE.tagline}`;
 
 export default function OpengraphImage() {
+  const logoData = readFileSync(join(process.cwd(), "public/brand/logo-fmt.png"));
+  const logoSrc = `data:image/png;base64,${logoData.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -17,21 +22,39 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "#080A09",
-          color: "#ffffff",
+          background: "#ffffff",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ width: 64, height: 64, borderRadius: 16, background: "#39FF14" }} />
-          <div style={{ fontSize: 30, fontWeight: 700 }}>Fidel Mercado Tech</div>
-        </div>
+        {/* Header: solo logo */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logoSrc} width={412} height={72} alt="Fidel Mercado Tech" />
+
+        {/* Tagline principal */}
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div style={{ fontSize: 60, fontWeight: 700, lineHeight: 1.1, maxWidth: 1000, color: "#39FF14" }}>
-            Software, automatización e IA para hacer crecer tu empresa
+          <div style={{ fontSize: 60, fontWeight: 900, lineHeight: 1.1, color: "#0f1012", maxWidth: 1040 }}>
+            {SITE.tagline}
           </div>
-          <div style={{ fontSize: 28, color: "#BFC5C2", maxWidth: 900 }}>
-            ERP · Inventario · RRHH · FidelOS · Agentes de WhatsApp · Desarrollo a medida
+          <div style={{ fontSize: 24, color: "#4b5563", maxWidth: 860, lineHeight: 1.5 }}>
+            ERP · Inventarios · Automatización · IA — acompañamiento directo antes y después de la entrega.
+          </div>
+        </div>
+
+        {/* Footer: dominio en pill verde */}
+        <div style={{ display: "flex" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "12px 32px",
+              background: "#15803d",
+              borderRadius: 50,
+              color: "#ffffff",
+              fontSize: 22,
+              fontWeight: 600,
+            }}
+          >
+            fidelmercadotech.com
           </div>
         </div>
       </div>
