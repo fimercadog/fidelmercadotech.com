@@ -8,7 +8,6 @@ import { Icon } from "@/components/icon";
 import { Illustration } from "@/components/marketing/illustration";
 import { ContactForm } from "@/components/marketing/contact-form";
 import { StoryBlock } from "@/components/marketing/story-block";
-import { PillBar } from "@/components/marketing/pill-bar";
 import { whatsappUrl } from "@/content/site";
 import { SERVICES, getService } from "@/content/services";
 import { SOLUTIONS } from "@/content/solutions";

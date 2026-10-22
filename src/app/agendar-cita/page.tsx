@@ -35,7 +35,6 @@ const VERTICALS = [
 type Step = "vertical" | "service" | "datetime" | "patient" | "confirm" | "done";
 
 interface Service { id: number; name: string; estimated_duration_minutes: number; price: number }
-interface Slot { time: string }
 
 export default function AgendarCitaPage() {
   const [step, setStep] = useState<Step>("vertical");

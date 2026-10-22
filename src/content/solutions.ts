@@ -710,7 +710,8 @@ export const SOLUTIONS: Solution[] = [
       "IA y WhatsApp como módulos premium, cuando los necesites",
     ],
     stack: ["Web moderna y rápida", "Servidor seguro y estable"],
-    cta: { label: "Solicitar demostración", kind: "demo" },
+    cta: { label: "Solicitar una demo", kind: "demo" },
+    demoUrl: "/agendar-cita",
     heroImage: {
       id: "fidelos-hero",
       alt: "Ilustración de dos personas conectando sus sistemas",

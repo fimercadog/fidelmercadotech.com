@@ -13,7 +13,7 @@ const TOUR_HIGHLIGHTS = [
 
 export function QuickTour() {
   return (
-    <section className="saas saas-section bg-[#f9fafb]">
+    <section className="saas saas-section bg-white">
       <Container className="flex flex-col gap-14">
         <div className="text-center">
           <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.25em] text-[#4de961]">Recorrido rápido</p>

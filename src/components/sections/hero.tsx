@@ -48,7 +48,7 @@ export function Hero() {
           </div>
 
           {/* Columna Derecha: cuadrícula 2×2 de cards con transformación global — igual al pack */}
-          <div className="relative flex items-center justify-end overflow-hidden" style={{ minHeight: 520 }} aria-hidden="true">
+          <div className="relative hidden lg:flex items-center justify-end overflow-hidden" style={{ minHeight: 520 }} aria-hidden="true">
 
             {/* SVG noise filter reutilizable */}
             <svg width="0" height="0" className="absolute" aria-hidden="true">

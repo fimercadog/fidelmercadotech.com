@@ -15,6 +15,7 @@ export function IllustratedRow({
   linkLabel = "Ver más",
   reverse = false,
   tinted = false,
+  muted = false,
 }: {
   illustration: "hero" | "collaboration" | "productivity" | "automation" | "about";
   eyebrow: string;
@@ -25,6 +26,7 @@ export function IllustratedRow({
   linkLabel?: string;
   reverse?: boolean;
   tinted?: boolean;
+  muted?: boolean;
 }) {
   // TODO(imagen): cambiar las ilustraciones por capturas reales cuando existan:
   //  - productivity (Todo en un solo sistema) -> captura del panel de FidelOS con su menú de módulos
@@ -41,7 +43,7 @@ export function IllustratedRow({
     <section
       className={cn(
         "saas saas-section relative overflow-hidden",
-        tinted ? "bg-[#0f1012]!" : "bg-white",
+        tinted ? "bg-[#0f1012]!" : muted ? "bg-[#f9fafb]" : "bg-white",
       )}
     >
       <Container>

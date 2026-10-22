@@ -324,8 +324,10 @@
   letter-spacing: -0.02em;
   text-wrap: pretty;
 }
-.saas-section { padding-block: 54px; position: relative; background-color: #ffffff; }
-.saas-section:nth-child(even) { background-color: #eef0f3; }
+@layer components {
+  .saas-section { padding-block: 54px; position: relative; background-color: #ffffff; }
+  /* ponytail: nth-child auto-alternation removed — all sections now carry explicit bg-* utilities */
+}
 .saas-row { width: 80%; max-width: 1080px; margin-inline: auto; padding-block: 27px; position: relative; }
 
 .saas-h1 { font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 1.2; }

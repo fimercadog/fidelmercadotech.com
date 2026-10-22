@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
-import { SectionHeading } from "@/components/marketing/section-heading";
 import { PageHero } from "@/components/marketing/page-hero";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { CASES } from "@/content/cases";

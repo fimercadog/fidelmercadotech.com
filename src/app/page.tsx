@@ -33,6 +33,7 @@ export default function HomePage() {
       <CapabilityStrip />
       <QuickTour />
       <IllustratedRow
+        muted
         illustration="productivity"
         eyebrow="Todo en un solo sistema"
         title="Los mismos módulos para toda empresa, adaptados a tu negocio"

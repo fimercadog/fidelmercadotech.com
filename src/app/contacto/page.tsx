@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
-import { SectionHeading } from "@/components/marketing/section-heading";
 import { PageHero } from "@/components/marketing/page-hero";
 import { ContactForm } from "@/components/marketing/contact-form";
-import { PillBar } from "@/components/marketing/pill-bar";
 import { cn } from "@/lib/utils";
 import { SITE, whatsappUrl } from "@/content/site";
 

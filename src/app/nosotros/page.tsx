@@ -9,9 +9,8 @@ import { PageHero } from "@/components/marketing/page-hero";
 import { Illustration } from "@/components/marketing/illustration";
 import { IconCard, Row, type PackIcon } from "@/components/saas/kit";
 import { CtaBand } from "@/components/marketing/cta-band";
-import { PillBar } from "@/components/marketing/pill-bar";
 import { CASES } from "@/content/cases";
-import { SITE, whatsappUrl } from "@/content/site";
+import { SITE } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Nosotros",

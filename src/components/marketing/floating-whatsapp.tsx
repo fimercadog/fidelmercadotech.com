@@ -1,9 +1,9 @@
-const WHATSAPP_NUMBER = "573027029498";
+import { SITE } from "@/content/site";
 
 export function FloatingWhatsApp() {
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+      href={`https://wa.me/${SITE.whatsappNumber}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribir por WhatsApp"

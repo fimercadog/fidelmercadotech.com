@@ -17,7 +17,7 @@ const FEATURED_CARDS = [
 
 export function CapabilityStrip() {
   return (
-    <section className="saas saas-section border-y border-[rgba(0,0,0,0.07)]">
+    <section className="saas saas-section border-y border-[rgba(0,0,0,0.07)] bg-[#f9fafb]">
       <Row className="grid grid-cols-1 gap-7.5 md:grid-cols-3">
         <Link
           href="/servicios"

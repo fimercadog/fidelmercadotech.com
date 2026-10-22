@@ -89,7 +89,7 @@ export default function ServiciosPage() {
           <h2 className="saas-h2 mb-4 text-center text-[#333]">Todo lo que construyo</h2>
           <p className="mb-10 text-center text-[14px] text-[#787f84]">
             Cada capacidad tiene su propia página con alcance y enfoque. Las soluciones por industria están en{" "}
-            <a href="/soluciones" className="underline hover:text-[#333]">Soluciones</a>.
+            <Link href="/soluciones" className="underline hover:text-[#333]">Soluciones</Link>.
           </p>
         </Row>
         <Row className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">

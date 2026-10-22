@@ -67,15 +67,21 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
                 {solution.cta.label}
               </Link>
               {solution.demoUrl && (
-                <a
-                  href={solution.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="saas-btn saas-btn-outline inline-flex items-center gap-2"
-                >
-                  <ExternalLink className="size-4" />
-                  Ver demo en vivo
-                </a>
+                solution.demoUrl.startsWith("/") ? (
+                  <Link href={solution.demoUrl} className="saas-btn saas-btn-outline">
+                    Solicitar una demo
+                  </Link>
+                ) : (
+                  <a
+                    href={solution.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="saas-btn saas-btn-outline inline-flex items-center gap-2"
+                  >
+                    <ExternalLink className="size-4" />
+                    Ver demo en vivo
+                  </a>
+                )
               )}
               <Link
                 href={whatsappUrl(`Hola, quiero ver la demostración de ${solution.name}.`)}

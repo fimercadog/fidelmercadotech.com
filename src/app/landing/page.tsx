@@ -4,7 +4,6 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
-import { SectionHeading } from "@/components/marketing/section-heading";
 import { CapabilityStrip } from "@/components/marketing/capability-strip";
 import { GetOnTrackCta } from "@/components/sections/get-on-track-cta";
 import { CASES } from "@/content/cases";

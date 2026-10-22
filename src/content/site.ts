@@ -10,8 +10,8 @@ export const SITE = {
   tagline: "Tú pones el negocio, yo me encargo de lo que se complica.",
   description:
     "Resuelvo lo que se complica en tu operación: ERP, inventarios, automatización e IA que convierten procesos manuales en operaciones digitales, con acompañamiento directo antes y después de la entrega.",
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "573027029498",
-  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+57 302 702 9498",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "573058148918",
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+57 305 814 8918",
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contacto@fidelmercadotech.com",
   locale: "es_CO",
 } as const;
@@ -54,7 +54,7 @@ export const FOOTER_NAV = [
     heading: "Capacidades",
     links: [
       { title: "Desarrollo de software", href: "/servicios/software" },
-      { title: "FidelOS", href: "/servicios/automatizacion" },
+      { title: "FidelOS", href: "/soluciones/fidelos" },
       { title: "Inteligencia Artificial", href: "/servicios/ia" },
       { title: "Consultoría de IA", href: "/servicios/consultoria-ia" },
       { title: "IA en Local", href: "/servicios/ia-local" },
@@ -69,6 +69,8 @@ export const FOOTER_NAV = [
       { title: "Blog", href: "/blog" },
       { title: "Contacto", href: "/contacto" },
       { title: "Solicitar demostración", href: "/contacto?motivo=demo" },
+      { title: "Privacidad", href: "/privacidad" },
+      { title: "Términos", href: "/terminos" },
     ],
   },
   {
