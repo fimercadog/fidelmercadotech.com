@@ -6,8 +6,10 @@ import { ArrowLeft, ArrowRight, Check, ExternalLink } from "lucide-react";
 import { Container } from "@/components/marketing/container";
 import { Reveal } from "@/components/marketing/reveal";
 import { ContactForm } from "@/components/marketing/contact-form";
+import { JourneyStory, JourneyStrip } from "@/components/marketing/story-journey";
 import { CASES, getCase } from "@/content/cases";
 import { getSolution } from "@/content/solutions";
+import { DEFAULT_STORY_NOTE } from "@/content/story";
 
 export function generateStaticParams() {
   return CASES.map((c) => ({ slug: c.slug }));
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const study = getCase(slug);
   if (!study) return {};
   return {
-    title: `${study.client} — Caso`,
+    title: `${study.client} — ${study.illustrative ? "Caso ilustrativo" : "Caso"}`,
     description: study.summary,
     alternates: { canonical: `/casos/${study.slug}` },
     openGraph: { title: `${study.client} | Caso — Fidel Mercado Tech`, description: study.summary, type: "article" },
@@ -36,13 +38,19 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       {/* Hero */}
       <section className="saas overflow-hidden bg-white pb-16 pt-20 sm:pb-24 sm:pt-28">
         <Container className="flex flex-col items-center gap-5 text-center">
+          {study.journeyPart ? <JourneyStrip part={study.journeyPart} /> : null}
           <Link
             href="/casos"
             className="inline-flex w-fit items-center gap-1.5 text-[13px] text-[#666] transition-colors hover:text-[#1a1a1a]"
           >
             <ArrowLeft className="size-4" /> Casos
           </Link>
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#15803d]">{study.sector}</span>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#15803d]">{study.sector}</span>
+            {study.illustrative ? (
+              <span className="rounded-full bg-[#f0f0f0] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#555]">Caso ilustrativo</span>
+            ) : null}
+          </div>
           <h1 className="saas-h1 max-w-3xl" style={{ color: "#1a1a1a" }}>{study.title}</h1>
           <p className="max-w-2xl text-[15px] leading-7 text-[#666]">{study.summary}</p>
           {study.liveUrl ? (
@@ -81,11 +89,11 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Container className="grid gap-8 lg:grid-cols-2">
           <Reveal className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[rgba(0,0,0,0.07)] bg-white p-8">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">El reto</span>
-            <h2 className="saas-h5 text-[#333]">El problema que enfrentaban</h2>
+            <h2 className="saas-h5 text-[#333]">{study.illustrative ? "El problema que enfrentan" : "El problema que enfrentaban"}</h2>
             <p className="text-[14px] leading-7 text-[#666]">{study.challenge}</p>
           </Reveal>
           <Reveal delay={0.08} className="saas-shadow-toggle flex flex-col gap-3 rounded-[24px] border border-[#4de961]/20 bg-[#4de961]/5 p-8">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Qué construí</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">{study.illustrative ? "Cómo lo resuelvo" : "Qué construí"}</span>
             <h2 className="saas-h5 text-[#333]">La solución</h2>
             <ul className="flex flex-col gap-2.5">
               {study.approach.map((a) => (
@@ -104,7 +112,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Container className="flex flex-col gap-10">
           <Reveal>
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Resultado</span>
-            <h2 className="saas-h2 mt-2 text-[#333]">Lo que cambió</h2>
+            <h2 className="saas-h2 mt-2 text-[#333]">{study.illustrative ? "Lo que cambia" : "Lo que cambió"}</h2>
           </Reveal>
           <ul className="grid gap-4 sm:grid-cols-2">
             {study.result.map((r, i) => (
@@ -120,12 +128,16 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
               <span key={t} className="rounded-full bg-white px-3 py-1 text-[11px] font-bold text-[#555] shadow-sm border border-[rgba(0,0,0,0.07)]">{t}</span>
             ))}
           </div>
+          {study.illustrative ? <p className="text-[12px] leading-5 text-[#787f84]">{DEFAULT_STORY_NOTE}</p> : null}
         </Container>
       </section>
 
+      {/* Historia de usuario: empieza aquí y termina en el Caso 2 */}
+      {study.journeyPart ? <JourneyStory part={study.journeyPart} className="bg-white" /> : null}
+
       {/* Solución relacionada */}
       {solution ? (
-        <section className="saas saas-section bg-white">
+        <section className={`saas saas-section ${study.journeyPart ? "bg-[#f9fafb]" : "bg-white"}`}>
           <Container>
             <Reveal>
               <Link
@@ -148,7 +160,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       ) : null}
 
       {/* Contacto */}
-      <section id="contacto" className="saas saas-section bg-[#f9fafb]">
+      <section id="contacto" className={`saas saas-section ${study.journeyPart ? "bg-white" : "bg-[#f9fafb]"}`}>
         <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal className="flex flex-col gap-4">
             <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">Siguiente paso</span>

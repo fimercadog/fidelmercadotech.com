@@ -114,7 +114,7 @@ description="Llevo años siendo la persona a la que buscan cuando algo se traba 
             />
           </Reveal>
           <div className="grid gap-8 md:grid-cols-2">
-            {CASES.map((c, i) => (
+            {CASES.filter((c) => !c.illustrative).map((c, i) => (
               <Reveal key={c.slug} delay={i * 0.06}>
                 <Link
                   href={`/casos/${c.slug}`}

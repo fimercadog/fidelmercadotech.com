@@ -8,6 +8,10 @@ export interface CaseStudy {
   liveUrl?: string;
   /** slug of the related solution in content/solutions.ts */
   solution?: string;
+  /** Illustrative example, not a real client: pages label it and show the hypothetical-story note. */
+  illustrative?: boolean;
+  /** Capítulo de la historia de la distribuidora (content/distribuidora-story.ts) que cuenta este caso. */
+  journeyPart?: 1 | 2;
   challenge: string;
   approach: string[];
   result: string[];
@@ -187,6 +191,35 @@ export const CASES: CaseStudy[] = [
       "Sin dependencia de cambios de precios o condiciones del proveedor",
     ],
     stack: ["IA que corre en tus equipos", "Modelo de IA propio", "Servidor del cliente", "Red interna"],
+  },
+  {
+    slug: "distribuidora-pedidos-ia",
+    client: "Distribuidora",
+    sector: "Consultoría de IA + IA en tus propios equipos",
+    title: "De digitar cada pedido tres veces a una IA que los registra dentro de la empresa",
+    summary:
+      "Primero el diagnóstico en cuatro preguntas; después, como fase 1 de la hoja de ruta, una IA instalada en el servidor de la empresa que lee los pedidos de WhatsApp y los deja listos en facturación.",
+    // TODO(imagen): reemplazar por una captura real cuando exista (por ahora, gráfico de marca).
+    image: "/brand/illus-automation.png",
+    illustrative: true,
+    // journeyPart: 1, // oculto junto con el gemelo digital (Caso 2)
+    solution: "ia-local",
+    challenge:
+      "Cada pedido se digitaba tres veces: en WhatsApp, en Excel y en facturación. El gerente quería automatizarlo, pero no sabía por dónde empezar, y los pedidos traen datos de clientes que no quería entregar a un servicio externo.",
+    approach: [
+      "¿Cómo trabajan hoy? Mapa del recorrido de cada pedido, de WhatsApp a facturación.",
+      "¿Qué se puede automatizar y con qué? Una IA que lee el mensaje de WhatsApp y arma el pedido.",
+      "¿Qué se rompe si lo hacemos? Acceso por usuario, registro de lo que pasa y los datos de los clientes siempre dentro de la empresa.",
+      "¿En qué orden se hace? Fase 1: pedidos. Fase 2: inventario. Fase 3: reportes. Cada una con su criterio de terminado.",
+      "Fase 1: un modelo de IA de código abierto instalado en el servidor de la empresa y conectado a facturación, al catálogo y a la lista de precios. Una persona confirma cada pedido antes de registrarlo.",
+    ],
+    result: [
+      "Cada pedido se registra una sola vez, en el momento en que llega",
+      "Los datos de los clientes se procesan dentro de la empresa",
+      "Sin cobro por cada pedido que lee la IA",
+      "Hoja de ruta lista para la fase 2: inventario",
+    ],
+    stack: ["Análisis de procesos", "IA que corre en tus equipos", "Conexión con facturación", "Revisión humana"],
   },
 ];
 

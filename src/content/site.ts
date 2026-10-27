@@ -24,7 +24,7 @@ export const NAV_LINKS = [
   { title: "Inicio", href: "/" },
   { title: "Soluciones", href: "/soluciones" },
   { title: "Servicios", href: "/servicios" },
-  { title: "Casos", href: "/casos" },
+  { title: "Caso 1", href: "/casos/distribuidora-pedidos-ia" },
   { title: "Blog", href: "/blog" },
   { title: "Nosotros", href: "/nosotros" },
 ] as const;
@@ -65,8 +65,7 @@ export const FOOTER_NAV = [
     heading: "Empresa",
     links: [
       { title: "Nosotros", href: "/nosotros" },
-      { title: "Casos de éxito", href: "/casos" },
-      { title: "Blog", href: "/blog" },
+      { title: "Casos de éxito", href: "/casos" },      { title: "Blog", href: "/blog" },
       { title: "Contacto", href: "/contacto" },
       { title: "Solicitar demostración", href: "/contacto?motivo=demo" },
       { title: "Privacidad", href: "/privacidad" },

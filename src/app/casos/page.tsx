@@ -11,7 +11,7 @@ import { CASES } from "@/content/cases";
 export const metadata: Metadata = {
   title: "Casos",
   description:
-    "Proyectos reales de Fidel Mercado Tech: portal inmobiliario con ERP conectado y sistema de Recursos Humanos para PYMES, ambos con demo disponible.",
+    "Casos de Fidel Mercado Tech: portal inmobiliario con ERP, Recursos Humanos, veterinaria, agentes de WhatsApp, consultoría de IA y un caso ilustrativo de IA en tus propios equipos.",
   alternates: { canonical: "/casos" },
 };
 
@@ -49,6 +49,9 @@ export default function CasosPage() {
                 </div>
                 <div className="flex flex-col gap-3">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-[#4de961]">{c.sector}</span>
+                  {c.illustrative ? (
+                    <span className="w-fit rounded-full bg-[#f0f0f0] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#555]">Caso ilustrativo</span>
+                  ) : null}
                   <h2 className="saas-h5 text-[#333]">{c.title}</h2>
                   <p className="text-[14px] leading-7 text-[#666]">{c.summary}</p>
                   <span className="mt-2 inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#333] transition-colors group-hover:text-[#02e173]">
