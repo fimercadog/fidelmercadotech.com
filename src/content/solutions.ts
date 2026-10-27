@@ -711,7 +711,7 @@ export const SOLUTIONS: Solution[] = [
     ],
     stack: ["Web moderna y rápida", "Servidor seguro y estable"],
     cta: { label: "Solicitar una demo", kind: "demo" },
-    demoUrl: "/agendar-cita",
+    // TODO(demo): volver a poner demoUrl: "/agendar-cita" cuando las APIs demo respondan (hoy no resuelven DNS; docs/backlog.md, pendiente 1).
     heroImage: {
       id: "fidelos-hero",
       alt: "Ilustración de dos personas conectando sus sistemas",
